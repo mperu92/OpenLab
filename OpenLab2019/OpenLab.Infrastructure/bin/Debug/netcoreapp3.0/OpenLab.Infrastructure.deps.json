@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "OpenLab.Infrastructure/1.0.0": {
+        "runtime": {
+          "OpenLab.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OpenLab.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
