@@ -9,7 +9,12 @@ using SendGrid.Helpers.Mail;
 
 namespace OpenLab.Services.Services
 {
-    public class EmailService : IEmailSender
+    public interface IEmailService
+    {
+        Task SendEmailAsync(string email, string subject, string htmlMessage);
+    }
+
+    public class EmailService : IEmailSender, IEmailService
     {
         public IAppConfiguration _appConfiguration;
 

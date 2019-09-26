@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OpenLab.Services.Services;
 
 namespace OpenLab.Controllers.Base
 {
@@ -11,9 +12,9 @@ namespace OpenLab.Controllers.Base
     {
         public readonly IIdentityService _identityService;
         public readonly IHttpContextAccessor _httpContextAccessor;
-        public readonly IEmailSender _emailSender;
+        public readonly EmailService _emailSender;
 
-        public BaseController(IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IEmailSender emailSender = null)
+        public BaseController(IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, EmailService emailSender = null)
         {
             _httpContextAccessor = httpContextAccessor;
             if (identityService != null)
