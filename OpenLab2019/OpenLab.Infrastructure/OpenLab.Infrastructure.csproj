@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\PresentationModels\" />
     <Folder Include="Interfaces\ViewModels\" />
-    <Folder Include="PresentationModels\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

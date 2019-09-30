@@ -29,8 +29,10 @@ namespace OpenLab
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Extensions
             services.AddDataAccessServices(Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection").Value);
             services.AddEmailService();
+
             /// If you want to use both MVC and Razor Pages in your app, 
             /// you should continue to use the AddMvc() extension method.
             services.AddControllersWithViews();
@@ -42,6 +44,8 @@ namespace OpenLab
             });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessor();
+
+            services.AddTransient<IIdentityService, IdentityService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
