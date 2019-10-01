@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Castle.Core.Logging;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OpenLab.Services.Services;
 using System;
@@ -10,12 +11,14 @@ namespace OpenLab.Controllers.Base
 {
     public class BaseApiController : ControllerBase
     {
+        public readonly ILogger _logger;
         public readonly IIdentityService _identityService;
         public readonly IHttpContextAccessor _httpContextAccessor;
         public readonly EmailService _emailSender;
 
-        public BaseApiController(IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, EmailService emailSender = null)
+        public BaseApiController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, EmailService emailSender = null)
         {
+            _logger = logger;
             _httpContextAccessor = httpContextAccessor;
             if (identityService != null)
                 _identityService = identityService;

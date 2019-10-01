@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    LoginViewModel model = Model;
+}
+
+<div class="container">
+    <div class="card">
+        <form asp-action="Login" asp-controller="Account">
+            <div class="card-header">
+                <h1>Login</h1>
+            </div>
+            <div class="card-body">
+                <div class="row form-group">
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.UserName)">Username</label>
+                        <input asp-for="@(model.UserName)" class="form-control" />
+                        <span asp-validation-for="@(model.UserName)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.Password)">Password</label>
+                        <input asp-for="@(model.Password)" type="password" class="form-control" />
+                        <span asp-validation-for="@(model.Password)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.RememberMe)">Remember Me</label>
+                        <input asp-for="@(model.RememberMe)" class="form-control form-check-input" />
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" asp-for="@(model.ReturnUrl)" />
+            <div class="card-footer float-md-right">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

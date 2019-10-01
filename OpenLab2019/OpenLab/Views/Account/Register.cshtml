@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    RegisterViewModel model = Model;
+}
+
+<div class="container">
+    <div class="card">
+        <form asp-action="Register" asp-controller="Account">
+            <div class="card-header">
+                <h1>Register</h1>
+            </div>
+            <div class="card-body">
+                <div class="row form-group">
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.FirstName)">Name</label>
+                        <input asp-for="@(model.FirstName)" class="form-control" />
+                        <span asp-validation-for="@(model.FirstName)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.LastName)">Surname</label>
+                        <input asp-for="@(model.LastName)" class="form-control" />
+                        <span asp-validation-for="@(model.LastName)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.Email)">Email</label>
+                        <input asp-for="@(model.Email)" class="form-control" />
+                        <span asp-validation-for="@(model.Email)" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.UserName)">Username</label>
+                        <input asp-for="@(model.UserName)" class="form-control" />
+                        <span asp-validation-for="@(model.UserName)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.Password)">Password</label>
+                        <input asp-for="@(model.Password)" type="password" class="form-control" />
+                        <span asp-validation-for="@(model.Password)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.ConfirmPassword)">Confirm Password</label>
+                        <input asp-for="@(model.ConfirmPassword)" type="password" class="form-control" />
+                        <span asp-validation-for="@(model.ConfirmPassword)" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="row form-group">
+                    <div class="col-12 col-md-4">
+                        <label asp-for="@(model.Privacy)">Privacy</label>
+                        <input asp-for="@(model.Privacy)" class="form-control form-check-input" />
+                        <span asp-validation-for="@(model.Privacy)" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                    </div>
+                    <div class="col-12 col-md-4">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer float-md-right">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

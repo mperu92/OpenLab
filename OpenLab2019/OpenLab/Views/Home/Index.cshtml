@@ -1,8 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    IUserModel[] users = ViewBag.Users ?? null;
+    string errorMessage = ViewBag.ErrorMessage ?? string.Empty;
+    string successMessage = ViewBag.SuccessMessage ?? string.Empty;
+}
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="container">
+        <div class="alert alert-success text-center">
+            <h4>@successMessage</h4>
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="container">
+        <div class="alert alert-danger text-center">
+            <h4>@errorMessage</h4>
+        </div>
+    </div>
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>To the Tech Hustlers Laboratory.</p>
+    <div style="height: 75px"></div>
+    <div class="jumbotron">
+        @if (users != null && users.Count() > 0)
+        {
+            if (users.Count() == 1)
+            {
+                <h3>There's one subscribed user</h3>
+            }
+            else
+            {
+                <h3>There are @users.Count() subscribed users</h3>
+            }
+        }
+        else
+        {
+            <h3>There aren't subscribed users.</h3>
+        }
+    </div>
 </div>
