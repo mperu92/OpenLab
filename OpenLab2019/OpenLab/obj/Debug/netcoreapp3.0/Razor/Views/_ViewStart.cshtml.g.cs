@@ -26,8 +26,29 @@ using OpenLab.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\Views\_ViewImports.cshtml"
+using OpenLab.Infrastructure.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\Views\_ViewImports.cshtml"
+using OpenLab.Infrastructure.PresentationModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\Views\_ViewImports.cshtml"
+using OpenLab.Infrastructure.Interfaces.PresentationModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5aa882b837bc5418b0029e3cd6ae3def386dd9de", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5d9782dfdd1e3ff59ad9a1013dd8f44e64e36c03", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

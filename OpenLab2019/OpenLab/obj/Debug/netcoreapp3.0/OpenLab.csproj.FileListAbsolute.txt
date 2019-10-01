@@ -126,6 +126,10 @@ C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.TagHelpers.input.cache
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.TagHelpers.output.cache
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.RazorCoreGenerate.cache
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
@@ -139,6 +143,3 @@ C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.csproj.CopyComplete
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\OpenLab.pdb
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
