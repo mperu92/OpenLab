@@ -20,7 +20,9 @@ An Open Lab to improve new skills and patterns using ASP.NET Core &amp; advanced
 	- Entity Framework
 	- IEmailSender customization
 	- Base Controller & Areas
+	- Unit Tests
 	
 - **Client**
 	- Integrating Webpack+React+Redux
 	- PWA & ServiceWorker with webpack-workbox-plugin
+	- Jest Tests
