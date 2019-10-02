@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using OpenLab.DAL.EF.Contexts;
 using OpenLab.DAL.EF.Models.Identity;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
+using OpenLab.Infrastructure.Interfaces.Repositories;
 using OpenLab.Infrastructure.ViewModels;
 using OpenLab.Services.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenLab.Services.Services
@@ -31,7 +28,7 @@ namespace OpenLab.Services.Services
         private readonly SignInManager<IdentityUserModel> _signInManager;
 
         public IdentityService(OpenLabDbContext context, UserManager<IdentityUserModel> userManager,
-            SignInManager<IdentityUserModel> signInManager, IEmailSender emailSender)
+            SignInManager<IdentityUserModel> signInManager)
         {
             _context = context;
             _identityRepository = new IdentityRepository(_context);

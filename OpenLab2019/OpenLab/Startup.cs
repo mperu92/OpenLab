@@ -35,8 +35,8 @@ namespace OpenLab
 
             /// If you want to use both MVC and Razor Pages in your app, 
             /// you should continue to use the AddMvc() extension method.
-            services.AddControllersWithViews();
-            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            // services.AddControllersWithViews();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {
@@ -46,6 +46,7 @@ namespace OpenLab
             services.AddHttpContextAccessor();
 
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IBackofficeService, BackofficeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

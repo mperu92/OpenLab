@@ -28,4 +28,10 @@
     <ProjectReference Include="..\OpenLab.Services\OpenLab.Services.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Areas\Backoffice\Data\" />
+    <Folder Include="Areas\Backoffice\Models\" />
+  </ItemGroup>
+
 </Project>

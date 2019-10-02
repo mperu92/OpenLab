@@ -2,6 +2,7 @@
 using OpenLab.DAL.EF.Contexts;
 using OpenLab.DAL.EF.Models.Identity;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
+using OpenLab.Infrastructure.Interfaces.Repositories;
 using OpenLab.Services.Factories;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,7 @@ using System.Threading.Tasks;
 
 namespace OpenLab.Services.Repositories
 {
-    public interface IIdentityRepository
-    {
-        Task<IUserModel[]> GetAllUsers();
-    }
-
+ 
     public class IdentityRepository : IIdentityRepository
     {
         private readonly OpenLabDbContext _context;

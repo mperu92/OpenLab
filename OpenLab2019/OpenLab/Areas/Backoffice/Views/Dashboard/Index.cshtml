@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutBackoffice.cshtml";
+
+    string welcomePhrase = "Here you can load contents";
+    string userName = ViewBag.Username;
+    bool isAdmin = User.IsInRole("Admin");
+    if (isAdmin) welcomePhrase += " and manage application";
+}
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Backoffice Dashboard</h1>
+        <hr />
+        <p>Hi <b>@userName,</b></p>
+        <p>@welcomePhrase</p>
+    </div>
+</div>

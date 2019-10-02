@@ -19,8 +19,6 @@ namespace OpenLab.Controllers
         public AccountController(ILogger<AccountController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, EmailService emailSender)
            : base(logger, httpContextAccessor, identityService, emailSender) { }
 
-
-
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string ReturnUrl = null)
