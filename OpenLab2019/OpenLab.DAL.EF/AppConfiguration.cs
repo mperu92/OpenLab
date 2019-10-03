@@ -8,14 +8,14 @@ namespace OpenLab.DAL.EF
     {
         string ConnectionString { get; }
         string SoftwareVersion { get; }
-        string SendGridApiKey { get; }
+        string EmailKey { get; }
     }
 
     public class AppConfiguration : IAppConfiguration
     {
         public readonly string _connectionString;
         public readonly string _swversion;
-        public readonly string _sendgirdApiKey;
+        public readonly string _emailKey;
 
         public AppConfiguration()
         {
@@ -29,11 +29,11 @@ namespace OpenLab.DAL.EF
 
             _connectionString = root.GetSection("ConnectionStrings").GetSection("DefaultConnection").Value;
             _swversion = AppConfiguration["swversion"];
-            _sendgirdApiKey = AppConfiguration["SENDGRID_API_KEY"];
+            _emailKey = AppConfiguration["pe_key"];
         }
 
         public string ConnectionString { get => _connectionString; }
         public string SoftwareVersion { get => _swversion; }
-        public string SendGridApiKey { get => _sendgirdApiKey; }
+        public string EmailKey { get => _emailKey; }
     }
 }

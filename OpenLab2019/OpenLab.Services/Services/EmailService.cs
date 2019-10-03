@@ -32,7 +32,7 @@ namespace OpenLab.Services.Services
             myMessage.HtmlContent = htmlMessage;
 
             // Send email
-            string apiKey = _appConfiguration.SendGridApiKey;
+            string apiKey = _appConfiguration.EmailKey;
             SendGridClient client = new SendGridClient(apiKey);
             Response response = await client.SendEmailAsync(myMessage);
         }
