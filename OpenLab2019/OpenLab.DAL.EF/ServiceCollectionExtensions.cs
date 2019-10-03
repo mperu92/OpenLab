@@ -24,5 +24,10 @@ namespace OpenLab.DAL.EF
             // Had to install Microsoft.EntityFrameworkCore.Design directly on Web App.
             // Without that reference migrations didn't work :(
         }
+
+        public static void AddAppConfiguration(this IServiceCollection services)
+        {
+            services.AddSingleton<IAppConfiguration, AppConfiguration>();
+        }
     }
 }

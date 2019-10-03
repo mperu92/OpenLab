@@ -11,7 +11,12 @@ namespace OpenLab.Services
     {
         public static void AddEmailService(this IServiceCollection services)
         {
-            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IEmailSender, EmailService>();
+        }
+
+        public static void AddIdentityService(this IServiceCollection services)
+        {
+            services.AddTransient<IIdentityService, IdentityService>();
         }
     }
 }

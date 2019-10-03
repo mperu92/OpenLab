@@ -14,9 +14,9 @@ namespace OpenLab.Controllers.Base
         public readonly ILogger _logger;
         public readonly IIdentityService _identityService;
         public readonly IHttpContextAccessor _httpContextAccessor;
-        public readonly IEmailService _emailSender;
+        public readonly EmailService _emailSender;
 
-        public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IEmailService emailSender = null)
+        public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, EmailService emailSender = null)
         {
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;

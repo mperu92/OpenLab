@@ -31,6 +31,7 @@ namespace OpenLab
         {
             // Extensions
             services.AddDataAccessServices(Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection").Value);
+            services.AddAppConfiguration();
             services.AddEmailService();
 
             /// If you want to use both MVC and Razor Pages in your app, 
@@ -45,7 +46,7 @@ namespace OpenLab
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessor();
 
-            services.AddTransient<IIdentityService, IdentityService>();
+            services.AddIdentityService();
             services.AddTransient<IBackofficeService, BackofficeService>();
         }
 

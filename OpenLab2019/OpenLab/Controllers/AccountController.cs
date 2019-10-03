@@ -30,7 +30,7 @@ namespace OpenLab.Controllers
 
             return View(model);
         }
-
+        
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
