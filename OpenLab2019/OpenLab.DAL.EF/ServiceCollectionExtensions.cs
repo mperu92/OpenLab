@@ -18,7 +18,7 @@ namespace OpenLab.DAL.EF
                 options
                 .UseSqlServer(connectionString)
                     .UseLazyLoadingProxies()) // Add Microsoft.EntityFrameworkCore.Proxies
-                .AddIdentityCore<IdentityUserModel>() // Having troubles with .AddItentity()
+                .AddIdentity<IdentityUserModel, IdentityRoleModel>()
                 .AddEntityFrameworkStores<OpenLabDbContext>();
 
             // Had to install Microsoft.EntityFrameworkCore.Design directly on Web App.
