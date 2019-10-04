@@ -14,10 +14,10 @@ namespace OpenLab.Areas.Base
         public readonly ILogger _logger;
         public readonly IIdentityService _identityService;
         public readonly IHttpContextAccessor _httpContextAccessor;
-        public readonly EmailService _emailSender;
+        public readonly IEmailService _emailSender;
         public readonly IBackofficeService _backofficeService;
 
-        public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, EmailService emailSender = null, IBackofficeService backofficeService = null)
+        public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IEmailService emailSender = null, IBackofficeService backofficeService = null)
         {
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;

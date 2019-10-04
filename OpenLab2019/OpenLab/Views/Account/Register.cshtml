@@ -6,6 +6,13 @@
     RegisterViewModel model = Model;
 }
 
+<style type="text/css">
+    .card-btn {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+</style>
+
 <div class="container">
     <div class="card">
         <form asp-action="Register" asp-controller="Account">
@@ -49,7 +56,7 @@
 
                 </div>
                 <div class="row form-group">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4" style="display: flex;">
                         <label asp-for="@(model.Privacy)">Privacy</label>
                         <input asp-for="@(model.Privacy)" class="form-control form-check-input" />
                         <span asp-validation-for="@(model.Privacy)" class="text-danger"></span>
@@ -60,8 +67,10 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer float-md-right">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="card-footer">
+                <div class="card-btn">
+                    <input type="submit" value="Save" class="btn btn-outline-info" />
+                </div>
             </div>
         </form>
     </div>

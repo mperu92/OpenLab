@@ -14,7 +14,7 @@ namespace OpenLab.Services.Services
         Task SendEmailAsync(string email, string subject, string htmlMessage);
     }
 
-    public class EmailService : IEmailSender
+    public class EmailService : IEmailService, IEmailSender
     {
         public IAppConfiguration _appConfiguration;
 

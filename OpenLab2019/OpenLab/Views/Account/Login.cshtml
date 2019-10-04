@@ -6,6 +6,13 @@
     LoginViewModel model = Model;
 }
 
+<style type="text/css">
+    .card-btn {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+</style>
+
 <div class="container">
     <div class="card">
         <form asp-action="Login" asp-controller="Account">
@@ -24,15 +31,17 @@
                         <input asp-for="@(model.Password)" type="password" class="form-control" />
                         <span asp-validation-for="@(model.Password)" class="text-danger"></span>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4" style="display: flex;">
                         <label asp-for="@(model.RememberMe)">Remember Me</label>
                         <input asp-for="@(model.RememberMe)" class="form-control form-check-input" />
                     </div>
                 </div>
             </div>
             <input type="hidden" asp-for="@(model.ReturnUrl)" />
-            <div class="card-footer float-md-right">
-                <input type="submit" value="Login" class="btn btn-default" />
+            <div class="card-footer">
+                <div class="card-btn">
+                    <input type="submit" value="Login" class="btn btn-outline-info" />
+                </div>
             </div>
         </form>
     </div>

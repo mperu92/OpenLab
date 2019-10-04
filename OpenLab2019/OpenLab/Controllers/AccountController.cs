@@ -16,7 +16,7 @@ namespace OpenLab.Controllers
 {
     public class AccountController : BaseController
     {
-        public AccountController(ILogger<AccountController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, EmailService emailSender)
+        public AccountController(ILogger<AccountController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IEmailService emailSender)
            : base(logger, httpContextAccessor, identityService, emailSender) { }
 
         [HttpGet]
