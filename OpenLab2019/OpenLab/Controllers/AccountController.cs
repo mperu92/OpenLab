@@ -21,11 +21,11 @@ namespace OpenLab.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login(string ReturnUrl = null)
+        public IActionResult Login(Uri ReturnUrl = null)
         {
             LoginViewModel model = new LoginViewModel();
 
-            if (!string.IsNullOrEmpty(ReturnUrl))
+            if (ReturnUrl != null)
                 model.ReturnUrl = ReturnUrl;
 
             return View(model);
@@ -36,15 +36,15 @@ namespace OpenLab.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || model == null)
                 return View(model);
 
-            Microsoft.AspNetCore.Identity.SignInResult result = await _identityService.Login(model);
+            Microsoft.AspNetCore.Identity.SignInResult result = await IdentityService.Login(model).ConfigureAwait(false);
 
             if (result.Succeeded)
             {
-                if (!string.IsNullOrEmpty(model.ReturnUrl))
-                    return Redirect(model.ReturnUrl);
+                if (model.ReturnUrl != null)
+                    return Redirect(model.ReturnUrl.ToString());
                 else
                     return RedirectToAction("Index", "Home");
             }
@@ -57,13 +57,13 @@ namespace OpenLab.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogOff()
         {
-            await _identityService.LogOff();
+            await IdentityService.LogOff().ConfigureAwait(false);
             return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Register(string returnUrl = null)
+        public IActionResult Register()
         {
             RegisterViewModel model = new RegisterViewModel();
             return View(model);
@@ -72,9 +72,9 @@ namespace OpenLab.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || model == null)
                 return View(model);
 
             IdentityUserModel user = new IdentityUserModel
@@ -83,16 +83,31 @@ namespace OpenLab.Controllers
                 Email = model.Email
             };
 
-            IdentityResult result = await _identityService.RegisterUser(user, model.Password);
-            if (result.Succeeded)
+            bool debuggerSucceded = false;
+            IdentityResult result = null;
+            if (!System.Diagnostics.Debugger.IsAttached)
+                result = await IdentityService.RegisterUser(user, model.Password).ConfigureAwait(false);
+            else
+                debuggerSucceded = true;
+
+            if (result.Succeeded || debuggerSucceded)
             {
-                string confirmationCode = await _identityService.GenerateConfirmUserCode(user);
+                int uId = result.Succeeded ? user.Id : 123;
+                string confirmationCode = result.Succeeded ? await IdentityService.GenerateConfirmUserCode(user).ConfigureAwait(false) : "abcdefghi";
                 string callbackUrl = Url.Action(controller: "Account", action: "ConfirmEmail", values: new { userId = user.Id, code = confirmationCode }, protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(email: user.Email, subject: "Confirm Email", htmlMessage: callbackUrl);
-
-                TempData["SuccessMessage"] = "Registration completed. Click on link above the email we sent you just now.";
-                return RedirectToAction("Index", "Home");
+                bool sent = await EmailService.SendWelcomeConfirmEmail(user.Email, "Confirm Email", new Uri(callbackUrl, UriKind.Absolute), user.UserName, model.Password).ConfigureAwait(false);
+                
+                if (sent)
+                {
+                    TempData["SuccessMessage"] = "Registration completed. Click on link above the email we sent you just now.";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Registration completed with erros. Email with confirmation code not sent.";
+                    return RedirectToAction("Index", "Home");
+                }
             }
             return View(model);
         }
@@ -102,11 +117,11 @@ namespace OpenLab.Controllers
             if (userId == null || code == null)
                 return RedirectToAction("Index", "Home");
 
-            IdentityUserModel user = await _identityService.GetUserEntityById(userId);
+            IdentityUserModel user = await IdentityService.GetUserEntityById(userId).ConfigureAwait(false);
             if (user == null)
                 throw new ApplicationException($"Unable to load user with Id '{userId}'.");
 
-            IdentityResult result = await _identityService.ConfirmEmailAsync(user, code);
+            IdentityResult result = await IdentityService.ConfirmEmailAsync(user, code).ConfigureAwait(false);
             if (result.Succeeded)
                 return View("ConfirmEmail");
 
@@ -114,7 +129,7 @@ namespace OpenLab.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult AccessDenied(string ReturnUrl)
+        public IActionResult AccessDenied()
         {
             return View();
         }

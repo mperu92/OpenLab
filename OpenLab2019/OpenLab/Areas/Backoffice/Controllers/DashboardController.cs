@@ -19,7 +19,7 @@ namespace OpenLab.Areas.Backoffice.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Username = _httpContextAccessor.HttpContext.User.Identity.Name;
+            ViewBag.Username = HttpContextAccessor.HttpContext.User.Identity.Name;
 
             return View();
         }

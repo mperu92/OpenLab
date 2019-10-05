@@ -86,25 +86,25 @@
           "buildMultiTargeting/Microsoft.AspnetCore.Identity.UI.targets": {}
         }
       },
-      "Microsoft.CodeAnalysis.FxCopAnalyzers/2.9.5": {
+      "Microsoft.CodeAnalysis.FxCopAnalyzers/2.9.6": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.VersionCheckAnalyzer": "[2.9.5]",
-          "Microsoft.CodeQuality.Analyzers": "[2.9.5]",
-          "Microsoft.NetCore.Analyzers": "[2.9.5]",
-          "Microsoft.NetFramework.Analyzers": "[2.9.5]"
+          "Microsoft.CodeAnalysis.VersionCheckAnalyzer": "[2.9.6]",
+          "Microsoft.CodeQuality.Analyzers": "[2.9.6]",
+          "Microsoft.NetCore.Analyzers": "[2.9.6]",
+          "Microsoft.NetFramework.Analyzers": "[2.9.6]"
         },
         "build": {
           "build/Microsoft.CodeAnalysis.FxCopAnalyzers.props": {}
         }
       },
-      "Microsoft.CodeAnalysis.VersionCheckAnalyzer/2.9.5": {
+      "Microsoft.CodeAnalysis.VersionCheckAnalyzer/2.9.6": {
         "type": "package",
         "build": {
           "build/Microsoft.CodeAnalysis.VersionCheckAnalyzer.props": {}
         }
       },
-      "Microsoft.CodeQuality.Analyzers/2.9.5": {
+      "Microsoft.CodeQuality.Analyzers/2.9.6": {
         "type": "package",
         "build": {
           "build/Microsoft.CodeQuality.Analyzers.props": {}
@@ -499,7 +499,7 @@
           "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {}
         }
       },
-      "Microsoft.NetCore.Analyzers/2.9.5": {
+      "Microsoft.NetCore.Analyzers/2.9.6": {
         "type": "package",
         "build": {
           "build/Microsoft.NetCore.Analyzers.props": {}
@@ -523,7 +523,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NetFramework.Analyzers/2.9.5": {
+      "Microsoft.NetFramework.Analyzers/2.9.6": {
         "type": "package",
         "build": {
           "build/Microsoft.NetFramework.Analyzers.props": {}
@@ -2387,10 +2387,10 @@
         "staticwebassets/V4/lib/jquery/dist/jquery.min.map"
       ]
     },
-    "Microsoft.CodeAnalysis.FxCopAnalyzers/2.9.5": {
-      "sha512": "2RnN5AkZjbcaUWVseKtzhINF3eTMThjUVeCIE5Vok2vfOgjjvmeZ9Yh1CXLZQ0jC/IfZLL9DF36zvaXiBMbksg==",
+    "Microsoft.CodeAnalysis.FxCopAnalyzers/2.9.6": {
+      "sha512": "GBZV6P8u3uIXYrlapvbpaaaB5LpF3hk+I2ThIcoVyENr8krNOovFyJhi6FQHgnxd0XLPj9J9Nt35iuqwVe/XJw==",
       "type": "package",
-      "path": "microsoft.codeanalysis.fxcopanalyzers/2.9.5",
+      "path": "microsoft.codeanalysis.fxcopanalyzers/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2428,7 +2428,7 @@
         "editorconfig/SecurityRulesEnabled/.editorconfig",
         "editorconfig/UsageRulesDefault/.editorconfig",
         "editorconfig/UsageRulesEnabled/.editorconfig",
-        "microsoft.codeanalysis.fxcopanalyzers.2.9.5.nupkg.sha512",
+        "microsoft.codeanalysis.fxcopanalyzers.2.9.6.nupkg.sha512",
         "microsoft.codeanalysis.fxcopanalyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -2470,10 +2470,10 @@
         "tools/uninstall.ps1"
       ]
     },
-    "Microsoft.CodeAnalysis.VersionCheckAnalyzer/2.9.5": {
-      "sha512": "IE3VEPUEXE7sZlxbjcqhiZ1If0tZGWB8LZsDyBjJdBI9W0Kjfxty2HxRhzHHoEzz+5BueE5391KOovHlXIk8Dw==",
+    "Microsoft.CodeAnalysis.VersionCheckAnalyzer/2.9.6": {
+      "sha512": "Q5rRN0+9TJsfsXaGKnzDjGkUZ4Rd8ZKmpSND1j49jsmLacCspp4ZaJ31nJn76B/W0qrb4GkEBxKtj3U9lo2gqg==",
       "type": "package",
-      "path": "microsoft.codeanalysis.versioncheckanalyzer/2.9.5",
+      "path": "microsoft.codeanalysis.versioncheckanalyzer/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2507,7 +2507,7 @@
         "editorconfig/PortedFromFxCopRulesEnabled/.editorconfig",
         "editorconfig/ReliabilityRulesDefault/.editorconfig",
         "editorconfig/ReliabilityRulesEnabled/.editorconfig",
-        "microsoft.codeanalysis.versioncheckanalyzer.2.9.5.nupkg.sha512",
+        "microsoft.codeanalysis.versioncheckanalyzer.2.9.6.nupkg.sha512",
         "microsoft.codeanalysis.versioncheckanalyzer.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -2522,10 +2522,10 @@
         "tools/uninstall.ps1"
       ]
     },
-    "Microsoft.CodeQuality.Analyzers/2.9.5": {
-      "sha512": "MhWcEIWz1sDDRnQZMNp/oa8nkCHRbkfG3D56xOVNVCnQTl0WYHlDsx7yNvIMYbkRQf4KwAcQn+R1kSBeJXIT8Q==",
+    "Microsoft.CodeQuality.Analyzers/2.9.6": {
+      "sha512": "jND04w/FPgfBYKkLLnosmvgHs8NMpMvQ7LQqyiCjMlKOM+MT6edgvTU0vAAowxGuLGceC6pjJm0kUVkG9qT3CQ==",
       "type": "package",
-      "path": "microsoft.codequality.analyzers/2.9.5",
+      "path": "microsoft.codequality.analyzers/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2591,7 +2591,7 @@
         "editorconfig/SecurityRulesEnabled/.editorconfig",
         "editorconfig/UsageRulesDefault/.editorconfig",
         "editorconfig/UsageRulesEnabled/.editorconfig",
-        "microsoft.codequality.analyzers.2.9.5.nupkg.sha512",
+        "microsoft.codequality.analyzers.2.9.6.nupkg.sha512",
         "microsoft.codequality.analyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -3173,10 +3173,10 @@
         "ref/xamarinmac20/Microsoft.Identity.Client.xml"
       ]
     },
-    "Microsoft.NetCore.Analyzers/2.9.5": {
-      "sha512": "A0LUs6y8JzXe+baLJFKJ5AuqBo4apGy7MQsvhrZdk5NKetV6LSgXeDKRLFnZXgYhnUOImgQaLGRZFYYd2P9YFQ==",
+    "Microsoft.NetCore.Analyzers/2.9.6": {
+      "sha512": "YPcQ+gCt66btt9jNHNi4vrRK6AAP7EIO17quwUeHLUw7vhc6q18r2RYVTLKQvOQuOXs1UEYHArENpppwFP4MLA==",
       "type": "package",
-      "path": "microsoft.netcore.analyzers/2.9.5",
+      "path": "microsoft.netcore.analyzers/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3236,7 +3236,7 @@
         "editorconfig/SecurityRulesEnabled/.editorconfig",
         "editorconfig/UsageRulesDefault/.editorconfig",
         "editorconfig/UsageRulesEnabled/.editorconfig",
-        "microsoft.netcore.analyzers.2.9.5.nupkg.sha512",
+        "microsoft.netcore.analyzers.2.9.6.nupkg.sha512",
         "microsoft.netcore.analyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -3293,10 +3293,10 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NetFramework.Analyzers/2.9.5": {
-      "sha512": "0rRuPl23Zh1kwy9znuPQq4qkoypKyE60m8krYY4K9eTiEoNZbBbJwyzoDZGUSWlo8XXwtvb2DH1v7CpjOKb68w==",
+    "Microsoft.NetFramework.Analyzers/2.9.6": {
+      "sha512": "8VyWe53rtUkgJFAkbCZY5KT2t1tEmRrdK1Z+zbyRlzoKVEHyMs0+WNBeJ8d2YB/NjXaYAlaVG2CGZFnQUrwY6A==",
       "type": "package",
-      "path": "microsoft.netframework.analyzers/2.9.5",
+      "path": "microsoft.netframework.analyzers/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3348,7 +3348,7 @@
         "editorconfig/PortedFromFxCopRulesEnabled/.editorconfig",
         "editorconfig/SecurityRulesDefault/.editorconfig",
         "editorconfig/SecurityRulesEnabled/.editorconfig",
-        "microsoft.netframework.analyzers.2.9.5.nupkg.sha512",
+        "microsoft.netframework.analyzers.2.9.6.nupkg.sha512",
         "microsoft.netframework.analyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -7786,7 +7786,7 @@
     ".NETCoreApp,Version=v3.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 3.0.0",
-      "Microsoft.CodeAnalysis.FxCopAnalyzers >= 2.9.5",
+      "Microsoft.CodeAnalysis.FxCopAnalyzers >= 2.9.6",
       "Microsoft.EntityFrameworkCore >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Proxies >= 3.0.0",
@@ -7850,7 +7850,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.9.5, )"
+            "version": "[2.9.6, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

@@ -21,7 +21,7 @@ namespace OpenLab.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IUserModel[] users = await _identityService.GetUsers();
+            IUserModel[] users = await IdentityService.GetUsers().ConfigureAwait(false);
             ViewBag.Users = users;
 
             if (TempData["SuccessMessage"] != null)

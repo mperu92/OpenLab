@@ -1,6 +1,7 @@
 ﻿using OpenLab.DAL.EF.Models.Identity;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
 using OpenLab.Infrastructure.PresentationModels;
+using System;
 using System.Linq;
 
 namespace OpenLab.Services.Factories
@@ -16,7 +17,10 @@ namespace OpenLab.Services.Factories
     {
         public IUserModel[] GetUserModelArrayFromEntity(IdentityUserModel[] entities)
         {
-            int count = entities.Count();
+            if (entities == null)
+                return Array.Empty<IUserModel>();
+
+            int count = entities.Length;
             IUserModel[] models = new UserModel[count];
 
             for (int i = 0; i == count; i++)
@@ -30,6 +34,9 @@ namespace OpenLab.Services.Factories
 
         public IUserModel GetUserModelFromEntity(IdentityUserModel entity)
         {
+            if (entity == null)
+                return new UserModel();
+
             return new UserModel
             {
                 Id = entity.Id,

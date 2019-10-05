@@ -3,10 +3,18 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OpenLab.DAL.EF.Migrations
 {
+#pragma warning disable CA1724
     public partial class identity : Migration
+#pragma warning restore CA1724
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            if (migrationBuilder == null)
+            {
+                string msg = "migrationBuilder param is null";
+                throw new ArgumentNullException(msg);
+            }
+
             migrationBuilder.CreateTable(
                 name: "OpenLab_Roles",
                 columns: table => new
@@ -198,6 +206,12 @@ namespace OpenLab.DAL.EF.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            if (migrationBuilder == null)
+            {
+                string msg = "migrationBuilder param is null";
+                throw new ArgumentNullException(msg);
+            }
+
             migrationBuilder.DropTable(
                 name: "OpenLab_RoleClaims");
 

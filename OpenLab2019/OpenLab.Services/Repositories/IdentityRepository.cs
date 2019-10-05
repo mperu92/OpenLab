@@ -26,9 +26,9 @@ namespace OpenLab.Services.Repositories
 
         public async Task<IUserModel[]> GetAllUsers()
         {
-            IdentityUserModel[] entityUsers = await _context.Users.AsNoTracking().ToArrayAsync();
+            IdentityUserModel[] entityUsers = await _context.Users.AsNoTracking().ToArrayAsync().ConfigureAwait(false);
 
-            if (entityUsers == null || (entityUsers != null && entityUsers.Count() <= 0))
+            if (entityUsers == null || (entityUsers != null && entityUsers.Length <= 0))
                 return null;
 
             return _identityFactory.GetUserModelArrayFromEntity(entityUsers);

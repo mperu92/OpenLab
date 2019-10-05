@@ -8,7 +8,9 @@ using System.Text;
 
 namespace OpenLab.Services.Services
 {
+#pragma warning disable CA1040 // Avoid empty interfaces
     public interface IBackofficeService
+#pragma warning restore CA1040 // Avoid empty interfaces
     {
 
     }

@@ -1,9 +1,0 @@
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.0\OpenLab.DAL.EF.deps.json
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.0\OpenLab.DAL.EF.runtimeconfig.json
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.0\OpenLab.DAL.EF.runtimeconfig.dev.json
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.0\OpenLab.DAL.EF.dll
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.0\OpenLab.DAL.EF.pdb
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.0\OpenLab.DAL.EF.AssemblyInfoInputs.cache
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.0\OpenLab.DAL.EF.AssemblyInfo.cs
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.0\OpenLab.DAL.EF.dll
-C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.0\OpenLab.DAL.EF.pdb

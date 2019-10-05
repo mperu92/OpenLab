@@ -11,10 +11,10 @@ namespace OpenLab.Controllers.Base
 {
     public class BaseController : Controller
     {
-        public readonly ILogger _logger;
-        public readonly IIdentityService _identityService;
-        public readonly IHttpContextAccessor _httpContextAccessor;
-        public readonly IEmailService _emailSender;
+        private readonly ILogger _logger;
+        private readonly IIdentityService _identityService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IEmailService _emailSender;
 
         public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IEmailService emailSender = null)
         {
@@ -25,5 +25,10 @@ namespace OpenLab.Controllers.Base
             if (emailSender != null)
                 _emailSender = emailSender;
         }
+
+        public ILogger Logger { get => _logger; }
+        public IIdentityService IdentityService { get => _identityService; }
+        public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
+        public IEmailService EmailService { get => _emailSender; }
     }
 }

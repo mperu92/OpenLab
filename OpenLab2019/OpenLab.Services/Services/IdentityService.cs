@@ -38,36 +38,39 @@ namespace OpenLab.Services.Services
 
         public async Task<IUserModel[]> GetUsers()
         {
-            return await _identityRepository.GetAllUsers();
+            return await _identityRepository.GetAllUsers().ConfigureAwait(false);
         }
 
         public async Task<IdentityUserModel> GetUserEntityById(string userId)
         {
-            return await _userManager.FindByIdAsync(userId);
+            return await _userManager.FindByIdAsync(userId).ConfigureAwait(false);
         }
 
         public async Task<Microsoft.AspNetCore.Identity.SignInResult> Login(LoginViewModel model)
         {
-            return await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: false);
+            if (model == null)
+                return null;
+
+            return await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: model.RememberMe, lockoutOnFailure: false).ConfigureAwait(false);
         }
 
         public async Task LogOff()
         {
-            await _signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync().ConfigureAwait(false);
         }
 
         public async Task<IdentityResult> RegisterUser(IdentityUserModel user, string password)
         {
-            return await _userManager.CreateAsync(user, password);
+            return await _userManager.CreateAsync(user, password).ConfigureAwait(false);
         }
 
         public async Task<string> GenerateConfirmUserCode(IdentityUserModel user)
         {
-            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user).ConfigureAwait(false);
         }
         public async Task<IdentityResult> ConfirmEmailAsync(IdentityUserModel user, string code)
         {
-            return await _userManager.ConfirmEmailAsync(user, code);
+            return await _userManager.ConfirmEmailAsync(user, code).ConfigureAwait(false);
         }
     }
 }

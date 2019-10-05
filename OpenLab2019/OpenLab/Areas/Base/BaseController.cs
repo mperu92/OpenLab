@@ -11,11 +11,11 @@ namespace OpenLab.Areas.Base
 {
     public class BaseController : Controller
     {
-        public readonly ILogger _logger;
-        public readonly IIdentityService _identityService;
-        public readonly IHttpContextAccessor _httpContextAccessor;
-        public readonly IEmailService _emailSender;
-        public readonly IBackofficeService _backofficeService;
+        private readonly ILogger _logger;
+        private readonly IIdentityService _identityService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IEmailService _emailSender;
+        private readonly IBackofficeService _backofficeService;
 
         public BaseController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IEmailService emailSender = null, IBackofficeService backofficeService = null)
         {
@@ -28,5 +28,11 @@ namespace OpenLab.Areas.Base
             if (backofficeService != null)
                 _backofficeService = backofficeService;
         }
+
+        public ILogger Logger { get => _logger; }
+        public IIdentityService IdentityService { get => _identityService; }
+        public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
+        public IEmailService EmailService { get => _emailSender; }
+        public IBackofficeService BackofficeService { get => _backofficeService; }
     }
 }
