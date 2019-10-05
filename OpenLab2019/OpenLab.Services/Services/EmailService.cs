@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -15,8 +16,8 @@ namespace OpenLab.Services.Services
 {
     public interface IEmailService
     {
-        Task SendEmailAsync(SendGridMessage myMessage);
-        Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username = null, string password = null);
+        Task<bool> SendEmailAsync(SendGridMessage myMessage);
+        Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username = null, string password = null, string name = null);
     }
 
     public class EmailService : IEmailService
@@ -42,7 +43,7 @@ namespace OpenLab.Services.Services
             }
         }
 
-        public async Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username = null, string password = null)
+        public async Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username = null, string password = null, string name = null)
         {
             string htmlFile = $"{_pathToFile}WelcomeConfirmEmail.html";
             string htmlContent = string.Empty;
@@ -54,21 +55,31 @@ namespace OpenLab.Services.Services
             myMessage.From = new EmailAddress("register@openlab.com");
             myMessage.AddTo(email);
             myMessage.Subject = subject;
-            if (!string.IsNullOrEmpty(htmlContent))
-                myMessage.HtmlContent = string.Format(new AcctNumberFormat(), htmlContent, username, username, password, callbackUrl);
+            if (!string.IsNullOrEmpty(htmlContent) && callbackUrl != null)
+            {
+                // myMessage.HtmlContent = string.Format(new AcctNumberFormat(), htmlContent, name, username, password, callbackUrl);
+                myMessage.HtmlContent = htmlContent
+                                            .Replace("{0}", name, StringComparison.InvariantCulture)
+                                            .Replace("{1}", username, StringComparison.InvariantCulture)
+                                            .Replace("{2}", password, StringComparison.InvariantCulture)
+                                            .Replace("{3}", callbackUrl.ToString(), StringComparison.InvariantCulture);
+            }
             else
                 return false;
-
-            await SendEmailAsync(myMessage).ConfigureAwait(false);
-            return true;
+            
+            return await SendEmailAsync(myMessage).ConfigureAwait(false);
         }
 
-        public async Task SendEmailAsync(SendGridMessage myMessage)
+        public async Task<bool> SendEmailAsync(SendGridMessage myMessage)
         {
             // Send email
             string apiKey = _appConfiguration.EmailKey;
             SendGridClient client = new SendGridClient(apiKey);
             Response response = await client.SendEmailAsync(myMessage).ConfigureAwait(false);
+            if (response.StatusCode.ToString().ToUpperInvariant() == "ACCEPTED")
+                return true;
+            else
+                return false;
         }
     }
 }

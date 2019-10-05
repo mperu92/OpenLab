@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OpenLab.Services.Services;
@@ -30,8 +31,8 @@ namespace OpenLab.Areas.Base
         }
 
         public ILogger Logger { get => _logger; }
-        public IIdentityService IdentityService { get => _identityService; }
         public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
+
         public IEmailService EmailService { get => _emailSender; }
         public IBackofficeService BackofficeService { get => _backofficeService; }
     }

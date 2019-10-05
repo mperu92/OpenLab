@@ -1,28 +1,234 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Welcome Email from OpenLab</title>
+    <title>Welcome Email from OpenLab</title>
 
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              rel="stylesheet"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-              crossorigin="anonymous">
-    </head>
-    <body>
+    <style type="text/css">
+        .container {
+            width: 100%!important;
+            padding-right: 15px!important;
+            padding-left: 15px!important;
+            margin-right: auto!important;
+            margin-left: auto!important;
+        }
+
+        .row {
+            display: -ms-flexbox!important;
+            display: flex!important;
+            -ms-flex-wrap: wrap!important;
+            flex-wrap: wrap!important;
+            margin-right: -15px!important;
+            margin-left: -15px!important;
+        }
+
+        .col-12 {
+            position: relative!important;
+            width: 100%!important;
+            padding-right: 15px!important;
+            padding-left: 15px!important;
+            -ms-flex: 0 0 100%!important;
+            flex: 0 0 100%!important;
+            max-width: 100%!important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .card {
+            position: relative!important;
+            /*display: -ms-flexbox!important;
+            display: flex!important;*/
+            -ms-flex-direction: column!important;
+            flex-direction: column!important;
+            min-width: 0!important;
+            word-wrap: break-word!important;
+            background-color: #fff!important;
+            background-clip: border-box!important;
+            border: 1px solid rgba(0,0,0,.125)!important;
+            border-radius: .25rem!important;
+        }
+
+        .card-header {
+            padding: .75rem 1.25rem!important;
+            margin-bottom: 0!important;
+            background-color: rgba(0,0,0,.03)!important;
+            border-bottom: 1px solid rgba(0,0,0,.125)!important;
+        }
+
+        .card-header:first-child {
+            border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0!important;
+        }
+
+        .card-body {
+            -ms-flex: 1 1 auto!important;
+            flex: 1 1 auto!important;
+            padding: 1.25rem!important;
+        }
+
+        .card-footer {
+            padding: .75rem 1.25rem!important;
+            background-color: rgba(0,0,0,.03)!important;
+            border-top: 1px solid rgba(0,0,0,.125)!important;
+        }
+
+        .card-footer:last-child {
+            border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px)!important;
+        }
+
+        .btn {
+            display: inline-block!important;
+            font-weight: 400!important;
+            color: #212529!important;
+            text-align: center!important;
+            vertical-align: middle!important;
+            -webkit-user-select: none!important;
+            -moz-user-select: none!important;
+            -ms-user-select: none!important;
+            user-select: none!important;
+            background-color: transparent!important;
+            border: 1px solid transparent!important;
+            padding: .375rem .75rem!important;
+            font-size: 1rem!important;
+            line-height: 1.5!important;
+            border-radius: .25rem!important;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out!important;
+        }
+
+        .btn-info {
+            color: #fff!important;
+            background-color: #17a2b8!important;
+            border-color: #17a2b8!important;
+        }
+
+        .btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(58,176,195,.5)!important;
+        }
+
+        .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+            color: #fff!important;
+            background-color: #117a8b!important;
+            border-color: #10707f!important;
+        }
+
+        .btn-info.focus, .btn-info:focus {
+            box-shadow: 0 0 0 0.2rem rgba(58,176,195,.5)!important;
+        }
+
+        .btn-info:hover {
+            color: #fff!important;
+            background-color: #138496!important;
+            border-color: #117a8b!important;
+        }
+
+        .btn.focus, .btn:focus {
+            outline: 0!important;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25)!important;
+        }
+
+        .btn:hover {
+            color: #212529!important;
+            text-decoration: none!important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px!important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px!important;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px!important;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px!important;
+            }
+
+            .p-mobile {
+                /*display: flex!important;*/
+                flex-direction: column!important;
+                text-align: center!important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                max-width: 260px!important;
+            }
+
+            .p-mobile {
+                  /*display: flex!important;*/
+                flex-direction: column!important;
+                text-align: center!important;
+            }
+        }
+    </style>
+
+    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">-->
+</head>
+    <body yahoo="fix">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            <h3>Hi, <b>{0}</b></h3>
-                        </div>
-                        <div class="card-body">
+            <!--<div class="row">
+        <div class="col-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Hi, <b>{0}</b></h3>
+                </div>
+                <div class="card-body">
+                    <h3>Welcome to OpenLab Free Developing Enviroment!</h3>
+                    <p>You have to confirm your account by clicking on button below</p>
+                    <p>but link is local for now, sorry hehe.</p>
+                    <br />
+                    <p class="p-mobile">
+                        Your Username: <b>{1}</b>
+                        <br />
+                        Your Password: <b>{2}</b>
+                    </p>
+                    <br />
+                    <br />
+                    <small><i>save your data and delete this email.</i></small>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-info" href="{3}">CONFIRM YOUR ACCOUNT!</a>
+                </div>
+            </div>
+        </div>
+    </div>-->
+            <table class="card text-center" cellpadding="0" cellspacing="0" border="0" align="center">
+                <tr class="card-header">
+                    <td colspan="3">
+                        <h3 style="font-family: monospace;">Hi, <b>{0}</b></h3>
+                    </td>
+                </tr>
+                <tr class="card-body text-center">
+                    <td width="5%"></td>
+                    <td width="95%" valign="top">
+                        <div style="font-family: monospace; font-size: 14px; text-align: justify; line-height: 2; text-align: center;">
                             <h3>Welcome to OpenLab Free Developing Enviroment!</h3>
                             <p>You have to confirm your account by clicking on button below</p>
+                            <p>but link is local for now, sorry hehe.</p>
                             <br />
-                            <p>
+                            <p class="p-mobile">
                                 Your Username: <b>{1}</b>
                                 <br />
                                 Your Password: <b>{2}</b>
@@ -31,12 +237,18 @@
                             <br />
                             <small><i>save your data and delete this email.</i></small>
                         </div>
-                        <div class="card-footer">
-                            <a class="btn btn-info" href="{3}">CONFIRM YOUR ACCOUNT!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </td>
+                    <td width="5%"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" height="15"></td>
+                </tr>
+                <tr class="card-footer" style="height: 75px;">
+                    <td colspan="3">
+                        <a class="btn btn-info" href="{3}" style="font-family: monospace;">CONFIRM YOUR ACCOUNT!</a>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

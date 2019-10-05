@@ -19,7 +19,7 @@ namespace OpenLab.Services.Helpers
 
         public string Format(string fmt, object arg, IFormatProvider formatProvider)
         {
-            if (fmt == null || arg == null)
+            if (arg == null)
                 throw new ArgumentNullException($"{fmt} or {arg} are null");
 
             // Provide default formatting if arg is not an Int64.
@@ -32,6 +32,9 @@ namespace OpenLab.Services.Helpers
                 {
                     throw new FormatException($"The format of '{fmt}' is invalid.", e);
                 }
+
+            if (fmt == null)
+                throw new ArgumentNullException($"{fmt} or {arg} are null");
 
             // Provide default formatting for unsupported format strings.
             string ufmt = fmt.ToUpper(CultureInfo.InvariantCulture);

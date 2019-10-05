@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,8 +28,9 @@ namespace OpenLab.Controllers.Base
         }
 
         public ILogger Logger { get => _logger; }
-        public IIdentityService IdentityService { get => _identityService; }
         public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
+
         public IEmailService EmailService { get => _emailSender; }
+        public IIdentityService IdentityService { get => _identityService; }
     }
 }

@@ -83,20 +83,13 @@ namespace OpenLab.Controllers
                 Email = model.Email
             };
 
-            bool debuggerSucceded = false;
-            IdentityResult result = null;
-            if (!System.Diagnostics.Debugger.IsAttached)
-                result = await IdentityService.RegisterUser(user, model.Password).ConfigureAwait(false);
-            else
-                debuggerSucceded = true;
-
-            if (result.Succeeded || debuggerSucceded)
+            IdentityResult result = result = await IdentityService.RegisterUser(user, model.Password).ConfigureAwait(false);
+            if (result.Succeeded)
             {
-                int uId = result.Succeeded ? user.Id : 123;
-                string confirmationCode = result.Succeeded ? await IdentityService.GenerateConfirmUserCode(user).ConfigureAwait(false) : "abcdefghi";
+                string confirmationCode = await IdentityService.GenerateConfirmUserCode(user).ConfigureAwait(false);
                 string callbackUrl = Url.Action(controller: "Account", action: "ConfirmEmail", values: new { userId = user.Id, code = confirmationCode }, protocol: Request.Scheme);
 
-                bool sent = await EmailService.SendWelcomeConfirmEmail(user.Email, "Confirm Email", new Uri(callbackUrl, UriKind.Absolute), user.UserName, model.Password).ConfigureAwait(false);
+                bool sent = await EmailService.SendWelcomeConfirmEmail(user.Email, "Confirm Email", new Uri(callbackUrl, UriKind.Absolute), user.UserName, model.Password, model.FirstName).ConfigureAwait(false);
                 
                 if (sent)
                 {
@@ -115,7 +108,10 @@ namespace OpenLab.Controllers
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
+            {
+                TempData["ErrorMessage"] = "Email confirmation failed. UserId or ConfirmUserCode are null.";
                 return RedirectToAction("Index", "Home");
+            }
 
             IdentityUserModel user = await IdentityService.GetUserEntityById(userId).ConfigureAwait(false);
             if (user == null)

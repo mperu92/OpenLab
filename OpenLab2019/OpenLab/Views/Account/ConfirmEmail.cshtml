@@ -8,7 +8,14 @@
     <div class="jumbotron">
         <h2>Email Confirmed!</h2>
         <hr />
-        <a asp-action="Index" asp-controller="Home" class="btn btn-success">Go Home</a>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <a asp-action="Login" asp-controller="Account" class="btn btn-success">LOGIN</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-controller="Home" class="btn btn-success">HOME</a>
+        }
     </div>
 </div>
 
