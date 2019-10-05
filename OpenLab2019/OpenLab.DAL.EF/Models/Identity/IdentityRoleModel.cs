@@ -7,7 +7,7 @@ namespace OpenLab.DAL.EF.Models.Identity
 {
     public class IdentityRoleModel : IdentityRole<int>
     {
-        public virtual ICollection<IdentityUserRoleModel> UserRoles { get; set; }
+        public virtual ICollection<IdentityUserRoleModel> UserRoles { get; }
         
         public string Description { get; set; }
     }

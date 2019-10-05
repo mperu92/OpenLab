@@ -5,6 +5,10 @@
   "author": "Matt P",
   "license": "MIT",
   "repository": "https://github.com/mperu92/OpenLab",
+  "scripts": {
+    "start": "webpack-dev-server --progress -d --config webpack.dev.config.js --watch",
+    "build": "webpack -p --config webpack.prod.config.js --progress"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -118,5 +122,8 @@
     "reqwest": "^2.0.5",
     "reselect": "^4.0.0",
     "rfs": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=8"
   }
 }

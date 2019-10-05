@@ -1,0 +1,57 @@
+// Responsive settings
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+// Major breackpoints
+// $extra-small-start:        30em;       //   480px
+// $small-start:              48em;       //   768px
+// $medium-start:             60em;       //   960px
+// $large-start:              80em;   	//   1280px
+// $extra-large-start:        100em;      //   1600px
+
+// // @media css shortcuts    (* = Suggested)
+// $extra-small:              #{"(min-width: ${extra-small-start})"};
+// $small:                    #{"(min-width: ${small-start})"};           // *
+// $medium:                   #{"(min-width: ${medium-start})"};          // *
+// $large:                    #{"(min-width: ${large-start})"};
+// $extra-large:              #{"(min-width: ${extra-large-start})"};     // *
+// $portrait:                 #{"(orientation: portrait)"};
+// $landscape:                #{"(orientation: landscape)"};
+
+// $onex:                     #{"96dpi"};
+// $fiftheenx:                #{"144dpi"};
+// $twox:                     #{"192dpi"};
+// $threex:                   #{"288dpi"};
+
+// $retina1x:                 #{"(min-resolution: ${1x})"};
+// $retina15x:                #{"(min-resolution: ${15x})"};
+// $retina2x:                 #{"(min-resolution: ${2x})"};
+// $retina3x:                 #{"(min-resolution: ${3x})"};
+
+
+// breakpoints
+$breakpoints: (
+  extraSmall: 30em,
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  extraLarge: 1200px
+);
+
+$densities: (
+  1x: '96dpi',
+  15x: '144dpi',
+  2x: '192dpi',
+  3x: '288dpi'
+);
+
+// ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+// Get breakpoint argument from $breakpoints and return media query
+// with passed argument
+// NOTE This require a $breakpoints map.
+// ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+
+@function break($key) {
+    @if map-has-key($breakpoints, $key) {
+        @return 'min-width: #{ map-get( $breakpoints, $key ) }';
+    }
+}

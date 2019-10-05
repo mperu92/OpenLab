@@ -1,0 +1,138 @@
+// Color settings
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+/* defaults */
+$default-background-color: rgb(50, 50, 50);
+$default-text-color: 				rgb(0, 0, 0);
+$default-text-color-hover: 	rgb(255, 255, 255);
+
+// Base
+$font-color: 						#333;
+
+// Primary
+$color-primary: 				#d50c1a;
+$color-primary-light: 		lighten($color-primary, 8%);
+$color-primary-dark: 			darken($color-primary, 8%);
+// Secondary
+$color-secondary: 			#585857;
+$color-secondary-light: 	lighten($color-secondary, 8%);
+$color-secondary-dark: 		darken($color-secondary, 8%);
+// Cta
+$color-cta:							#d50c1a;
+$color-cta-light: 				lighten($color-cta, 8%);
+$color-cta-dark: 					darken($color-cta, 8%);
+// Success
+$color-success: 				#8bc34a;
+$color-success-light: 		lighten($color-success, 8%);
+$color-success-dark: 			darken($color-success, 8%);
+// Error
+$color-error: 					#f44336;
+$color-error-light: 			lighten($color-error, 8%);
+$color-error-dark: 				darken($color-error, 8%);
+
+$link-color: 							$color-cta;
+
+// Generic colors
+$color-white: 					#fff;
+$color-black: 					#212121;
+$color-gray: 						#dedbdb;
+$color-blue: 						#00bcd4;
+$color-yellow: 					#fdd835;
+$line-color: 						#a1a1a1;
+
+// Placeholder and selection colors
+$placeholder-color: 		#bbb;
+$selection-background: 	#666;
+$selection-color: 			#fff;
+$tap-highlight-color: 		$color-secondary;
+
+//socials colors (https://brandcolors.net/)
+$facebook-color: 				#3b5998;
+$twitter-color: 				#1da1f2;
+$linkedin-color: 				#0077b5;
+$whatsapp-color: 				#25D366;
+
+// Typography
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+// Type definition
+$font-main: 						'Barlow', sans-serif;
+$font-alt: 							'Barlow Condensed', sans-serif;
+$custom-fonts: 					"";
+$font-alternatives: 		sans-serif;
+
+// Heading size
+$h1-size: 							2.625rem; //42px
+$h2-size: 							2.125rem; //34px
+$h3-size: 							1.875rem; //30px
+$h4-size: 							1.5rem; //24px
+$h5-size: 							1.125rem; //18px
+$p-size: 								0.875rem; //14px
+$small-size: 						1rem;
+$mini-size: 						.875rem;
+$basic-size: 						.75rem;
+
+// Text size
+$base-font-size: 				100%; // 100% = 16px = 1rem
+$base-line-height:			1.5; // Calculate and strip unit line-height based on $base-font-size
+$font-size:        			($base-line-height) + rem;           // Set rem unit for font-size
+
+// UTILITY settings
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// Baseline settings
+$baseline-space:        $base-line-height * (( 100% / 100 ) * 16 );
+$baseline-color:        $color-black;
+$baseline-opacity:      .1;
+
+$link-vertical-padding: 	 $base-line-height + rem;
+$link-horizontal-padding:  1.5rem;
+
+// radius
+$bd-radius: 						3px;
+
+// common spacing definition
+$base-spacing: 					.5rem; // 8px
+$space-mini: 						$base-spacing / 2;
+$space-small: 					$base-spacing;
+$space-medium: 					$base-spacing * 2;
+$space-big: 						$base-spacing * 3;
+$space-huge: 						$base-spacing * 4;
+$space-monster: 				$base-spacing * 5;
+
+// depths
+$depth-1: rgba($black, .117647) 0 1px 6px, rgba($black, .117647) 0 1px 4px;
+$depth-2: rgba($black, .156863) 0 3px 10px, rgba($black, .227451) 0 3px 10px;
+$depth-3: rgba($black, .188235) 0 10px 30px, rgba($black, .227451) 0 6px 10px;
+
+// Utility settings
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+$base-grid-columns: 				12;
+$base-grid-gutter: 					.5rem;
+$use-baseline: 							false;
+$use-helper-mediaqueries: 	true;
+$use-gutters: 							false;
+
+
+// Transition settings
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+$transition-timing: 				300ms;
+$transition-easing: 				cubic-bezier(.06, .68, .36, .99);
+
+// layout
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+$wrapper-width: 						85.625rem; /* 1370/16 */
+$gallery-gap: 							$space-small;
+$header-logo-width: 				18.125rem; /* 290/16 */
+$header-bottom-height: 			3.875rem; /* 62/16 */
+$header-top-height: 				6.25rem; /* 100/16 */
+$title-logo-height: 				2.813rem; /* 45/16 */
+$herobanner-height: 				100vh;
+$footer-mobile-height: 			3.125rem; // 50/1
+$thumbs-container-height: 	5rem; // 80/16
+
+// Full Width/Height ViewPort
+$viewport-width: 100vw;
+$viewport-height: 100vh;

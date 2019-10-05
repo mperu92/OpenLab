@@ -13,9 +13,9 @@ namespace OpenLab.DAL.EF
 
     public class AppConfiguration : IAppConfiguration
     {
-        public readonly string _connectionString;
-        public readonly string _swversion;
-        public readonly string _emailKey;
+        private readonly string _connectionString;
+        private readonly string _swversion;
+        private readonly string _emailKey;
 
         public AppConfiguration()
         {
