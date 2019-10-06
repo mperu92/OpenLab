@@ -18,11 +18,11 @@ const OpenLabJsClient = {
     finalize() {
       // called only from page with main-content/data-controller set
     },
-    // backoffice
-    dashboardPage: {
-      init() {
-        configDashboardPage();
-      },
+  },
+  // backoffice
+  dashboardPage: {
+    init() {
+      configDashboardPage();
     },
   },
 };

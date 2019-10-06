@@ -15,19 +15,19 @@ if (UserString && UserString !== '') {
   userObj = JSON.parse(UserString);
 }
 
-const store = ConfigureStore();
+const store = configureStore();
 
 export default function init() {
-    ReactDom(
-        <ReduxProvider store={store}>
-            <Router>
-                <DashboardContainer
-                  IsLogged={IsLogged}
-                  IsAdminRole={IsAdminRole}
-                  User={userObj}
-                />
-            </Router>
-        </ReduxProvider>,
-        'js-backoffice',
-    );
+  reactDom(
+    <ReduxProvider store={store}>
+        <Router>
+            <DashboardContainer
+              IsLogged={IsLogged}
+              IsAdminRole={IsAdminRole}
+              User={userObj}
+            />
+        </Router>
+    </ReduxProvider>,
+    'js-backoffice',
+  );
 }

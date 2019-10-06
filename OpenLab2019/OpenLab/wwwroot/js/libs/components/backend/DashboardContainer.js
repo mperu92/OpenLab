@@ -11,19 +11,23 @@ import NewsManagmentPage from './NewsManagmentPage';
 
 debugger;
 
-const DashboardContainer = ({ User, IsLogged, IsAdminRole }) => (
-    <div className="container">
-        <BackendHeader User={User} IsLogged={IsLogged} IsAdminRole={IsAdminRole} />
-        <Switch>
-            <Route exact path="/Backoffice/Dashboard/Index" component={HomePage} IsAdminRole={IsAdminRole} />
-            <Route path="/news/list" component={NewsPage} />
-            <Route path="/news/:slug" component={NewsManagmentPage} />
-            <Route path="/news" component={NewsManagmentPage} />
-            <Route component={PageNotFound} />
-        </Switch>
-        <ToastContainer autoClose={3000} hideProgressBar />
-    </div>
-);
+const DashboardContainer = ({ User, IsLogged, IsAdminRole }) => {
+    debugger;
+    const propsReader = `User: ${User} - IsLogged: ${IsLogged} - IsAdminRole: ${IsAdminRole}`;
+    return (
+        <div className="container">
+            <BackendHeader User={User} IsLogged={IsLogged} IsAdminRole={IsAdminRole} />
+            <Switch>
+                <Route exact path="/Backoffice/Dashboard/Index" component={HomePage} IsAdminRole={IsAdminRole} />
+                <Route path="/news/list" component={NewsPage} />
+                <Route path="/news/:slug" component={NewsManagmentPage} />
+                <Route path="/news" component={NewsManagmentPage} />
+                <Route component={PageNotFound} />
+            </Switch>
+            <ToastContainer autoClose={3000} hideProgressBar />
+        </div>
+    );
+};
 
 DashboardContainer.propTypes = {
     User: PropTypes.shape({
@@ -33,6 +37,5 @@ DashboardContainer.propTypes = {
     IsLogged: PropTypes.bool.isRequired,
     IsAdminRole: PropTypes.bool.isRequired,
 };
-
 
 export default DashboardContainer;
