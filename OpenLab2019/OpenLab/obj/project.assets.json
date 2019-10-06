@@ -2846,7 +2846,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

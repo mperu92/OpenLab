@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,10 +36,21 @@ namespace OpenLab
             services.AddAppConfiguration();
             services.AddEmailService();
 
+            // Response gzip compression
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Optimal;
+            });
+            services.AddResponseCompression(options =>
+            {
+                options.EnableForHttps = true;
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+
             /// If you want to use both MVC and Razor Pages in your app, 
             /// you should continue to use the AddMvc() extension method.
-            // services.AddControllersWithViews();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllersWithViews();
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {
@@ -67,7 +80,11 @@ namespace OpenLab
             }
 
             app.UseHttpsRedirection();
+
+            // Enable compression (must be before UseStaticFiles)
+            app.UseResponseCompression();
             app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthentication();

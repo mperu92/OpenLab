@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OpenLab.DAL.EF.Models;
 using OpenLab.DAL.EF.Models.Identity;
 using System;
 using System.Collections.Generic;
@@ -86,5 +87,8 @@ namespace OpenLab.DAL.EF.Contexts
                 #endregion
             }
         }
+
+        public DbSet<EFNewsModel> News { get; set; }
+
     }
 }
