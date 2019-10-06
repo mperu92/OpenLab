@@ -1,8 +1,10 @@
-﻿/* eslint-disable */
-import $ from 'jquery';
+﻿import $ from 'jquery';
 import 'bootstrap';
 
 import '../scss/main.scss';
+
+// backoffice
+import configDashboardPage from './libs/configpages/backend/dashboard';
 
 // commons
 import loadingOverlay from './libs/common/loadingOverlay';
@@ -15,6 +17,12 @@ const OpenLabJsClient = {
     },
     finalize() {
       // called only from page with main-content/data-controller set
+    },
+    // backoffice
+    dashboardPage: {
+      init() {
+        configDashboardPage();
+      },
     },
   },
 };
@@ -29,7 +37,7 @@ const UTIL = {
   loadEvents() {
     // hit up common first.
     UTIL.fire('common');
-    const mainContent = document.getElementById('openlab-frontend');
+    const mainContent = document.getElementById('ol-controller');
     if (mainContent === 'undefined' || mainContent === null) {
       return;
     }

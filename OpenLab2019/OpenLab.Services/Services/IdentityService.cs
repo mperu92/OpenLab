@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using OpenLab.DAL.EF.Contexts;
 using OpenLab.DAL.EF.Models.Identity;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
 using OpenLab.Infrastructure.Interfaces.Repositories;
 using OpenLab.Infrastructure.ViewModels;
 using OpenLab.Services.Repositories;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace OpenLab.Services.Services
 {
     public interface IIdentityService
     {
+        Task<IUserModel> GetUserAsync(ClaimsPrincipal user);
         Task<IUserModel[]> GetUsers();
         Task<Microsoft.AspNetCore.Identity.SignInResult> Login(LoginViewModel model);
         Task<IdentityResult> RegisterUser(IdentityUserModel user, string password);
@@ -24,16 +27,23 @@ namespace OpenLab.Services.Services
     {
         private readonly OpenLabDbContext _context;
         private readonly IIdentityRepository _identityRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<IdentityUserModel> _userManager;
         private readonly SignInManager<IdentityUserModel> _signInManager;
 
         public IdentityService(OpenLabDbContext context, UserManager<IdentityUserModel> userManager,
-            SignInManager<IdentityUserModel> signInManager)
+            SignInManager<IdentityUserModel> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _identityRepository = new IdentityRepository(_context);
             _userManager = userManager;
             _signInManager = signInManager;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public async Task<IUserModel> GetUserAsync(ClaimsPrincipal user)
+        {
+            return await _identityRepository.GetUserAsync(user, _userManager).ConfigureAwait(false);
         }
 
         public async Task<IUserModel[]> GetUsers()

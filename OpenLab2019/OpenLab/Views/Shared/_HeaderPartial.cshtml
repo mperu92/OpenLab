@@ -34,10 +34,10 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-dark">@User.Identity.Name.ToString()</a>
                             </li>
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Admin") || User.IsInRole("PowerUser"))
                             {
                                 <li class="nav-item">
-                                    <a href="/Backend/Dashboard/Index" class="nav-link text-dark">Backoffice</a>
+                                    <a href="/Backoffice/Dashboard/Index" class="nav-link text-dark">Backoffice</a>
                                 </li>
                             }
                             <li class="nav-item">

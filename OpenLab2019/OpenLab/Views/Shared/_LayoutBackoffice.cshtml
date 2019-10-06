@@ -1,24 +1,45 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using Microsoft.Extensions.Configuration;
+@using System.Dynamic;
+@using Newtonsoft.Json;
+@inject IConfiguration Configuration;
+@{
+    string swversion = Configuration.GetSection("AppConfiguration")["swversion"];
+    string enviroment = Configuration.GetSection("AppConfiguration")["enviroment"];
+
+    // variables for compiled files [webpack]
+    string urlWebPackDevServer = Configuration.GetSection("AppConfiguration")["url_webpack_dev_server"];
+    string pathJs = Configuration.GetSection("AppConfiguration")["pathJs"];
+    string pathCss = Configuration.GetSection("AppConfiguration")["pathCss"];
+    string mainJsHash = Configuration.GetSection("AppConfiguration")["main.js"];
+    string mainCssHash = Configuration.GetSection("AppConfiguration")["main.css"];
+    string commonJsHash = Configuration.GetSection("AppConfiguration")["common.js"];
+
+    Uri baseUriWebPackDevServer = new Uri(urlWebPackDevServer);
+    Uri urlMainJs = new Uri(baseUriWebPackDevServer, "main.bundle.js");
+    Uri urlMainCss = new Uri(baseUriWebPackDevServer, "main.css");
+    Uri urlMainVendors = new Uri(baseUriWebPackDevServer, "vendors~main.chunk.js");
+
+    dynamic globalJsData = new ExpandoObject();
+    // application specific global js data
+    globalJsData.appSpecificData = new ExpandoObject();
+}
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Open Lab</title>
+    <script type="text/javascript">
+        var __globalJsData = @Html.Raw(JsonConvert.SerializeObject(globalJsData));
+    </script>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+        <link href="@($"{pathCss}{mainCssHash}")" rel="stylesheet">
     </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <partial name="_HeaderPartialBackoffice" />
+    @*<partial name="_HeaderPartialBackoffice" />*@
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -26,27 +47,17 @@
         </main>
     </div>
 
-    <partial name="_FooterPartial" />
+    @*<partial name="_FooterPartial" />*@
 
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="@urlMainJs.ToString()">/* Inclusione script Main */</script>
+        <script type="text/javascript" src="@urlMainVendors.ToString()">/* Inclusione script vendors */</script>
     </environment>
+
     <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
+        <script type="text/javascript" src="@($"{pathJs}{commonJsHash}")">/* Inclusione script header */</script>
+        <script type="text/javascript" src="@($"{pathJs}{mainJsHash}")">/* Inclusione script Main */</script>
     </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

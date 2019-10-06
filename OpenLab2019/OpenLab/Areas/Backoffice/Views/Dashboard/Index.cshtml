@@ -3,17 +3,17 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutBackoffice.cshtml";
 
-    string welcomePhrase = "Here you can load contents";
-    string userName = ViewBag.Username;
-    bool isAdmin = User.IsInRole("Admin");
-    if (isAdmin) welcomePhrase += " and manage application";
+    string user = ViewBag.User ?? string.Empty;
+    int isLoggedNuber = ViewBag.IsLogged == true ? 1 : 0;
+    int isAdminRoleNumber = ViewBag.IsAdminRole == true ? 1 : 0;
 }
 
-<div class="container">
-    <div class="jumbotron text-center">
-        <h1>Backoffice Dashboard</h1>
-        <hr />
-        <p>Hi <b>@userName,</b></p>
-        <p>@welcomePhrase</p>
-    </div>
+<script type="text/javascript">
+    __globalJsData.user = '@(Html.Raw(user))';
+    __globalJsData.isLogged = @isLoggedNuber;
+    __globalJsData.isAdminRole = @isAdminRoleNumber;
+</script>
+
+<div id="ol-controller" class="ol-home-container" data-controller="dashboardPage">
+    <div id="js-backoffice"></div>
 </div>

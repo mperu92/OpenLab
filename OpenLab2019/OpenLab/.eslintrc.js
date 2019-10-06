@@ -44,5 +44,8 @@ module.exports = {
     "no-tabs": [OFF],
     "react/no-unused-state": [WARN],
     "react/no-unused-prop-types": [WARN],
+    "import/no-extraneous-dependencies": [OFF],
+    "no-unused-vars": [WARN],
+    "no-unused-expressions": [WARN]
   }
 };

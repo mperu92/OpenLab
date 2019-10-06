@@ -34,6 +34,7 @@ namespace OpenLab.Areas.Base
         public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
 
         public IEmailService EmailService { get => _emailSender; }
+        public IIdentityService IdentityService { get => _identityService; }
         public IBackofficeService BackofficeService { get => _backofficeService; }
     }
 }
