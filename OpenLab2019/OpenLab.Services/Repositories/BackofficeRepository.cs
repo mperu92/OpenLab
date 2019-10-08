@@ -36,7 +36,6 @@ namespace OpenLab.Services.Repositories
                     .ToArrayAsync().ConfigureAwait(false);
             else
                 newsModel = await _context.News
-                  .Where(x => x.Online == true)
                   .Select(s => _backofficeFactory.GetNewsModelFromEntity(s))
                   .AsNoTracking()
                   .ToArrayAsync().ConfigureAwait(false);

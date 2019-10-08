@@ -13,7 +13,8 @@ namespace OpenLab.DAL.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
+        public string Slug { get; set;
+        }
         public string Title { get; set; }
         public string Abstract { get; set; }
         public string BodyHtml { get; set; }

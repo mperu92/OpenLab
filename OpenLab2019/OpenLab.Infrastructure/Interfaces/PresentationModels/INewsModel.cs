@@ -7,6 +7,7 @@ namespace OpenLab.Infrastructure.Interfaces.PresentationModels
     public interface INewsModel
     {
         int Id { get; set; }
+        string Slug { get; set; }
 
         string Title { get; set; }
         string Abstract { get; set; }

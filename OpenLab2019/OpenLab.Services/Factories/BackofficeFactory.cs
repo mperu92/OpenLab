@@ -11,7 +11,8 @@ namespace OpenLab.Services.Factories
     {
         INewsModel[] GetNewsModelFromEntities(EFNewsModel[] entities);
         INewsModel GetNewsModelFromEntity(EFNewsModel entity);
-        INewsModel GetNewsModelFromDynamic(dynamic modelDyn);
+        dynamic[] GetNewsModelFromDynamics(dynamic[] dynamics);
+        dynamic GetNewsModelFromDynamic(dynamic modelDyn);
     }
 
     public class BackofficeFactory : IBackofficeFactory
@@ -46,6 +47,30 @@ namespace OpenLab.Services.Factories
                 return Array.Empty<INewsModel>();
         }
 
+        public dynamic[] GetNewsModelFromDynamics(dynamic[] dynamics)
+        {
+            dynamic[] models = null;
+
+            if (dynamics != null && dynamics.Length > 0)
+            {
+                models = new dynamic[dynamics.Length];
+
+                int i = 0;
+                foreach (dynamic dyn in dynamics)
+                {
+                    models[i] = GetNewsModelFromDynamic(dyn);
+                    i++;
+                }
+
+                if (models != null && models.Length > 0)
+                    return models;
+                else
+                    return Array.Empty<dynamic>();
+            }
+            else
+                return Array.Empty<dynamic>();
+        }
+
         public INewsModel GetNewsModelFromEntity(EFNewsModel entity)
         {
             INewsModel model = null;
@@ -55,6 +80,7 @@ namespace OpenLab.Services.Factories
                 return model = new NewsModel
                 {
                     Id = entity.Id,
+                    Slug = entity.Slug,
                     Abstract = entity.Abstract,
                     BodyHtml = entity.BodyHtml,
                     BodyText = entity.BodyText,
@@ -71,15 +97,16 @@ namespace OpenLab.Services.Factories
                 return new NewsModel();
         }
 
-        public INewsModel GetNewsModelFromDynamic(dynamic modelDyn)
+        public dynamic GetNewsModelFromDynamic(dynamic modelDyn)
         {
-            INewsModel model = null;
+            dynamic dyn = null;
 
             if (modelDyn != null)
             {
-                return model = new NewsModel
+                return dyn = new
                 {
                     Id = modelDyn.Id,
+                    Slug = modelDyn.Slug,
                     Abstract = modelDyn.Abstract,
                     BodyHtml = modelDyn.BodyHtml,
                     BodyText = modelDyn.BodyText,
@@ -93,7 +120,7 @@ namespace OpenLab.Services.Factories
                 };
             }
             else
-                return new NewsModel();
+                return new { };
         }
     }
 }

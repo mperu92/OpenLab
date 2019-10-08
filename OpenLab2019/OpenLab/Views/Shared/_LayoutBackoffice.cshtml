@@ -39,15 +39,10 @@
     </environment>
 </head>
 <body>
-    @*<partial name="_HeaderPartialBackoffice" />*@
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    @*<partial name="_FooterPartial" />*@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     <environment include="Development">
         <script type="text/javascript" src="@urlMainJs.ToString()">/* Inclusione script Main */</script>
