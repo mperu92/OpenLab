@@ -31,7 +31,7 @@ namespace OpenLab.Controllers
             if (news != null && news.Length >= 0)
             {
                 dynamic[] newsList = ((IEnumerable<dynamic>)news).ToArray();
-                if (newsList != null && newsList.Length > 0)
+                if (newsList != null && newsList.Length >= 0)
                     return Ok(newsList);
             }
             
