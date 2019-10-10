@@ -4,11 +4,11 @@ import * as types from './actionTypes';
 import { beginApiCall, apiCallError } from './apiStatusActions';
 
 export function loadNewsListSuccess(newsList) {
-    return { type: types.LOAD_NEWS_SUCCES, newsList };
+    return { type: types.LOAD_NEWS_SUCCESS, newsList };
 }
 
 export function createNewsSuccess(news) {
-    return { type: types.CREATE_NEWS_SUCCES, news };
+    return { type: types.CREATE_NEWS_SUCCESS, news };
 }
 
 export function updateNewsSuccess(news) {
@@ -19,15 +19,14 @@ export function deleteNewsOptimistic(news) {
     return { type: types.DELETE_NEWS_OPTIMISTIC, news };
 }
 
-// thunk (test async)
-export async function loadNewsList() {
+export function loadNewsList(online) {
     debugger;
-    return async (dispatch) => {
+    return (dispatch) => {
         dispatch(beginApiCall());
-        await axios.post('/api/newsApi/getNewsList')
-        .then(({ data: { newsList } }) => {
-            if (newsList && newsList !== undefined && newsList !== null) {
-                dispatch(loadNewsListSuccess(newsList));
+        axios.post('/api/newsApi/getNewsList', { online })
+        .then(({ data }) => {
+            if (data && data !== undefined && data !== null) {
+                dispatch(loadNewsListSuccess(data));
             } else {
                 const error = Error.apply('error while loading news list.');
                 dispatch(apiCallError(error));
@@ -44,14 +43,16 @@ export async function loadNewsList() {
 // thunk
 export function saveNews(news) {
     debugger;
-    return (dispatch, getState) => {
+    return (dispatch) => { // , getState
         dispatch(beginApiCall());
         return axios.post('/api/newsApi/createUpdateNews', { news })
         .then(({ data: { _news } }) => {
             if (_news && _news !== undefined && _news !== null) {
-                news.id
-                ? dispatch(updateNewsSuccess(_news))
-                : dispatch(createNewsSuccess(_news));
+                if (news.Id) {
+                    dispatch(updateNewsSuccess(_news));
+                } else {
+                    dispatch(createNewsSuccess(_news));
+                }
             } else {
                 const error = Error.apply('error while creating - updating news.');
                 dispatch(apiCallError(error));

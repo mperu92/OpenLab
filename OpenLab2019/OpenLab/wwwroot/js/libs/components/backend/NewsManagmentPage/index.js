@@ -1,3 +1,3 @@
-import NewsManagmentPage from './NewsManagmentPage';
+import NewsManagementPage from './NewsManagmentPage';
 
-export default NewsManagmentPage;
+export default NewsManagementPage;

@@ -15,6 +15,8 @@ C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -38,6 +40,7 @@ C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\NuGet.Frameworks.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\SendGrid.dll
 C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab\bin\Debug\netcoreapp3.0\System.Composition.AttributedModel.dll

@@ -21,12 +21,22 @@ class NewsPage extends React.Component {
     }
 
     componentDidMount() {
-        const { news, actions } = this.props;
-        if (news.length === 0) {
-            actions.loadNewsList()
-            .catch((error) => {
-                toast.error(error);
-            });
+        const { newsList, actions } = this.props;
+        if (newsList.length === 0) {
+            // TO FIX
+            try {
+                actions.loadNewsList(false);
+            } catch (error) {
+                if (error) {
+                    toast.error(error);
+                } else {
+                    toast.error('error loading news');
+                }
+            }
+            // actions.loadNewsList(false)
+            // .catch((error) => {
+            //     toast.error(error);
+            // });
         }
     }
 

@@ -57,14 +57,15 @@ export function NewsManagmentPage({
         return Object.keys(errors).length === 0;
     }
 
-    function handleChange(event) {
-        const { name, value } = event.target;
+    function handleChange() { // (event)
+        // const { name, value } = event.target;
         setNews((prevNews) => ({
             ...prevNews,
         }));
     }
 
     function handleSave(event) {
+        debugger;
         event.preventDefault();
         if (!formIsValid()) return;
         setSaving(true);
@@ -108,8 +109,8 @@ export function getNewsBySlug(newsList, slug) {
 }
 
 function mapStateToProps(state, ownProps) {
-    const { match: { params: { slug } } } = ownProps; // .match.params.slug;
-    const news = slug && state.newsList.length > 0 ? getNewsBySlug(state.newsList, slug) : newNews;
+    const { match: { params: { Slug } } } = ownProps; // .match.params.slug;
+    const news = Slug && state.newsList.length > 0 ? getNewsBySlug(state.newsList, Slug) : newNews;
     return {
         news,
         newsList: state.newsList,

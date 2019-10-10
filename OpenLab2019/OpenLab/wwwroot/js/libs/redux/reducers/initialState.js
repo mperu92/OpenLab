@@ -3,7 +3,6 @@ export default {
     isLogged: false,
     userName: '',
     userInfo: {},
-    news: {},
     newsList: [],
     apiCallsInProgress: 0,
   };

@@ -47,10 +47,9 @@ namespace OpenLab
                 options.Providers.Add<GzipCompressionProvider>();
             });
 
-            /// If you want to use both MVC and Razor Pages in your app, 
-            /// you should continue to use the AddMvc() extension method.
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson();
+
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {
@@ -94,7 +93,6 @@ namespace OpenLab
 
             app.UseEndpoints(endpoints =>
             {
-                // Map [attribute]-routed API controllers
                 endpoints.MapControllers();
 
                 endpoints.MapControllerRoute(
