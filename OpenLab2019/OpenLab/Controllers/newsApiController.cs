@@ -31,7 +31,7 @@ namespace OpenLab.Controllers
             if (news != null && news.Length >= 0)
             {
                 dynamic[] newsList = ((IEnumerable<dynamic>)news).ToArray();
-                if (newsList != null && newsList.Length > 0)
+                if (newsList != null && newsList.Length >= 0)
                     return Ok(newsList);
             }
             
@@ -42,10 +42,11 @@ namespace OpenLab.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> createUpdateNews([FromBody] dynamic news)
         {
-            if (news == null)
+            if (news == null || (news != null && news.news == null))
                 return BadRequest($"Error editing news");
 
-            bool saved = await BackendService.CreateUpdateNews(news);
+            dynamic _news = news.news;
+            bool saved = await BackendService.CreateUpdateNews(_news);
             if (saved)
                 return Ok(new { news });
             else

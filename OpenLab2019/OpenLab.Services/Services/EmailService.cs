@@ -43,7 +43,7 @@ namespace OpenLab.Services.Services
             }
         }
 
-        public async Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username = null, string password = null, string name = null)
+        public async Task<bool> SendWelcomeConfirmEmail(string email, string subject, Uri callbackUrl, string username, string password, string name)
         {
             string htmlFile = $"{_pathToFile}WelcomeConfirmEmail.html";
             string htmlContent = string.Empty;

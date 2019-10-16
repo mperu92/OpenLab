@@ -40,7 +40,6 @@ namespace OpenLab.Services.Repositories
                   .AsNoTracking()
                   .ToArrayAsync().ConfigureAwait(false);
 
-
             if (newsModel != null && newsModel.Length >= 0)
                 return newsModel;
             else
@@ -52,7 +51,7 @@ namespace OpenLab.Services.Repositories
             if (news == null)
                 return false;
 
-            INewsModel newsModel = _backofficeFactory.GetNewsModelFromDynamic(news);
+            INewsModel newsModel = _backofficeFactory.GetNewsModelFromDynamic(news, true);
             if (newsModel == null)
                 return false;
 

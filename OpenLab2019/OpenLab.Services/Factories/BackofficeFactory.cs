@@ -1,6 +1,7 @@
 ﻿using OpenLab.DAL.EF.Models;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
 using OpenLab.Infrastructure.PresentationModels;
+using OpenLab.Services.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,13 +12,14 @@ namespace OpenLab.Services.Factories
     {
         INewsModel[] GetNewsModelFromEntities(EFNewsModel[] entities);
         INewsModel GetNewsModelFromEntity(EFNewsModel entity);
-        dynamic[] GetNewsModelFromDynamics(dynamic[] dynamics);
-        dynamic GetNewsModelFromDynamic(dynamic modelDyn);
+        INewsModel[] GetNewsModelFromDynamics(dynamic[] dynamics);
+        INewsModel GetNewsModelFromDynamic(dynamic modelDyn, bool fromCreate = false);
     }
 
     public class BackofficeFactory : IBackofficeFactory
     {
         private readonly IIdentityFactory _identityFactory;
+
         public BackofficeFactory()
         {
             _identityFactory = new IdentityFactory();
@@ -47,13 +49,13 @@ namespace OpenLab.Services.Factories
                 return Array.Empty<INewsModel>();
         }
 
-        public dynamic[] GetNewsModelFromDynamics(dynamic[] dynamics)
+        public INewsModel[] GetNewsModelFromDynamics(dynamic[] dynamics)
         {
-            dynamic[] models = null;
+            INewsModel[] models = null;
 
             if (dynamics != null && dynamics.Length > 0)
             {
-                models = new dynamic[dynamics.Length];
+                models = new NewsModel[dynamics.Length];
 
                 int i = 0;
                 foreach (dynamic dyn in dynamics)
@@ -65,10 +67,10 @@ namespace OpenLab.Services.Factories
                 if (models != null && models.Length > 0)
                     return models;
                 else
-                    return Array.Empty<dynamic>();
+                    return Array.Empty<INewsModel>();
             }
             else
-                return Array.Empty<dynamic>();
+                return Array.Empty<INewsModel>();
         }
 
         public INewsModel GetNewsModelFromEntity(EFNewsModel entity)
@@ -97,13 +99,13 @@ namespace OpenLab.Services.Factories
                 return new NewsModel();
         }
 
-        public dynamic GetNewsModelFromDynamic(dynamic modelDyn)
+        public INewsModel GetNewsModelFromDynamic(dynamic modelDyn, bool fromCreate = false)
         {
-            dynamic dyn = null;
+            INewsModel dyn = null;
 
             if (modelDyn != null)
             {
-                return dyn = new
+                return dyn = new NewsModel
                 {
                     Id = modelDyn.Id,
                     Slug = modelDyn.Slug,
@@ -114,13 +116,13 @@ namespace OpenLab.Services.Factories
                     ImageUrl = modelDyn.ImageUrl,
                     NiceLink = modelDyn.NiceLink,
                     PublishDate = modelDyn.PublishDate,
-                    Title = modelDyn.Title,
+                    Title = !fromCreate ? modelDyn.Title : UrlHelper.GenerateSlug(modelDyn.Title),
                     UpdateDate = modelDyn.UpdateDate,
                     UpdateUser = _identityFactory.GetUserModelFromDynamic(modelDyn.UpdateUser)
                 };
             }
             else
-                return new { };
+                return new NewsModel();
         }
     }
 }

@@ -65,7 +65,7 @@ class NewsPage extends React.Component {
                         <button
                           type="button"
                           style={{ marginBottom: 20 }}
-                          className="btn btn-ptimary add-news"
+                          className="btn btn-outline-info add-news"
                           onClick={() => this.setState({ redirectToAddNewsPage: true })}
                         >
                             ADD NEWS
@@ -92,9 +92,8 @@ NewsPage.propTypes = {
 };
 
 function mapStateToProps(state) {
-    debugger;
     return {
-        newsList: state.news.length > 0 ? state.newsList : [],
+        newsList: state.newsList.length > 0 ? state.newsList : [],
         loading: state.apiCallsInProgress > 0,
     };
 }

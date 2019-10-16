@@ -20,7 +20,6 @@ export function deleteNewsOptimistic(news) {
 }
 
 export function loadNewsList(online) {
-    debugger;
     return (dispatch) => {
         dispatch(beginApiCall());
         axios.post('/api/newsApi/getNewsList', { online })

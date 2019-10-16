@@ -14,24 +14,32 @@ const NewsList = ({ newsList, onDeleteClick }) => (
             </tr>
         </thead>
         <tbody>
-            {newsList.map((n) => (
-                <tr key={n.id}>
+            {newsList.length > 0 ? (
+                newsList.map((n) => (
+                    <tr key={n.id}>
+                        <td>
+                            <Link to={`news ${n.id}`}>{n.title}</Link>
+                            <td>{n.Username}</td>
+                            <td>{n.Date}</td>
+                        </td>
+                        <td>
+                            <button
+                              type="button"
+                              className="btn btn-outline-danger"
+                              onClick={() => onDeleteClick(n)} // optimistic delete
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                ))
+            ) : (
+                <tr>
                     <td>
-                        <Link to={`news ${n.id}`}>{n.title}</Link>
-                        <td>{n.Username}</td>
-                        <td>{n.Date}</td>
-                    </td>
-                    <td>
-                        <button
-                          type="button"
-                          className="btn btn-outline-danger"
-                          onClick={() => onDeleteClick(n)} // optimistic delete
-                        >
-                            Delete
-                        </button>
+                        <h1>There&apos;s no news yet!</h1>
                     </td>
                 </tr>
-            ))}
+            )}
         </tbody>
     </table>
 );

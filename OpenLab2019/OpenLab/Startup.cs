@@ -48,7 +48,7 @@ namespace OpenLab
             });
 
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddControllersWithViews().AddNewtonsoftJson();
+            services.AddControllersWithViews().AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that produce or receive JSON Objects will return error 406
 
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();

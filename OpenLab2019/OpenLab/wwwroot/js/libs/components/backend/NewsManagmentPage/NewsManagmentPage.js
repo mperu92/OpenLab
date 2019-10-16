@@ -2,6 +2,7 @@
 /* eslint-disable no-shadow */
 
 // this is just another way to do things
+// (functional React component && React Hooks)
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -12,6 +13,7 @@ import NewsForm from './NewsForm';
 import Spinna from '../../common/Spinna';
 
 const newNews = {
+    Id: 0,
     Slug: '',
     Title: '',
     Abstract: '',
@@ -35,9 +37,19 @@ export function NewsManagmentPage({
 
     useEffect(() => {
         if (newsList.length === 0) {
-            loadNewsList().catch((error) => {
-                toast.error(`Loading news failed ${error}`);
-            });
+            try {
+                loadNewsList(false);
+            } catch (error) {
+                if (error) {
+                    toast.error(error);
+                } else {
+                    toast.error('error loading news');
+                }
+            }
+
+            // loadNewsList().catch((error) => {
+            //     toast.error(`Loading news failed ${error}`);
+            // });
         } else {
             setNews({ ...props.news });
         }
@@ -57,10 +69,11 @@ export function NewsManagmentPage({
         return Object.keys(errors).length === 0;
     }
 
-    function handleChange() { // (event)
-        // const { name, value } = event.target;
+    function handleChange(event) {
+        const { name, value } = event.target;
         setNews((prevNews) => ({
             ...prevNews,
+            [name]: value,
         }));
     }
 
@@ -95,12 +108,22 @@ export function NewsManagmentPage({
 
 NewsManagmentPage.propTypes = {
     news: PropTypes.shape({
-
+        Id: PropTypes.number,
+        Slug: PropTypes.string,
+        Title: PropTypes.string,
+        Abstract: PropTypes.string,
+        BodyHtml: PropTypes.string,
+        BodyText: PropTypes.string,
+        ImageUrl: PropTypes.string,
+        NiceLink: PropTypes.string,
+        PublishDate: PropTypes.func,
     }).isRequired,
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     loadNewsList: PropTypes.func.isRequired,
     saveNews: PropTypes.func.isRequired,
-    history: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    history: PropTypes.object.isRequired,
+    // history: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 // redux selector
