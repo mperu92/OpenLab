@@ -42,7 +42,7 @@ class NewsPage extends React.Component {
 
     handleDeleteNews = async (news) => {
         const { actions } = this.props;
-        toast.succcess('News deleted');
+        toast.success('News deleted');
         // async await instead of promise
         try {
             await actions.deleteNews(news);

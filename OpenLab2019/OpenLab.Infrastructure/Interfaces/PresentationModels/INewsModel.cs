@@ -19,7 +19,9 @@ namespace OpenLab.Infrastructure.Interfaces.PresentationModels
         DateTime PublishDate { get; set; }
         DateTime? UpdateDate { get; set; }
 
-        IUserModel CreateUser { get; set; }
-        IUserModel UpdateUser { get; set; }
+        int CreateUserId { get; set; }
+        string CreateUserName { get; set; }
+        int? UpdateUserId { get; set; }
+        string UpdateUserName { get; set; }
     }
 }

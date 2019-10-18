@@ -21,7 +21,12 @@ namespace OpenLab.Infrastructure.PresentationModels
         public DateTime PublishDate { get; set; }
         public DateTime? UpdateDate { get; set; } = null;
 
-        public IUserModel CreateUser { get; set; }
-        public IUserModel UpdateUser { get; set; }
+        public int CreateUserId { get; set; }
+        public string CreateUserName { get; set; }
+        public int? UpdateUserId { get; set; }
+        public string UpdateUserName { get; set; }
+
+        //public IUserModel CreateUser { get; set; }
+        //public IUserModel UpdateUser { get; set; }
     }
 }

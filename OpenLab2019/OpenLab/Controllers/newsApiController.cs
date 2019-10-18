@@ -9,6 +9,7 @@ using OpenLab.Controllers.Base;
 using OpenLab.Services.Services;
 using Newtonsoft.Json;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
+using System.Security.Claims;
 
 namespace OpenLab.Controllers
 {
@@ -16,7 +17,7 @@ namespace OpenLab.Controllers
     [ApiController]
     public class newsApiController : BaseApiController
     {
-        public newsApiController(ILogger<newsApiController> logger, IHttpContextAccessor httpContextAccessor, IBackofficeService backendService, IEmailService emailSender) : base(logger, httpContextAccessor, null, backendService, emailSender) { }
+        public newsApiController(ILogger<newsApiController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IBackofficeService backendService, IEmailService emailSender) : base(logger, httpContextAccessor, identityService, backendService, emailSender) { }
 
         [HttpPost("getNewsList")]
         [Produces("application/json")]
@@ -45,8 +46,14 @@ namespace OpenLab.Controllers
             if (news == null || (news != null && news.news == null))
                 return BadRequest($"Error editing news");
 
+            // string userId = IHttpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            IUserModel user = null;
+            if (news.CreateUser == null)
+                user = await IdentityService.GetUserAsync(IHttpContextAccessor.HttpContext.User).ConfigureAwait(false);
+            
             dynamic _news = news.news;
-            bool saved = await BackendService.CreateUpdateNews(_news);
+            bool saved = await BackendService.CreateUpdateNews(_news, user);
             if (saved)
                 return Ok(new { news });
             else

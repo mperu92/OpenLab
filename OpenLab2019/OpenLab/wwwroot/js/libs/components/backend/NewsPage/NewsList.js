@@ -18,10 +18,10 @@ const NewsList = ({ newsList, onDeleteClick }) => (
                 newsList.map((n) => (
                     <tr key={n.id}>
                         <td>
-                            <Link to={`news ${n.id}`}>{n.title}</Link>
-                            <td>{n.Username}</td>
-                            <td>{n.Date}</td>
+                            <Link to={`news/${n.slug}`}>{n.title}</Link>
                         </td>
+                        <td>{n.createUserName}</td>
+                        <td>{n.publishDate}</td>
                         <td>
                             <button
                               type="button"

@@ -9,8 +9,8 @@ namespace OpenLab.Infrastructure.Interfaces.Repositories
     public interface IBackofficeRepository
     {
         Task<INewsModel[]> GetNewsAsync(bool online = false);
-        Task<bool> CreateNewsFromDynamicAsync(dynamic news);
-        Task<bool> UpdateNewsFromDynamicAsync(dynamic news);
+        Task<bool> CreateNewsFromDynamicAsync(dynamic news, IUserModel user = null);
+        Task<bool> UpdateNewsFromDynamicAsync(dynamic news, IUserModel user = null);
         Task<bool> DeleteNewsAsync(dynamic news);
     }
 }

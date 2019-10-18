@@ -31,7 +31,7 @@ namespace OpenLab.Controllers.Base
         }
 
         public ILogger Logger { get => _logger; }
-        public IHttpContextAccessor HttpContextAccessor { get => _httpContextAccessor; }
+        public IHttpContextAccessor IHttpContextAccessor { get => _httpContextAccessor; }
 
         public IEmailService EmailService { get => _emailSender; }
         public IIdentityService IdentityService { get => _identityService; }

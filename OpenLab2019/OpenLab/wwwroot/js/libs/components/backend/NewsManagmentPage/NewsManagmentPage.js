@@ -78,7 +78,6 @@ export function NewsManagmentPage({
     }
 
     function handleSave(event) {
-        debugger;
         event.preventDefault();
         if (!formIsValid()) return;
         setSaving(true);
@@ -117,6 +116,7 @@ NewsManagmentPage.propTypes = {
         ImageUrl: PropTypes.string,
         NiceLink: PropTypes.string,
         PublishDate: PropTypes.func,
+        CreateUserName: PropTypes.string,
     }).isRequired,
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     loadNewsList: PropTypes.func.isRequired,

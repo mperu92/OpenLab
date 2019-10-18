@@ -11,9 +11,9 @@ export default function newsReducer(state = initialState.newsList, action) {
       // Use the spread operator to clone the state so to create a new obj
       return [...state, { ...action.news }];
     case types.UPDATE_NEWS_SUCCESS:
-      return state.map((news) => (news.Id === action.news.Id ? action.news : news));
+      return state.map((news) => (news.id === action.news.id ? action.news : news));
     case types.DELETE_NEWS_OPTIMISTIC:
-      return state.filter((news) => news.id !== action.news.Id);
+      return state.filter((news) => news.id !== action.news.id);
     default:
       // If the reducer receives an action that it doesn't care about
       // it should return the unchanged state

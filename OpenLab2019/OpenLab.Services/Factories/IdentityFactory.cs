@@ -11,7 +11,7 @@ namespace OpenLab.Services.Factories
         IUserModel[] GetUserModelArrayFromEntity(IdentityUserModel[] entities);
         IUserModel GetUserModelFromEntity(IdentityUserModel entity);
         IUserModel GetUserModelFromDynamic(dynamic userDyn);
-
+        IdentityUserModel GetUserEntityFromModel(IUserModel userModel);
     }
 
     public class IdentityFactory : IIdentityFactory
@@ -58,6 +58,20 @@ namespace OpenLab.Services.Factories
                 UserName = userDyn.UserName,
                 Email = userDyn.Email,
                 CustomTag = userDyn.customTag,
+            };
+        }
+
+        public IdentityUserModel GetUserEntityFromModel(IUserModel userModel)
+        {
+            if (userModel == null)
+                return new IdentityUserModel();
+
+            return new IdentityUserModel
+            {
+                Id = userModel.Id,
+                UserName = userModel.UserName,
+                Email = userModel.Email,
+                customTag = userModel.CustomTag,
             };
         }
     }

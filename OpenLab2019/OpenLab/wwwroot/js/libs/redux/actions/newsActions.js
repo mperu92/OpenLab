@@ -41,7 +41,6 @@ export function loadNewsList(online) {
 
 // thunk
 export function saveNews(news) {
-    debugger;
     return (dispatch) => { // , getState
         dispatch(beginApiCall());
         return axios.post('/api/newsApi/createUpdateNews', { news })
@@ -67,12 +66,11 @@ export function saveNews(news) {
 
 // thunk
 export function deleteNews(news) {
-    debugger;
     return (dispatch) => {
         // Doin' optimisic delete, so not dispatching begin/end api call
         // actions, or apiCallError action since we're not showing the loading status for this.
         dispatch(deleteNewsOptimistic(news));
-        return axios.post('/api/newsApi/deleteNews')
+        return axios.post('/api/newsApi/deleteNews', { news })
         .then(({ data: { deleted } }) => {
             if (!deleted || deleted === undefined || deleted === null) {
                 const error = Error.apply('error while deleting news.');

@@ -58,7 +58,7 @@ NewsForm.propTypes = {
     BodyHtml: PropTypes.string,
   }).isRequired,
   errors: PropTypes.shape({
-    onSave: PropTypes.func,
+    onSave: PropTypes.string,
     Title: PropTypes.string,
     Abstract: PropTypes.string,
     BodyHtml: PropTypes.string,

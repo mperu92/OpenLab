@@ -13,7 +13,8 @@ namespace OpenLab.Services.Factories
         INewsModel[] GetNewsModelFromEntities(EFNewsModel[] entities);
         INewsModel GetNewsModelFromEntity(EFNewsModel entity);
         INewsModel[] GetNewsModelFromDynamics(dynamic[] dynamics);
-        INewsModel GetNewsModelFromDynamic(dynamic modelDyn, bool fromCreate = false);
+        INewsModel GetNewsModelFromDynamic(dynamic modelDyn, IUserModel user = null, bool fromCreate = false);
+        EFNewsModel GetNewsEntityFromModel(INewsModel model);
     }
 
     public class BackofficeFactory : IBackofficeFactory
@@ -75,6 +76,9 @@ namespace OpenLab.Services.Factories
 
         public INewsModel GetNewsModelFromEntity(EFNewsModel entity)
         {
+            if (entity == null)
+                return null;
+
             INewsModel model = null;
 
             if (entity != null)
@@ -86,43 +90,94 @@ namespace OpenLab.Services.Factories
                     Abstract = entity.Abstract,
                     BodyHtml = entity.BodyHtml,
                     BodyText = entity.BodyText,
-                    CreateUser = _identityFactory.GetUserModelFromEntity(entity.CreateUser),
+                    CreateUserId = entity.CreateUser.Id,
+                    CreateUserName = entity.CreateUser.UserName,
                     ImageUrl = entity.ImageUrl,
                     NiceLink = entity.NiceLink,
                     PublishDate = entity.PublishDate,
                     Title = entity.Title,
                     UpdateDate = entity.UpdateDate,
-                    UpdateUser = _identityFactory.GetUserModelFromEntity(entity.UpdateUser)
+                    UpdateUserId = entity.UpdateUser?.Id,
+                    UpdateUserName = entity.UpdateUser?.UserName,
                 };
             }
             else
                 return new NewsModel();
         }
 
-        public INewsModel GetNewsModelFromDynamic(dynamic modelDyn, bool fromCreate = false)
+        public INewsModel GetNewsModelFromDynamic(dynamic modelDyn, IUserModel user = null, bool fromCreate = false)
         {
-            INewsModel dyn = null;
+            INewsModel newsModel = null;
+            IUserModel userModel  = null;
+
+            if (user == null)
+                throw new ArgumentNullException($"{user} is null");
+
+            if (modelDyn.CreateUser != null)
+                userModel = _identityFactory.GetUserModelFromDynamic(modelDyn.CreateUser);
+            else if (user != null)
+                userModel = user;
+            else
+                userModel = new UserModel();
+
+            bool updateUserExists = !fromCreate && modelDyn.UpdateUser != null;
 
             if (modelDyn != null)
             {
-                return dyn = new NewsModel
+                return newsModel = new NewsModel
                 {
                     Id = modelDyn.Id,
-                    Slug = modelDyn.Slug,
-                    Abstract = modelDyn.Abstract,
-                    BodyHtml = modelDyn.BodyHtml,
-                    BodyText = modelDyn.BodyText,
-                    CreateUser = _identityFactory.GetUserModelFromDynamic(modelDyn.CreateUser),
-                    ImageUrl = modelDyn.ImageUrl,
-                    NiceLink = modelDyn.NiceLink,
-                    PublishDate = modelDyn.PublishDate,
-                    Title = !fromCreate ? modelDyn.Title : UrlHelper.GenerateSlug(modelDyn.Title),
-                    UpdateDate = modelDyn.UpdateDate,
-                    UpdateUser = _identityFactory.GetUserModelFromDynamic(modelDyn.UpdateUser)
+                    Slug = !fromCreate ? modelDyn.Slug : UrlHelper.GenerateSlug(modelDyn.Title.ToString()),
+                    Abstract = modelDyn.Abstract ?? string.Empty,
+                    BodyHtml = modelDyn.BodyHtml ?? string.Empty,
+                    BodyText = modelDyn.BodyText ?? string.Empty,
+                    CreateUserId = userModel.Id,
+                    CreateUserName = userModel.UserName,
+                    ImageUrl = modelDyn.ImageUrl ?? new Uri(string.Empty),
+                    NiceLink = modelDyn.NiceLink ?? string.Empty,
+                    PublishDate = modelDyn.PublishDate ?? DateTime.Now,
+                    Title = modelDyn.Title ?? string.Empty,
+                    UpdateDate = modelDyn.UpdateDate ?? null,
+                    UpdateUserId = !updateUserExists ? (fromCreate ? null : (int?)userModel.Id) : modelDyn.UpdateUser.Id,
+                    UpdateUserName = !updateUserExists ? (fromCreate ? null : userModel.UserName) : modelDyn.UpdateUser.UserName
                 };
             }
             else
                 return new NewsModel();
+        }
+
+        public EFNewsModel GetNewsEntityFromModel(INewsModel model)
+        {
+            EFNewsModel newsModel = null;
+            int? updateUserId = null;
+
+            if (model == null)
+                throw new ArgumentException($"{model} is null");
+
+            if (model.UpdateUserId.HasValue && model.UpdateUserId.Value > 0)
+                updateUserId = model.UpdateUserId.Value;
+
+            if (model != null)
+            {
+                return newsModel = new EFNewsModel
+                {
+                    Id = model.Id,
+                    Slug = model.Slug,
+                    Abstract = model.Abstract,
+                    BodyHtml = model.BodyHtml,
+                    BodyText = model.BodyText,
+                    FKCreateUser = model.CreateUserId,
+                    ImageUrl = model.ImageUrl,
+                    NiceLink = model.NiceLink,
+                    PublishDate = model.PublishDate,
+                    Title = model.Title,
+                    UpdateDate = model.UpdateDate ?? null,
+                    FKUpdateUser = updateUserId,
+                    Online = true,
+                };
+            }
+            else
+                return new EFNewsModel();
         }
     }
 }
