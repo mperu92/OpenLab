@@ -15,9 +15,9 @@ const DashboardContainer = ({ User, IsLogged, IsAdminRole }) => (
         <div className="container d-container">
             <Switch>
                 <Route exact path="/Backoffice/Dashboard/Index" component={HomePage} />
-                <Route path="/News/list" component={NewsPage} />
-                <Route path="/News/:slug" component={NewsManagmentPage} />
-                <Route path="/News" component={NewsManagmentPage} />
+                <Route path="/Backoffice/Dashboard/News/list" component={NewsPage} />
+                <Route path="/Backoffice/Dashboard/News/:slug" component={NewsManagmentPage} />
+                <Route path="/Backoffice/Dashboard/News" component={NewsManagmentPage} />
                 <Route component={PageNotFound} />
             </Switch>
             <ToastContainer autoClose={3000} hideProgressBar />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OpenLab.DAL.EF.Contexts;
 using OpenLab.DAL.EF.Models;
+using OpenLab.DAL.EF.Models.Identity;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
 using OpenLab.Infrastructure.Interfaces.Repositories;
 using OpenLab.Infrastructure.PresentationModels;
@@ -49,22 +50,50 @@ namespace OpenLab.Services.Repositories
                 return null;
         }
 
-        public async Task<bool> CreateNewsFromDynamicAsync(dynamic news, IUserModel user = null)
+        public async Task<Tuple<bool, dynamic>> CreateNewsFromDynamicAsync(dynamic news, IUserModel user)
         {
             if (news == null)
-                return false;
+                return Tuple.Create<bool, dynamic>(false, null);
+            if (user == null)
+                return Tuple.Create<bool, dynamic>(false, null);
 
             INewsModel newsModel = _backofficeFactory.GetNewsModelFromDynamic(news, user, true);
             if (newsModel == null)
-                return false;
+                return Tuple.Create<bool, dynamic>(false, null);
+
             try
             {
-                await _context.News.AddAsync(_backofficeFactory.GetNewsEntityFromModel(newsModel));
+                EFNewsModel entityNews = _backofficeFactory.GetNewsEntityFromModel(newsModel);
+                if (entityNews == null)
+                    return Tuple.Create<bool, dynamic>(false, null);
+
+                await _context.News.AddAsync(entityNews);
                 int response = await _context.SaveChangesAsync().ConfigureAwait(false);
                 if (response == 1)
-                    return true;
+                {
+                    string createUserName = entityNews.CreateUser.UserName ?? string.Empty;
+                    int createUserId = entityNews.CreateUser != null && entityNews.CreateUser.Id > 0 ? entityNews.CreateUser.Id : 0;
+
+                    dynamic respNews = new
+                    {
+                        id = entityNews.Id,
+                        @abstract = entityNews.Abstract,
+                        bodyHtml = entityNews.BodyHtml,
+                        bodyText = entityNews.BodyText,
+                        imageUrl = entityNews.ImageUrl,
+                        niceLink = entityNews.NiceLink,
+                        publishDate = entityNews.PublishDate,
+                        slug = entityNews.Slug,
+                        title = entityNews.Title,
+                        updateDate = entityNews.UpdateDate,
+                        createUserName,
+                        createUserId,
+                    };
+
+                    return Tuple.Create<bool, dynamic>(true, respNews);
+                }
                 else
-                    return false;
+                    return Tuple.Create<bool, dynamic>(false, null); ;
             }
             catch (Exception ex)
             {
@@ -73,21 +102,38 @@ namespace OpenLab.Services.Repositories
             }
         }
 
-        public async Task<bool> UpdateNewsFromDynamicAsync(dynamic news, IUserModel user = null)
+        public async Task<Tuple<bool, dynamic>> UpdateNewsFromDynamicAsync(dynamic news, IUserModel user)
         {
-            if (news == null)
-                return false;
+            if (news == null && news.id == null)
+                return Tuple.Create<bool, dynamic>(false, null);
+            if (user == null)
+                return Tuple.Create<bool, dynamic>(false, null);
 
-            INewsModel newsModel = _backofficeFactory.GetNewsModelFromDynamic(news, user);
+            int uId = news.id.ToObject<int>();
+            EFNewsModel newsModel = await _context.News.Where(x => x.Id == uId).FirstOrDefaultAsync().ConfigureAwait(false);
             if (newsModel == null)
-                return false;
+                return Tuple.Create<bool, dynamic>(false, null);
 
-            _context.News.Update((EFNewsModel)newsModel);
+            newsModel.FKUpdateUser = user.Id;
+            newsModel.Abstract = news.@abstract;
+            newsModel.BodyHtml = news.bodyHtml;
+            newsModel.BodyText = news.bodyText;
+            newsModel.ImageUrl = news.imageUrl;
+            newsModel.NiceLink = news.niceLink;
+            newsModel.Online = true;
+            newsModel.Slug = news.slug;
+            newsModel.Title = news.title;
+            newsModel.UpdateDate = DateTime.Now;
+
+            _context.News.Update(newsModel);
             int response = await _context.SaveChangesAsync().ConfigureAwait(false);
-            if (response == 0)
-                return true;
+            if (response == 1)
+            {
+                // string updateUserName = user.UserName;
+                return Tuple.Create<bool, dynamic>(true, news);
+            }
             else
-                return false;
+                return Tuple.Create<bool, dynamic>(false, null);
         }
 
         public async Task<bool> DeleteNewsAsync(dynamic news)
@@ -95,13 +141,16 @@ namespace OpenLab.Services.Repositories
             if (news == null)
                 return false;
 
-            INewsModel newsModel = _backofficeFactory.GetNewsModelFromDynamic(news);
-            if (newsModel == null)
+            int nId = news.id.ToObject<int>();
+            if (nId <= 0) return false;
+
+            EFNewsModel entityNews = await _context.News.Where(x => x.Id == nId).FirstOrDefaultAsync().ConfigureAwait(false);
+            if (entityNews == null)
                 return false;
 
-            _context.News.Remove((EFNewsModel)newsModel);
+            _context.News.Remove(entityNews);
             int response = await _context.SaveChangesAsync().ConfigureAwait(false);
-            if (response == 0)
+            if (response == 1)
                 return true;
             else
                 return false;

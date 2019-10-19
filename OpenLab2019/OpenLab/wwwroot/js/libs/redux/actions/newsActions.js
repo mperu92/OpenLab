@@ -44,12 +44,12 @@ export function saveNews(news) {
     return (dispatch) => { // , getState
         dispatch(beginApiCall());
         return axios.post('/api/newsApi/createUpdateNews', { news })
-        .then(({ data: { _news } }) => {
-            if (_news && _news !== undefined && _news !== null) {
-                if (news.Id) {
-                    dispatch(updateNewsSuccess(_news));
+        .then(({ data: { respNews } }) => {
+            if (respNews && respNews !== undefined && respNews !== null) {
+                if (news.id) {
+                    dispatch(updateNewsSuccess(respNews));
                 } else {
-                    dispatch(createNewsSuccess(_news));
+                    dispatch(createNewsSuccess(respNews));
                 }
             } else {
                 const error = Error.apply('error while creating - updating news.');

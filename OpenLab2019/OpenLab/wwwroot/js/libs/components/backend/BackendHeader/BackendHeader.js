@@ -32,11 +32,11 @@ const BackendHeader = ({ User, IsLogged, IsAdminRole }) => (
                             </NavLink>
                         </li>
                         {IsAdminRole && (
-                            <NavLink className="nav-link text-dark" to="/Users/List" activeStyle={activeStyle}>
+                            <NavLink className="nav-link text-dark" to="/Backoffice/Dashboard/Users/List" activeStyle={activeStyle}>
                                 MANAGE USERS
                             </NavLink>
                         )}
-                            <NavLink className="nav-link text-dark" to="/News/List" activeStyle={activeStyle}>
+                            <NavLink className="nav-link text-dark" to="/Backoffice/Dashboard/News/List" activeStyle={activeStyle}>
                                 MANAGE NEWS
                             </NavLink>
                     </ul>

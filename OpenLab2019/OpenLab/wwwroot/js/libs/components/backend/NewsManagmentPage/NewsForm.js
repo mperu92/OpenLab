@@ -12,8 +12,8 @@ const NewsForm = ({
 }) => (
     <form onSubmit={onSave}>
       <h2>
-        {news.Id ? 'Edit' : 'Add'}
-        news
+        {news.id ? 'EDIT ' : 'ADD '}
+        NEWS
       </h2>
       {errors.onSave && (
         <div className="alert alert-danger" role="alert">
@@ -21,25 +21,25 @@ const NewsForm = ({
         </div>
       )}
       <TextInput
-        name="Title"
+        name="title"
         label="Title"
-        value={news.Title}
+        value={news.title}
         onChange={onChange}
         error={errors.Title}
       />
 
       <TextInput
-        name="Abstract"
+        name="abstract"
         label="Abstract"
-        value={news.Abstract}
+        value={news.abstract}
         onChange={onChange}
         error={errors.Abstract}
       />
 
       <TextInput
-        name="BodyHtml"
+        name="bodyHtml"
         label="BodyHtml"
-        value={news.BodyHtml}
+        value={news.bodyHtml}
         onChange={onChange}
         error={errors.BodyHtml}
       />
@@ -52,10 +52,20 @@ const NewsForm = ({
 
 NewsForm.propTypes = {
   news: PropTypes.shape({
-    Id: PropTypes.number,
-    Title: PropTypes.string,
-    Abstract: PropTypes.string,
-    BodyHtml: PropTypes.string,
+    id: PropTypes.number,
+    slug: PropTypes.string,
+    title: PropTypes.string,
+    abstract: PropTypes.string,
+    bodyHtml: PropTypes.string,
+    bodyText: PropTypes.string,
+    imageUrl: PropTypes.string,
+    niceLink: PropTypes.string,
+    // eslint-disable-next-line react/forbid-prop-types
+    publishDate: PropTypes.any,
+    createUserName: PropTypes.string,
+    createUserId: PropTypes.number,
+    updateUserName: PropTypes.string,
+    updateUserId: PropTypes.number,
   }).isRequired,
   errors: PropTypes.shape({
     onSave: PropTypes.string,

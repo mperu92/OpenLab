@@ -56,7 +56,7 @@ class NewsPage extends React.Component {
         const { loading, newsList } = this.props;
         return (
             <div className="jumbotron">
-                {redirectToAddNewsPage && <Redirect to="/news" />}
+                {redirectToAddNewsPage && <Redirect to="/Backoffice/Dashboard/News" />}
                 <h1>News</h1>
                 {loading ? (
                     <Spinna />

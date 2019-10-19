@@ -13,7 +13,7 @@ namespace OpenLab.Services.Services
     public interface IBackofficeService
     {
         Task<INewsModel[]> GetNewsAsync(bool online = false);
-        Task<bool> CreateUpdateNews(dynamic news, IUserModel user = null);
+        Task<Tuple<bool, dynamic>> CreateUpdateNews(dynamic news, IUserModel user = null);
         Task<bool> DeleteNews(dynamic news);
     }
 
@@ -33,12 +33,12 @@ namespace OpenLab.Services.Services
             return await _backofficeRepository.GetNewsAsync(online).ConfigureAwait(false);
         }
 
-        public async Task<bool> CreateUpdateNews(dynamic news, IUserModel user = null)
+        public async Task<Tuple<bool, dynamic>> CreateUpdateNews(dynamic news, IUserModel user)
         {
             if (news == null)
-                return false;
+                return Tuple.Create<bool, dynamic>(false, null);
 
-            if (news.Id <= 0)
+            if (news.id <= 0)
                 return await _backofficeRepository.CreateNewsFromDynamicAsync(news, user);
             else
                 return await _backofficeRepository.UpdateNewsFromDynamicAsync(news, user);

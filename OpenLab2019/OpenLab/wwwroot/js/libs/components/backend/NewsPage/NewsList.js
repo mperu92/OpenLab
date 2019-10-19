@@ -18,7 +18,7 @@ const NewsList = ({ newsList, onDeleteClick }) => (
                 newsList.map((n) => (
                     <tr key={n.id}>
                         <td>
-                            <Link to={`news/${n.slug}`}>{n.title}</Link>
+                            <Link to={`/Backoffice/Dashboard/News/${n.slug}`}>{n.title}</Link>
                         </td>
                         <td>{n.createUserName}</td>
                         <td>{n.publishDate}</td>

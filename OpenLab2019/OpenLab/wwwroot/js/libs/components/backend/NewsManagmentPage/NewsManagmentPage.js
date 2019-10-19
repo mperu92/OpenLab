@@ -13,15 +13,15 @@ import NewsForm from './NewsForm';
 import Spinna from '../../common/Spinna';
 
 const newNews = {
-    Id: 0,
-    Slug: '',
-    Title: '',
-    Abstract: '',
-    BodyHtml: '',
-    BodyText: '',
-    ImageUrl: '',
-    NiceLink: '',
-    PublishDate: Date.now,
+    id: 0,
+    slug: '',
+    title: '',
+    abstract: '',
+    bodyHtml: '',
+    bodyText: '',
+    imageUrl: '',
+    niceLink: '',
+    publishDate: Date.now,
 };
 
 export function NewsManagmentPage({
@@ -56,12 +56,12 @@ export function NewsManagmentPage({
     }, [props.news]);
 
     function formIsValid() {
-        const { Title, Abstract, BodyHtml } = news;
+        const { title, abstract, bodyHtml } = news;
         const errors = {};
 
-        if (!Title) errors.Title = 'Title is required';
-        if (!Abstract) errors.Abstract = 'Abstract is required';
-        if (!BodyHtml) errors.BodyHtml = 'Body is required';
+        if (!title) errors.Title = 'Title is required';
+        if (!abstract) errors.Abstract = 'Abstract is required';
+        if (!bodyHtml) errors.BodyHtml = 'Body is required';
 
         setErrors(errors);
 
@@ -84,7 +84,7 @@ export function NewsManagmentPage({
         saveNews(news)
         .then(() => {
             toast.success('News saved');
-            history.push('/news/list');
+            history.push('/Backoffice/Dashboard/News/list');
         })
         .catch((error) => {
             setSaving(false);
@@ -107,16 +107,20 @@ export function NewsManagmentPage({
 
 NewsManagmentPage.propTypes = {
     news: PropTypes.shape({
-        Id: PropTypes.number,
-        Slug: PropTypes.string,
-        Title: PropTypes.string,
-        Abstract: PropTypes.string,
-        BodyHtml: PropTypes.string,
-        BodyText: PropTypes.string,
-        ImageUrl: PropTypes.string,
-        NiceLink: PropTypes.string,
-        PublishDate: PropTypes.func,
-        CreateUserName: PropTypes.string,
+        id: PropTypes.number,
+        slug: PropTypes.string,
+        title: PropTypes.string,
+        abstract: PropTypes.string,
+        bodyHtml: PropTypes.string,
+        bodyText: PropTypes.string,
+        imageUrl: PropTypes.string,
+        niceLink: PropTypes.string,
+        // eslint-disable-next-line react/forbid-prop-types
+        publishDate: PropTypes.any,
+        createUserName: PropTypes.string,
+        createUserId: PropTypes.number,
+        updateUserName: PropTypes.string,
+        updateUserId: PropTypes.number,
     }).isRequired,
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     loadNewsList: PropTypes.func.isRequired,
@@ -128,12 +132,12 @@ NewsManagmentPage.propTypes = {
 
 // redux selector
 export function getNewsBySlug(newsList, slug) {
-    return newsList.find((n) => n.Slug === slug) || null;
+    return newsList.find((n) => n.slug === slug) || null;
 }
 
 function mapStateToProps(state, ownProps) {
-    const { match: { params: { Slug } } } = ownProps; // .match.params.slug;
-    const news = Slug && state.newsList.length > 0 ? getNewsBySlug(state.newsList, Slug) : newNews;
+    const { match: { params: { slug } } } = ownProps; // .match.params.slug;
+    const news = slug && state.newsList.length > 0 ? getNewsBySlug(state.newsList, slug) : newNews;
     return {
         news,
         newsList: state.newsList,

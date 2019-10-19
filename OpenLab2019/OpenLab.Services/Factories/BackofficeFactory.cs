@@ -104,7 +104,13 @@ namespace OpenLab.Services.Factories
             else
                 return new NewsModel();
         }
-
+        /// <summary>
+        /// TO FIX!!!!!
+        /// </summary>
+        /// <param name="modelDyn"></param>
+        /// <param name="user"></param>
+        /// <param name="fromCreate"></param>
+        /// <returns></returns>
         public INewsModel GetNewsModelFromDynamic(dynamic modelDyn, IUserModel user = null, bool fromCreate = false)
         {
             INewsModel newsModel = null;
@@ -120,26 +126,26 @@ namespace OpenLab.Services.Factories
             else
                 userModel = new UserModel();
 
-            bool updateUserExists = !fromCreate && modelDyn.UpdateUser != null;
+            bool updateUserExists = !fromCreate && modelDyn.updateUserName != null;
 
             if (modelDyn != null)
             {
                 return newsModel = new NewsModel
                 {
-                    Id = modelDyn.Id,
-                    Slug = !fromCreate ? modelDyn.Slug : UrlHelper.GenerateSlug(modelDyn.Title.ToString()),
-                    Abstract = modelDyn.Abstract ?? string.Empty,
-                    BodyHtml = modelDyn.BodyHtml ?? string.Empty,
-                    BodyText = modelDyn.BodyText ?? string.Empty,
+                    Id = modelDyn.id,
+                    Slug = !fromCreate ? modelDyn.slug : UrlHelper.GenerateSlug(modelDyn.title.ToString()),
+                    Abstract = modelDyn.@abstract ?? string.Empty,
+                    BodyHtml = modelDyn.bodyHtml ?? string.Empty,
+                    BodyText = modelDyn.bodyText ?? string.Empty,
                     CreateUserId = userModel.Id,
                     CreateUserName = userModel.UserName,
-                    ImageUrl = modelDyn.ImageUrl ?? new Uri(string.Empty),
-                    NiceLink = modelDyn.NiceLink ?? string.Empty,
-                    PublishDate = modelDyn.PublishDate ?? DateTime.Now,
-                    Title = modelDyn.Title ?? string.Empty,
-                    UpdateDate = modelDyn.UpdateDate ?? null,
-                    UpdateUserId = !updateUserExists ? (fromCreate ? null : (int?)userModel.Id) : modelDyn.UpdateUser.Id,
-                    UpdateUserName = !updateUserExists ? (fromCreate ? null : userModel.UserName) : modelDyn.UpdateUser.UserName
+                    ImageUrl = modelDyn.imageUrl ?? new Uri(string.Empty),
+                    NiceLink = modelDyn.niceLink ?? string.Empty,
+                    PublishDate = modelDyn.publishDate ?? DateTime.Now,
+                    Title = modelDyn.title ?? string.Empty,
+                    UpdateDate = modelDyn.updateDate ?? null,
+                    UpdateUserId = !updateUserExists ? (fromCreate ? null : (int?)userModel.Id) : modelDyn.updateUserId,
+                    UpdateUserName = !updateUserExists ? (fromCreate ? null : userModel.UserName) : modelDyn.updateUserName
                 };
             }
             else
