@@ -7,3 +7,8 @@
     flex-direction: row;
     align-items: center;
 }
+
+.ql-container {
+    height: inherit !important;
+    min-height: 150px !important;
+}

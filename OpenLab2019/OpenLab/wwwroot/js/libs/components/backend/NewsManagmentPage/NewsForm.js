@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../common/TextInput';
+import TextArea from '../../common/TextArea';
 // import SelectInput from '../../common/SelectInput';
 
 const NewsForm = ({
   news,
   onSave,
   onChange,
+  onChangeEditor,
   saving = false,
   errors = {},
 }) => (
@@ -36,11 +38,11 @@ const NewsForm = ({
         error={errors.Abstract}
       />
 
-      <TextInput
+      <TextArea
         name="bodyHtml"
         label="BodyHtml"
         value={news.bodyHtml}
-        onChange={onChange}
+        onChange={onChangeEditor}
         error={errors.BodyHtml}
       />
 
@@ -75,6 +77,7 @@ NewsForm.propTypes = {
   }),
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  onChangeEditor: PropTypes.func.isRequired,
   saving: PropTypes.bool,
 };
 

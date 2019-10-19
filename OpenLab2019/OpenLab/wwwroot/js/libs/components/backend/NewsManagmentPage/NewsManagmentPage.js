@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
+import { message } from 'antd';
+import sanitizeHtml from 'sanitize-html';
 
 import { loadNewsList, saveNews } from '../../../redux/actions/newsActions';
 import NewsForm from './NewsForm';
@@ -46,10 +48,6 @@ export function NewsManagmentPage({
                     toast.error('error loading news');
                 }
             }
-
-            // loadNewsList().catch((error) => {
-            //     toast.error(`Loading news failed ${error}`);
-            // });
         } else {
             setNews({ ...props.news });
         }
@@ -77,6 +75,28 @@ export function NewsManagmentPage({
         }));
     }
 
+    function handleChangeEditor(content, name) {
+        const bodyText = sanitizeHtml(content, { allowedTags: [], allowedAttributes: {} });
+        setNews((prevNews) => ({
+            ...prevNews,
+            bodyText,
+            [name]: content,
+        }));
+    }
+
+    // to do
+    // function handleChangeUploader(info) {
+    //     debugger;
+    //     if (info.file.status !== 'uploading') {
+    //       console.log(info.file, info.fileList);
+    //     }
+    //     if (info.file.status === 'done') {
+    //       message.success(`${info.file.name} file uploaded successfully`);
+    //     } else if (info.file.status === 'error') {
+    //       message.error(`${info.file.name} file upload failed.`);
+    //     }
+    // }
+
     function handleSave(event) {
         event.preventDefault();
         if (!formIsValid()) return;
@@ -99,6 +119,7 @@ export function NewsManagmentPage({
           news={news}
           errors={errors}
           onChange={handleChange}
+          onChangeEditor={handleChangeEditor}
           onSave={handleSave}
           saving={saving}
         />

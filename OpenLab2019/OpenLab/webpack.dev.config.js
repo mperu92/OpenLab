@@ -30,6 +30,7 @@ const config = {
 		},
 	},
 	module: {
+		noParse: /node_modules\/quill\/dist/,
 		rules: [
 				{
 					test: /\.(js|jsx)$/,
