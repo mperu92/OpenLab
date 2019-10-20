@@ -18,4 +18,8 @@
     <ProjectReference Include="..\OpenLab.Infrastructure\OpenLab.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
 </Project>

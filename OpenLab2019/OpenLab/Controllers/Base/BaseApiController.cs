@@ -17,8 +17,9 @@ namespace OpenLab.Controllers.Base
         private readonly IBackofficeService _backendService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IEmailService _emailSender;
+        private readonly IImageService _imageService;
 
-        public BaseApiController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IBackofficeService backendService = null, IEmailService emailSender = null)
+        public BaseApiController(ILogger logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService = null, IBackofficeService backendService = null, IEmailService emailSender = null, IImageService imageService = null)
         {
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
@@ -28,6 +29,8 @@ namespace OpenLab.Controllers.Base
                 _backendService = backendService;
             if (emailSender != null)
                 _emailSender = emailSender;
+            if (imageService != null)
+                _imageService = imageService;
         }
 
         public ILogger Logger { get => _logger; }
@@ -36,5 +39,6 @@ namespace OpenLab.Controllers.Base
         public IEmailService EmailService { get => _emailSender; }
         public IIdentityService IdentityService { get => _identityService; }
         public IBackofficeService BackendService { get => _backendService; }
+        public IImageService ImageService { get => _imageService; }
     }
 }

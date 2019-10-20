@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../../common/TextInput';
 import TextArea from '../../common/TextArea';
+import Upload from '../../common/Upload';
 // import SelectInput from '../../common/SelectInput';
 
 const NewsForm = ({
   news,
   onSave,
+  onSaveFile,
   onChange,
   onChangeEditor,
+  onChangeUploader,
   saving = false,
+  savingFile = false,
   errors = {},
 }) => (
     <form onSubmit={onSave}>
@@ -20,6 +24,11 @@ const NewsForm = ({
       {errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}
+        </div>
+      )}
+      {errors.onSaveFile && (
+        <div className="alert alert-danger" role="alert">
+          {errors.onSaveFile}
         </div>
       )}
       <TextInput
@@ -38,9 +47,19 @@ const NewsForm = ({
         error={errors.Abstract}
       />
 
+      <Upload
+        inputName="imageUrl"
+        label="Upload News Cover Image"
+        value={news.imageUrl}
+        onChange={onChangeUploader}
+        action={onSaveFile}
+        savingFile={savingFile}
+        error={errors.ImageUrl}
+      />
+
       <TextArea
         name="bodyHtml"
-        label="BodyHtml"
+        label="Text"
         value={news.bodyHtml}
         onChange={onChangeEditor}
         error={errors.BodyHtml}
@@ -62,6 +81,7 @@ NewsForm.propTypes = {
     bodyText: PropTypes.string,
     imageUrl: PropTypes.string,
     niceLink: PropTypes.string,
+    // to fix
     // eslint-disable-next-line react/forbid-prop-types
     publishDate: PropTypes.any,
     createUserName: PropTypes.string,
@@ -71,18 +91,24 @@ NewsForm.propTypes = {
   }).isRequired,
   errors: PropTypes.shape({
     onSave: PropTypes.string,
+    onSaveFile: PropTypes.string,
     Title: PropTypes.string,
     Abstract: PropTypes.string,
     BodyHtml: PropTypes.string,
+    ImageUrl: PropTypes.string,
   }),
   onSave: PropTypes.func.isRequired,
+  onSaveFile: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
+  onChangeUploader: PropTypes.func.isRequired,
   saving: PropTypes.bool,
+  savingFile: PropTypes.bool,
 };
 
 NewsForm.defaultProps = {
     saving: false,
+    savingFile: false,
     errors: {},
 };
 

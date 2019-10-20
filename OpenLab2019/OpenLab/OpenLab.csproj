@@ -51,6 +51,7 @@
   <ItemGroup>
     <Folder Include="Areas\Backoffice\Data\" />
     <Folder Include="Areas\Backoffice\Models\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

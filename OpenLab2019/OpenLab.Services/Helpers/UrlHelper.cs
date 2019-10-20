@@ -84,7 +84,11 @@ namespace OpenLab.Services.Helpers
         /// <returns>The remapped character</returns>
         private static string RemapInternationalCharToAscii(char character)
         {
+#pragma warning disable CA1305 // Specify IFormatProvider
+#pragma warning disable CA1308 // Normalize strings to uppercase
             string s = character.ToString().ToLowerInvariant();
+#pragma warning restore CA1308 // Normalize strings to uppercase
+#pragma warning restore CA1305 // Specify IFormatProvider
             if ("àåáâäãåąā".Contains(s, StringComparison.InvariantCulture))
             {
                 return "a";

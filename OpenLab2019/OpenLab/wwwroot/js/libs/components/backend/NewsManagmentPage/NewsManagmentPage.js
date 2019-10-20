@@ -11,6 +11,7 @@ import { message } from 'antd';
 import sanitizeHtml from 'sanitize-html';
 
 import { loadNewsList, saveNews } from '../../../redux/actions/newsActions';
+import { uploadImage } from '../../../redux/actions/commonActions';
 import NewsForm from './NewsForm';
 import Spinna from '../../common/Spinna';
 
@@ -30,12 +31,14 @@ export function NewsManagmentPage({
     newsList,
     loadNewsList,
     saveNews,
+    uploadImage,
     history,
     ...props
 }) {
     const [news, setNews] = useState({ ...props.news });
     const [errors, setErrors] = useState({});
     const [saving, setSaving] = useState(false);
+    const [savingFile, setSavingFile] = useState(false);
 
     useEffect(() => {
         if (newsList.length === 0) {
@@ -54,12 +57,18 @@ export function NewsManagmentPage({
     }, [props.news]);
 
     function formIsValid() {
-        const { title, abstract, bodyHtml } = news;
+        const {
+            title,
+            abstract,
+            bodyHtml,
+            imageUrl,
+        } = news;
         const errors = {};
 
         if (!title) errors.Title = 'Title is required';
         if (!abstract) errors.Abstract = 'Abstract is required';
         if (!bodyHtml) errors.BodyHtml = 'Body is required';
+        if (!imageUrl) errors.ImageUrl = 'News cover image is required';
 
         setErrors(errors);
 
@@ -76,7 +85,9 @@ export function NewsManagmentPage({
     }
 
     function handleChangeEditor(content, name) {
-        const bodyText = sanitizeHtml(content, { allowedTags: [], allowedAttributes: {} });
+        debugger;
+        const contentWithBrSpaced = content.replace(/<br\s*\/?>/gi, '  ');
+        const bodyText = sanitizeHtml(contentWithBrSpaced, { allowedTags: [], allowedAttributes: {} });
         setNews((prevNews) => ({
             ...prevNews,
             bodyText,
@@ -85,17 +96,36 @@ export function NewsManagmentPage({
     }
 
     // to do
-    // function handleChangeUploader(info) {
-    //     debugger;
-    //     if (info.file.status !== 'uploading') {
-    //       console.log(info.file, info.fileList);
-    //     }
-    //     if (info.file.status === 'done') {
-    //       message.success(`${info.file.name} file uploaded successfully`);
-    //     } else if (info.file.status === 'error') {
-    //       message.error(`${info.file.name} file upload failed.`);
-    //     }
-    // }
+    function handleChangeUploader(info) {
+        if (info.file.status !== 'uploading') {
+            console.log(info.file, info.fileList);
+        }
+        if (info.file.status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully`);
+
+            // TO FIX
+            setNews((prevNews) => ({
+                ...prevNews,
+                [info]: info,
+            }));
+        } else if (info.file.status === 'error') {
+            message.error(`${info.file.name} file upload failed.`);
+        }
+    }
+
+    function handleUploadFile(file) {
+        if (file) {
+            setSavingFile(true);
+            uploadImage(file, 'news')
+            .then(() => {
+                toast.success('Image uploaded');
+            })
+            .catch((error) => {
+                setSavingFile(false);
+                setErrors({ onSaveFile: error.message });
+            });
+        }
+    }
 
     function handleSave(event) {
         event.preventDefault();
@@ -120,8 +150,11 @@ export function NewsManagmentPage({
           errors={errors}
           onChange={handleChange}
           onChangeEditor={handleChangeEditor}
+          onChangeUploader={handleChangeUploader}
           onSave={handleSave}
+          onSaveFile={handleUploadFile}
           saving={saving}
+          savingFile={savingFile}
         />
     );
 }
@@ -136,6 +169,7 @@ NewsManagmentPage.propTypes = {
         bodyText: PropTypes.string,
         imageUrl: PropTypes.string,
         niceLink: PropTypes.string,
+        // to fix
         // eslint-disable-next-line react/forbid-prop-types
         publishDate: PropTypes.any,
         createUserName: PropTypes.string,
@@ -146,9 +180,9 @@ NewsManagmentPage.propTypes = {
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     loadNewsList: PropTypes.func.isRequired,
     saveNews: PropTypes.func.isRequired,
+    uploadImage: PropTypes.func.isRequired,
     // eslint-disable-next-line react/forbid-prop-types
     history: PropTypes.object.isRequired,
-    // history: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 // redux selector
@@ -168,6 +202,7 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
     loadNewsList,
     saveNews,
+    uploadImage,
 };
 
 export default connect(
