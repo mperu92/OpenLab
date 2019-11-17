@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OpenLab.Controllers.Base;
+using OpenLab.Services.Helpers;
 using OpenLab.Services.Services;
 
 namespace OpenLab.Controllers
@@ -40,19 +41,19 @@ namespace OpenLab.Controllers
                     imageName = $"{response}",
                     imageType = $"{file.ContentType}",
                     imageOriginalName = $"{file.FileName}",
+                    status = "success"
                 }
             });
         }
 
         [HttpPost("deleteImage")]
         [Produces("application/json")]
-        public async Task<IActionResult> deleteImage([FromBody] dynamic data)
+        public IActionResult deleteImage([FromBody] dynamic data)
         {
-            if (data == null)
+            if (data == null || data.value == null)
                 return BadRequest("File is null");
 
-            dynamic _file = data.file;
-            string imgName = _file.response.data.imageName.Value;
+            string imgName = UrlHelper.ExtrapolateFileNameFromPath(data.value.ToString());
             if (string.IsNullOrEmpty(imgName))
                 return BadRequest("Error retreiving filename");
 
@@ -62,7 +63,5 @@ namespace OpenLab.Controllers
             else
                 return BadRequest("Error deleting image");
         }
-
-
     }
 }

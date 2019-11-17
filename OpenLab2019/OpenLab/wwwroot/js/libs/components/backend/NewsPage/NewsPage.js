@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import * as newsActions from '../../../redux/actions/newsActions';
+import * as commonActions from '../../../redux/actions/commonActions';
 import Spinna from '../../common/Spinna';
 import NewsList from './NewsList';
 
@@ -21,9 +22,8 @@ class NewsPage extends React.Component {
     }
 
     componentDidMount() {
-        const { newsList, actions } = this.props;
+        const { newsList, common, actions } = this.props;
         if (newsList.length === 0) {
-            // TO FIX
             try {
                 actions.loadNewsList(false);
             } catch (error) {
@@ -37,6 +37,18 @@ class NewsPage extends React.Component {
             // .catch((error) => {
             //     toast.error(error);
             // });
+        }
+        debugger;
+        if (common && common.file) {
+            try {
+                actions.clearCommon();
+            } catch (error) {
+                if (error) {
+                    toast.error(error);
+                } else {
+                    toast.error('error clearing common state');
+                }
+            }
         }
     }
 
@@ -84,9 +96,12 @@ class NewsPage extends React.Component {
 
 NewsPage.propTypes = {
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    common: PropTypes.object.isRequired,
     actions: PropTypes.shape({
         loadNewsList: PropTypes.func,
         deleteNews: PropTypes.func,
+        clearCommon: PropTypes.func,
     }).isRequired,
     loading: PropTypes.bool.isRequired,
 };
@@ -94,6 +109,7 @@ NewsPage.propTypes = {
 function mapStateToProps(state) {
     return {
         newsList: state.newsList.length > 0 ? state.newsList : [],
+        common: state.common && state.common.file ? state.common : {},
         loading: state.apiCallsInProgress > 0,
     };
 }
@@ -103,6 +119,7 @@ function mapDispatchToProps(dispatch) {
         actions: {
             loadNewsList: bindActionCreators(newsActions.loadNewsList, dispatch),
             deleteNews: bindActionCreators(newsActions.deleteNews, dispatch),
+            clearCommon: bindActionCreators(commonActions.clearCommon, dispatch),
         },
     };
 }

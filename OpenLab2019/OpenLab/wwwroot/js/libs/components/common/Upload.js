@@ -10,7 +10,9 @@ const Upload = ({
     error,
     inputName,
     // onSaveFile,
+    value,
     savingFile,
+    cancelFile,
     ...props
 }) => {
     let wrapperClass = 'form-group';
@@ -22,15 +24,25 @@ const Upload = ({
         <div className={wrapperClass}>
           <label htmlFor={inputName}>{label}</label>
           <div className="field">
-            <AntUpload {...props}>
-                <Button>
-                    <Icon type="upload" />
-                    Click to Upload
-                </Button>
-            </AntUpload>
-            <input type="hidden" value={inputName} name={inputName} />
-            {savingFile && <div className="alert alert-info">Saving File...</div>}
-            {error && <div className="alert alert-danger">{error}</div>}
+            {value && value !== '' ? (
+                <div>
+                    <img src={value} alt="uploaded file" className="mw-15" />
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="button" value="CANCEL" className="btn btn-info" onClick={() => cancelFile(value)} />
+                </div>
+            ) : (
+                <>
+                    <AntUpload {...props}>
+                        <Button>
+                            <Icon type="upload" />
+                            Click to Upload
+                        </Button>
+                    </AntUpload>
+                    {savingFile && <div className="alert alert-info">Saving File...</div>}
+                    {error && <div className="alert alert-danger">{error}</div>}
+                </>
+            )}
+            {/* <input type="hidden" value={inputName} name={inputName} /> */}
           </div>
         </div>
       );
@@ -39,10 +51,11 @@ const Upload = ({
 
 Upload.propTypes = {
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    // onChange: PropTypes.func.isRequired,
     inputName: PropTypes.string.isRequired,
     // onSaveFile: PropTypes.func.isRequired,
     action: PropTypes.func.isRequired,
+    cancelFile: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.string,
     fileList: PropTypes.arrayOf(PropTypes.object),

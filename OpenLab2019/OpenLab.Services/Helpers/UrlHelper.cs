@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Linq;
 
 namespace OpenLab.Services.Helpers
 {
@@ -74,6 +76,20 @@ namespace OpenLab.Services.Helpers
             {
                 return stringBuilder.ToString();
             }
+        }
+
+        public static string ExtrapolateFileNameFromPath(string path)
+        {
+            if (Path.IsPathRooted(path))
+            {
+                string converted = Path.GetFileName(path);
+                if (string.IsNullOrEmpty(converted))
+                    return null;
+
+                return converted;
+            }
+
+            return null;
         }
 
         /// <summary>

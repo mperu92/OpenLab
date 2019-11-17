@@ -11,7 +11,7 @@ import { message } from 'antd';
 import sanitizeHtml from 'sanitize-html';
 
 import { loadNewsList, saveNews } from '../../../redux/actions/newsActions';
-import { uploadImage } from '../../../redux/actions/commonActions';
+import { uploadImage, deleteImage } from '../../../redux/actions/commonActions';
 import NewsForm from './NewsForm';
 import Spinna from '../../common/Spinna';
 
@@ -29,13 +29,16 @@ const newNews = {
 
 export function NewsManagmentPage({
     newsList,
+    common,
     loadNewsList,
     saveNews,
     uploadImage,
+    deleteImage,
     history,
     ...props
 }) {
     const [news, setNews] = useState({ ...props.news });
+    // const [file, setFile] = useState({ ...props.file });
     const [errors, setErrors] = useState({});
     const [saving, setSaving] = useState(false);
     const [savingFile, setSavingFile] = useState(false);
@@ -55,6 +58,24 @@ export function NewsManagmentPage({
             setNews({ ...props.news });
         }
     }, [props.news]);
+
+    useEffect(() => {
+        if (common && common.file) {
+            const { imagePath } = common.file;
+            if (imagePath && imagePath !== '') {
+                setNews((prevNews) => ({
+                    ...prevNews,
+                    imageUrl: imagePath,
+                }));
+                setSavingFile(false);
+            } else if (common.file.status === 'Image deleted') {
+                setNews((prevNews) => ({
+                    ...prevNews,
+                    imageUrl: '',
+                }));
+            }
+        }
+    }, [props.file]);
 
     function formIsValid() {
         const {
@@ -85,7 +106,6 @@ export function NewsManagmentPage({
     }
 
     function handleChangeEditor(content, name) {
-        debugger;
         const contentWithBrSpaced = content.replace(/<br\s*\/?>/gi, '  ');
         const bodyText = sanitizeHtml(contentWithBrSpaced, { allowedTags: [], allowedAttributes: {} });
         setNews((prevNews) => ({
@@ -96,32 +116,44 @@ export function NewsManagmentPage({
     }
 
     // to do
-    function handleChangeUploader(info) {
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
+    // function handleChangeUploader(info) {
+    //     if (info.file.status !== 'uploading') {
+    //         console.log(info.file, info.fileList);
+    //     }
+    //     if (info.file.status === 'done') {
+    //         message.success(`${info.file.name} file uploaded successfully`);
 
-            // TO FIX
-            setNews((prevNews) => ({
-                ...prevNews,
-                [info]: info,
-            }));
-        } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-        }
-    }
+    //         // TO FIX
+    //         setNews((prevNews) => ({
+    //             ...prevNews,
+    //             [info]: info,
+    //         }));
+    //     } else if (info.file.status === 'error') {
+    //         message.error(`${info.file.name} file upload failed.`);
+    //     }
+    // }
 
-    function handleUploadFile(file) {
-        if (file) {
+    function handleUploadFile(f) {
+        if (f) {
             setSavingFile(true);
-            uploadImage(file, 'news')
+            uploadImage(f, 'news')
             .then(() => {
-                toast.success('Image uploaded');
+                toast.success('Image saved');
             })
             .catch((error) => {
                 setSavingFile(false);
+                setErrors({ onSaveFile: error.message });
+            });
+        }
+    }
+
+    function handleCancelFile(value) {
+        if (value) {
+            deleteImage(value, 'news')
+            .then(() => {
+                toast.success('Image deleted');
+            })
+            .catch((error) => {
                 setErrors({ onSaveFile: error.message });
             });
         }
@@ -150,9 +182,10 @@ export function NewsManagmentPage({
           errors={errors}
           onChange={handleChange}
           onChangeEditor={handleChangeEditor}
-          onChangeUploader={handleChangeUploader}
+          // onChangeUploader={handleChangeUploader}
           onSave={handleSave}
           onSaveFile={handleUploadFile}
+          onDeleteFile={handleCancelFile}
           saving={saving}
           savingFile={savingFile}
         />
@@ -177,10 +210,21 @@ NewsManagmentPage.propTypes = {
         updateUserName: PropTypes.string,
         updateUserId: PropTypes.number,
     }).isRequired,
+    common: PropTypes.shape({
+        file: PropTypes.object,
+    }).isRequired,
     newsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     loadNewsList: PropTypes.func.isRequired,
     saveNews: PropTypes.func.isRequired,
     uploadImage: PropTypes.func.isRequired,
+    deleteImage: PropTypes.func.isRequired,
+    file: PropTypes.shape({
+        imagePath: PropTypes.string,
+        imageName: PropTypes.string,
+        imageType: PropTypes.string,
+        imageOriginalName: PropTypes.string,
+        status: PropTypes.string,
+    }).isRequired,
     // eslint-disable-next-line react/forbid-prop-types
     history: PropTypes.object.isRequired,
 };
@@ -193,9 +237,15 @@ export function getNewsBySlug(newsList, slug) {
 function mapStateToProps(state, ownProps) {
     const { match: { params: { slug } } } = ownProps; // .match.params.slug;
     const news = slug && state.newsList.length > 0 ? getNewsBySlug(state.newsList, slug) : newNews;
+    let file = {};
+    if (state.common.file) {
+        file = state.common.file;
+    }
     return {
         news,
         newsList: state.newsList,
+        common: state.common,
+        file,
     };
 }
 
@@ -203,6 +253,7 @@ const mapDispatchToProps = {
     loadNewsList,
     saveNews,
     uploadImage,
+    deleteImage,
 };
 
 export default connect(

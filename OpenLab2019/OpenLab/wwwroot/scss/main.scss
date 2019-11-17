@@ -49,3 +49,7 @@ body {
 :focus {
     outline: none !important;
 }
+
+.mw {
+    @include maxwidths-selector;
+}

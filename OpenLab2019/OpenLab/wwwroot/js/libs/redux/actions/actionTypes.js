@@ -5,6 +5,9 @@ export const CREATE_NEWS_SUCCESS = 'CREATE_NEWS_SUCCESS';
 export const UPDATE_NEWS_SUCCESS = 'UPDATE_NEWS_SUCCESS';
 export const UPLOAD_FILE_SUCCESS = 'UPLOAD_FILE_SUCCESS';
 export const UPLOAD_FILE_NEWS_SUCCESS = 'UPLOAD_FILE_NEWS_SUCCESS';
+export const DELETE_FILE_SUCCESS = 'DELETE_FILE_SUCCESS';
+export const DELETE_FILE_NEWS_SUCCESS = 'DELETE_FILE_NEWS_SUCCESS';
+export const CLEAR_COMMON_SUCCESS = 'CLEAR_COMMON_SUCCESS';
 
 // By convention, actions that end in "_SUCCESS" are assumed to have been the result of a completed
 // API call. But since we're doing an optimistic delete, we're hiding loading state.

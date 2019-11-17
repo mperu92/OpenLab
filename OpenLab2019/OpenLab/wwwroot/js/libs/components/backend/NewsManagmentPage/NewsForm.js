@@ -9,9 +9,10 @@ const NewsForm = ({
   news,
   onSave,
   onSaveFile,
+  onDeleteFile,
   onChange,
   onChangeEditor,
-  onChangeUploader,
+  // onChangeUploader,
   saving = false,
   savingFile = false,
   errors = {},
@@ -51,8 +52,9 @@ const NewsForm = ({
         inputName="imageUrl"
         label="Upload News Cover Image"
         value={news.imageUrl}
-        onChange={onChangeUploader}
+        // onChange={onChangeUploader}
         action={onSaveFile}
+        cancelFile={onDeleteFile}
         savingFile={savingFile}
         error={errors.ImageUrl}
       />
@@ -99,9 +101,10 @@ NewsForm.propTypes = {
   }),
   onSave: PropTypes.func.isRequired,
   onSaveFile: PropTypes.func.isRequired,
+  onDeleteFile: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onChangeEditor: PropTypes.func.isRequired,
-  onChangeUploader: PropTypes.func.isRequired,
+  // onChangeUploader: PropTypes.func.isRequired,
   saving: PropTypes.bool,
   savingFile: PropTypes.bool,
 };

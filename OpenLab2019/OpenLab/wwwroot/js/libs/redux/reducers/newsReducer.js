@@ -14,8 +14,6 @@ export default function newsReducer(state = initialState.newsList, action) {
       return state.map((news) => (news.id === action.news.id ? action.news : news));
     case types.DELETE_NEWS_OPTIMISTIC:
       return state.filter((news) => news.id !== action.news.id);
-    case types.UPLOAD_FILE_NEWS_SUCCESS:
-      return { ...action.file.data };
     default:
       // If the reducer receives an action that it doesn't care about
       // it should return the unchanged state

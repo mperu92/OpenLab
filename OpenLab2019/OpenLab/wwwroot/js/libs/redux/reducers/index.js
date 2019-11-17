@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux';
 import apiCallsInProgress from './apiStatusReducer';
 import newsList from './newsReducer';
-import commons from './commonReducer';
+import common from './commonReducer';
 
 const rootReducer = combineReducers({
   apiCallsInProgress,
-  commons,
+  common,
   newsList,
 });
 

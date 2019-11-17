@@ -1,0 +1,31 @@
+/// ### MAX WIDTH ###
+
+$maxwidths: (
+    5: 5%!important,
+    10: 10%!important,
+    15: 15%!important,
+    20: 20%!important,
+    25: 25%!important,
+    30: 30%!important,
+    35: 35%!important,
+    40: 40%!important,
+    45: 45%!important,
+    50: 50%!important,
+    55: 55%!important,
+    60: 60%!important,
+    65: 65%!important,
+    70: 70%!important,
+    75: 75%!important,
+    80: 80%!important,
+    85: 85%!important,
+    90: 90%!important,
+    95: 95%!important,
+);
+
+@mixin maxwidths-selector {
+    @each $name, $perc in $maxwidths {
+        &-#{$name} {
+            max-width: $perc;
+        }
+    }
+}
