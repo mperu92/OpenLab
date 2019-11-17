@@ -10,7 +10,7 @@ An Open Lab to improve new skills and patterns using ASP.NET Core &amp; advanced
 	- MSSQL Database
 	
 - **Client**
-	- Razor (just for now)
+	- React+Redux
 
 ### Steps
 
