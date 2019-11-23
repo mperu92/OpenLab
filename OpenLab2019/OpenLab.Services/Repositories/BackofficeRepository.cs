@@ -44,7 +44,7 @@ namespace OpenLab.Services.Repositories
                   // .AsNoTracking()
                   .ToArrayAsync().ConfigureAwait(false);
 
-            if (newsModel != null && newsModel.Length >= 0)
+            if (newsModel != null && newsModel.Length > 0)
                 return newsModel;
             else
                 return null;

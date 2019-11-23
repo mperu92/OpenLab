@@ -1,0 +1,12 @@
+.news-page-container {
+    .news-list-items-container {
+        .news-list-item {
+            border: inherit;
+        }
+    }
+}
+
+.news-item-container {
+    display: flex;
+    flex-direction: row;
+}

@@ -53,3 +53,7 @@ body {
 .mw {
     @include maxwidths-selector;
 }
+
+.lh {
+    @include lineheights-selector;
+}

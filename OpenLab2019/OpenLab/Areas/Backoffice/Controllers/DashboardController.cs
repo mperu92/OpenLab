@@ -35,7 +35,7 @@ namespace OpenLab.Areas.Backoffice.Controllers
                 IUserModel user = await IdentityService.GetUserAsync(HttpContextAccessor.HttpContext.User).ConfigureAwait(false);
 
                 // not generating error
-                if (user == null || (user != null && user.Id <= 0))
+                if (user == null || user.Id <= 0)
                 {
                     user.Id = 00;
                     user.UserName = "noname";
@@ -49,7 +49,7 @@ namespace OpenLab.Areas.Backoffice.Controllers
                 return View();
             }
 
-            TempData["ErrorMessage"] = "You have to must be logged to navigate on backoffice";
+            TempData["ErrorMessage"] = "You must have to be logged to navigate backoffice";
             return RedirectToAction("Index", "Home");
         }
     }

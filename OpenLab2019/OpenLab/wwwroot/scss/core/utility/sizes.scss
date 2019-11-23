@@ -1,5 +1,4 @@
 /// ### MAX WIDTH ###
-
 $maxwidths: (
     5: 5%!important,
     10: 10%!important,
@@ -26,6 +25,29 @@ $maxwidths: (
     @each $name, $perc in $maxwidths {
         &-#{$name} {
             max-width: $perc;
+        }
+    }
+}
+
+/// ### LINE HEIGHT ###
+$lineheights: (
+    0: 0!important,
+    0-5: 0.5!important,
+    1: 1!important,
+    1-5: 1.5!important,
+    2: 2!important,
+    2-5: 2.5!important,
+    3: 3!important,
+    3-5: 3.5!important,
+    4: 4!important,
+    4-5: 4.5!important,
+    5: 5!important,
+);
+
+@mixin lineheights-selector {
+    @each $name, $linhgt in $maxwidths {
+        &-#{$name} {
+            line-height: $linhgt;
         }
     }
 }

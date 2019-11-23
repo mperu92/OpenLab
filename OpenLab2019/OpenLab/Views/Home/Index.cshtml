@@ -1,48 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
     IUserModel[] users = ViewBag.Users ?? null;
     string errorMessage = ViewBag.ErrorMessage ?? string.Empty;
     string successMessage = ViewBag.SuccessMessage ?? string.Empty;
+
+    string user = ViewBag.User ?? string.Empty;
+    int isLoggedNuber = ViewBag.IsLogged == true ? 1 : 0;
+    int isAdminRoleNumber = ViewBag.IsAdminRole == true ? 1 : 0;
 }
 
-@if (!string.IsNullOrEmpty(successMessage))
-{
-    <div class="container">
-        <div class="alert alert-success text-center">
-            <h4>@successMessage</h4>
-        </div>
-    </div>
-}
+<script type="text/javascript">
+    __globalJsData.successMessage = '@successMessage';
+    __globalJsData.errorMessage = '@errorMessage';
 
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="container">
-        <div class="alert alert-danger text-center">
-            <h4>@errorMessage</h4>
-        </div>
-    </div>
-}
+    __globalJsData.user = '@(Html.Raw(user))';
+    __globalJsData.isLogged = @isLoggedNuber;
+    __globalJsData.isAdminRole = @isAdminRoleNumber;
+</script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Open Lab</p>
-    <div style="height: 75px"></div>
-    <div class="jumbotron">
-        @if (users != null && users.Count() > 0)
-        {
-            if (users.Count() == 1)
-            {
-                <h3>There's one subscribed user</h3>
-            }
-            else
-            {
-                <h3>There are @users.Count() subscribed users</h3>
-            }
-        }
-        else
-        {
-            <h3>There aren't subscribed users.</h3>
-        }
-    </div>
+<div id="ol-controller" class="ol-dashboard-frontend" data-controller="dashboardPageFrontend">
+    <div id="js-frontend"></div>
 </div>

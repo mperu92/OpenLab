@@ -38,7 +38,6 @@ class NewsPage extends React.Component {
             //     toast.error(error);
             // });
         }
-        debugger;
         if (common && common.file) {
             try {
                 actions.clearCommon();

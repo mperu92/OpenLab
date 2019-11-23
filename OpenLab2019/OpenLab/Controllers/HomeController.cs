@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using OpenLab.Controllers.Base;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
 using OpenLab.Models;
@@ -21,8 +22,8 @@ namespace OpenLab.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IUserModel[] users = await IdentityService.GetUsers().ConfigureAwait(false);
-            ViewBag.Users = users;
+            //IUserModel[] users = await IdentityService.GetUsers().ConfigureAwait(false);
+            //ViewBag.Users = users;
 
             if (TempData["SuccessMessage"] != null)
             {
@@ -34,7 +35,36 @@ namespace OpenLab.Controllers
                 ViewBag.ErrorMessage = TempData["ErrorMessage"] as string;
                 TempData["ErrorMessage"] = null;
             }
-            return View();
+            //return View();
+            bool isLogged = false;
+            bool isAdminRole = false;
+            ViewBag.Username = HttpContextAccessor.HttpContext.User.Identity.Name;
+
+            if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                isLogged = true;
+                if (HttpContextAccessor.HttpContext.User.IsInRole("Admin"))
+                    isAdminRole = true;
+
+                IUserModel user = await IdentityService.GetUserAsync(HttpContextAccessor.HttpContext.User).ConfigureAwait(false);
+
+                // not generating error
+                if (user == null || user.Id <= 0)
+                {
+                    user.Id = 00;
+                    user.UserName = "noname";
+                }
+                string userJson = JsonConvert.SerializeObject(user);
+
+                ViewBag.User = userJson;
+                ViewBag.IsLogged = isLogged;
+                ViewBag.IsAdminRole = isAdminRole;
+
+                return View();
+            }
+
+            ViewBag.ErrorMessage = "You have to must be logged to navigate on backoffice";
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()

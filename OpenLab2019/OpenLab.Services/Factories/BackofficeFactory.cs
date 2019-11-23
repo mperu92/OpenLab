@@ -133,7 +133,7 @@ namespace OpenLab.Services.Factories
                 return newsModel = new NewsModel
                 {
                     Id = modelDyn.id,
-                    Slug = !fromCreate ? modelDyn.slug : UrlHelper.GenerateSlug(modelDyn.title.ToString()),
+                    Slug = !fromCreate ? modelDyn.slug : UrlHelper.GenerateSlug(modelDyn.title.ToString(), true),
                     Abstract = modelDyn.@abstract ?? string.Empty,
                     BodyHtml = modelDyn.bodyHtml ?? string.Empty,
                     BodyText = modelDyn.bodyText ?? string.Empty,

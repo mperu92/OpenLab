@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import { message } from 'antd';
+// import { message } from 'antd';
 import sanitizeHtml from 'sanitize-html';
 
 import { loadNewsList, saveNews } from '../../../redux/actions/newsActions';

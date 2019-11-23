@@ -6,6 +6,9 @@ import '../scss/main.scss';
 // backoffice
 import configDashboardPage from './libs/configpages/backend/dashboard';
 
+// frontend
+import configDashboardPageFront from './libs/configpages/frontend/dashboard';
+
 // commons
 import loadingOverlay from './libs/common/loadingOverlay';
 
@@ -23,6 +26,12 @@ const OpenLabJsClient = {
   dashboardPage: {
     init() {
       configDashboardPage();
+    },
+  },
+  // frontend
+  dashboardPageFrontend: {
+    init() {
+      configDashboardPageFront();
     },
   },
 };
