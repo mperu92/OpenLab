@@ -12,7 +12,7 @@ An Open Lab to improve new skills and patterns using ASP.NET Core &amp; advanced
 - **Client**
 	- React+Redux
 
-### Steps
+### Steps (currently)
 
 - **Server**
 	- Onion Pattern, DI, Clean Main Application Startup
