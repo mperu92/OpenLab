@@ -5,7 +5,7 @@ const MODULE_BUILD_DIR = path.resolve(__dirname, './wwwroot/dist/assets/developm
 const MODULE_APP_JS_DIR = path.resolve(__dirname, './wwwroot/js/');
 const WebpackMd5Hash = require("webpack-md5-hash");
 const globImporter = require('node-sass-glob-importer');
-const workboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const dServer =  require('webpack-dev-server');
@@ -140,15 +140,23 @@ const config = {
 			fs: "fs"
 		}),
 		new WebpackMd5Hash(),
-		new workboxPlugin.GenerateSW({
-			swDest: 'sw.js',
-			clientsClaim: true,
-			skipWaiting: true,
-		}),
+		// new WorkboxPlugin.GenerateSW({
+		// 	swDest: 'sw.js',
+		// 	clientsClaim: true,
+		// 	skipWaiting: true,
+		// 	runtimeCaching: [{
+		// 		urlPattern: new RegExp('https://localhost:44357/'),
+		// 		handler: 'StaleWhileRevalidate'
+		// 	}],
+		// }),
         // new WriteFilePlugin({
 		// 	// Write only files that have ".js" extension.
 		// 	test: /\.js$/,
 		// }),
+		new WorkboxPlugin.InjectManifest({
+			swSrc: path.resolve(__dirname, './wwwroot/js/sw.js'),
+			swDest: 'sw.js',
+		}),
 		new WriteFilePlugin(),
 	],
 	// webpack-dev-server config

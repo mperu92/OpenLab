@@ -1,30 +1,20 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+importScripts("precache-manifest.93f32678ead84ac4b5257fc5d4f8285e.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-importScripts(
-  "precache-manifest.4a06a5059d26ab6fe91c81b7981c5b7c.js"
-);
-
+/* eslint-disable */
 workbox.core.skipWaiting();
-
 workbox.core.clientsClaim();
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+workbox.routing.registerRoute(
+  new RegExp('https://localhost:44357'),
+  new workbox.strategies.StaleWhileRevalidate()
+);
+
+self.addEventListener('push', (event) => {
+  const title = 'OpenLab';
+  const options = {
+    body: event.data.text()
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+workbox.precaching.precacheAndRoute(self.__precacheManifest);

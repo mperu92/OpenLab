@@ -83,7 +83,15 @@ namespace OpenLab
 
             // Enable compression (must be before UseStaticFiles)
             app.UseResponseCompression();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                // disabling browser cache
+                OnPrepareResponse = opr =>
+                {
+                    opr.Context.Response.Headers.Add("Cache-Control", "no-cache, no-store");
+                    opr.Context.Response.Headers.Add("Expires", "-1");
+                }
+            });
 
             app.UseRouting();
 
