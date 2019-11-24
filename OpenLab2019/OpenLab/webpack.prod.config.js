@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackMd5Hash = require("webpack-md5-hash");
 const WebpackBundleAnalyzer = require("webpack-bundle-analyzer");
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const workboxPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const globImporter = require('node-sass-glob-importer');
 
@@ -182,7 +182,12 @@ const config = {
             jQuery: "jquery",
             fs: "fs"
         }),
-        new WebpackMd5Hash()
+		new WebpackMd5Hash(),
+		new workboxPlugin.GenerateSW({
+			swDest: 'sw.js',
+			clientsClaim: true,
+			skipWaiting: true,
+		}),
 	],
 	node: {
 		fs: 'empty'

@@ -10,12 +10,14 @@ import configDashboardPage from './libs/configpages/backend/dashboard';
 import configDashboardPageFront from './libs/configpages/frontend/dashboard';
 
 // commons
+import setServiceWorker from './libs/common/setServiceWorker';
 import loadingOverlay from './libs/common/loadingOverlay';
 
 const OpenLabJsClient = {
   common: {
     init() {
       // HACK
+      setServiceWorker();
       loadingOverlay();
     },
     finalize() {

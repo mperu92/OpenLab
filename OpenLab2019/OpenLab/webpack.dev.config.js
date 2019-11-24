@@ -1,10 +1,13 @@
 /* eslint-disable */
 const path = require('path');
 const webpack = require('webpack');
-const MODULE_BUILD_DIR = path.resolve(__dirname, './dist/assets/');
+const MODULE_BUILD_DIR = path.resolve(__dirname, './wwwroot/dist/assets/development');
 const MODULE_APP_JS_DIR = path.resolve(__dirname, './wwwroot/js/');
 const WebpackMd5Hash = require("webpack-md5-hash");
 const globImporter = require('node-sass-glob-importer');
+const workboxPlugin = require('workbox-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const dServer =  require('webpack-dev-server');
 
 process.env.NODE_ENV = "development";
@@ -130,12 +133,23 @@ const config = {
 		fs: 'empty'
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery",
 			fs: "fs"
 		}),
-    new WebpackMd5Hash()
+		new WebpackMd5Hash(),
+		new workboxPlugin.GenerateSW({
+			swDest: 'sw.js',
+			clientsClaim: true,
+			skipWaiting: true,
+		}),
+        // new WriteFilePlugin({
+		// 	// Write only files that have ".js" extension.
+		// 	test: /\.js$/,
+		// }),
+		new WriteFilePlugin(),
 	],
 	// webpack-dev-server config
 	devServer: {
