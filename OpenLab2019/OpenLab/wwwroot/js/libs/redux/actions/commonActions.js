@@ -2,7 +2,6 @@
 import axios from 'axios';
 import * as types from './actionTypes';
 import { beginApiCall, apiCallError } from './apiStatusActions';
-import { dispatch } from 'C:/Users/m.peru.SOLUTIONFACTORY/AppData/Local/Microsoft/TypeScript/3.6/node_modules/rxjs/internal/observable/pairs';
 
 export function clearCommonSuccess(data) {
     return { type: types.CLEAR_COMMON_SUCCESS, data };
@@ -95,12 +94,3 @@ export function deleteImage(value, fromContent) {
         });
     };
 }
-
-
-// ### ACCOUNT ###
-// export function loginUser(value) {
-//     return (dispatch) => {
-//         dispatch(beginApiCall());
-//         return axios.post('/api/AccountApi/')
-//     };
-// }
