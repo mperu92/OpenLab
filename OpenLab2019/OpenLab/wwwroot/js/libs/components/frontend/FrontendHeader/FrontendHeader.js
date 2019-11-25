@@ -39,26 +39,38 @@ const FrontendHeader = ({ User, IsLogged, IsAdminRole }) => (
                             NEWS
                         </NavLink>
                     </ul>
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item dropdown">
-                            <a
-                              className="nav-link text-dark dropdown-toggle"
-                              href="#"
-                              id="navbarDropdown"
-                              role="button"
-                              data-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                                {User.UserName}
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <p>{`Hello, ${User.UserName}`}</p>
-                                <div className="dropdown-divider" />
-                                <a className="dropdown-item text-dark" href="#">Exit</a>
-                            </div>
-                        </li>
-                    </ul>
+                    {IsLogged
+                    ? (
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item dropdown">
+                                <a
+                                  className="nav-link text-dark dropdown-toggle"
+                                  href="#"
+                                  id="navbarDropdown"
+                                  role="button"
+                                  data-toggle="dropdown"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                >
+                                    {User.UserName}
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <p>{`Hello, ${User.UserName}`}</p>
+                                    <div className="dropdown-divider" />
+                                    <a className="dropdown-item text-dark" href="#">Exit</a>
+                                </div>
+                            </li>
+                        </ul>
+                    ) : (
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <a className="nav-link text-dark" href="/Account/Register">Register</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link text-dark" href="/Account/Login">Login</a>
+                            </li>
+                        </ul>
+                    )}
                 </div>
             </div>
         </nav>
