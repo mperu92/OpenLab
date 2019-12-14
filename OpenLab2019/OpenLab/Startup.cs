@@ -48,12 +48,12 @@ namespace OpenLab
             });
 
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddControllersWithViews().AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that produce or receive JSON Objects will return error 406
+            services.AddControllersWithViews().AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that receive JSON Objects Body will return error 406
 
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(60); // You can set Time   
+                options.IdleTimeout = TimeSpan.FromMinutes(60); // You can set Time                                               
             });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessor();
@@ -83,6 +83,7 @@ namespace OpenLab
 
             // Enable compression (must be before UseStaticFiles)
             app.UseResponseCompression();
+
             app.UseStaticFiles(new StaticFileOptions()
             {
                 // disabling browser cache

@@ -3,8 +3,14 @@
 @using Newtonsoft.Json;
 @inject IConfiguration Configuration;
 @{
+    string basePath = "https://localhost:44357/";
+
     string swversion = Configuration.GetSection("AppConfiguration")["swversion"];
     string enviroment = Configuration.GetSection("AppConfiguration")["enviroment"];
+    if (enviroment.ToLowerInvariant().Contains("prod"))
+    {
+        basePath = "https://productionlink.com/"
+    }
 
     // variables for compiled files [webpack]
     string urlWebPackDevServer = Configuration.GetSection("AppConfiguration")["url_webpack_dev_server"];
@@ -13,7 +19,7 @@
     string mainJsHash = Configuration.GetSection("AppConfiguration")["main.js"];
     string mainCssHash = Configuration.GetSection("AppConfiguration")["main.css"];
     string commonJsHash = Configuration.GetSection("AppConfiguration")["common.js"];
-    
+
     Uri baseUriWebPackDevServer = new Uri(urlWebPackDevServer);
     Uri urlMainJs = new Uri(baseUriWebPackDevServer, "main.bundle.js");
     Uri urlMainCss = new Uri(baseUriWebPackDevServer, "main.css");
@@ -37,6 +43,8 @@
     <environment exclude="Development">
         <link href="@($"{pathCss}{mainCssHash}")" rel="stylesheet">
     </environment>
+        
+    <base href="@(basePath)" target="_self" />
 </head>
 <body>
     @*<partial name="_HeaderPartial" />*@
