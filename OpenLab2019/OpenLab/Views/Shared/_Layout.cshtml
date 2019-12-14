@@ -9,7 +9,7 @@
     string enviroment = Configuration.GetSection("AppConfiguration")["enviroment"];
     if (enviroment.ToLowerInvariant().Contains("prod"))
     {
-        basePath = "https://productionlink.com/"
+        basePath = "https://productionlink.com/";
     }
 
     // variables for compiled files [webpack]

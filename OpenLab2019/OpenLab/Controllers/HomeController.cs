@@ -19,7 +19,6 @@ namespace OpenLab.Controllers
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService)
          : base(logger, httpContextAccessor, identityService) { }
 
-
         public async Task<IActionResult> Index()
         {
             //IUserModel[] users = await IdentityService.GetUsers().ConfigureAwait(false);
@@ -38,11 +37,11 @@ namespace OpenLab.Controllers
             //return View();
             bool isLogged = false;
             bool isAdminRole = false;
-            ViewBag.Username = HttpContextAccessor.HttpContext.User.Identity.Name;
 
             if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
             {
                 isLogged = true;
+
                 if (HttpContextAccessor.HttpContext.User.IsInRole("Admin"))
                     isAdminRole = true;
 
@@ -54,17 +53,15 @@ namespace OpenLab.Controllers
                     user.Id = 00;
                     user.UserName = "noname";
                 }
-                string userJson = JsonConvert.SerializeObject(user);
+                // string userJson = JsonConvert.SerializeObject(user);
 
-                ViewBag.User = userJson;
-                ViewBag.IsLogged = isLogged;
-                ViewBag.IsAdminRole = isAdminRole;
-
-                return View();
+                ViewBag.User = JsonConvert.SerializeObject(user);
+                ViewBag.Username = HttpContextAccessor.HttpContext.User.Identity.Name;
             }
 
-            ViewBag.ErrorMessage = "You have to must be logged to navigate on backoffice";
-            return RedirectToAction("Index", "Home");
+            ViewBag.IsLogged = isLogged;
+            ViewBag.IsAdminRole = isAdminRole;
+            return View();
         }
 
         public IActionResult Privacy()
