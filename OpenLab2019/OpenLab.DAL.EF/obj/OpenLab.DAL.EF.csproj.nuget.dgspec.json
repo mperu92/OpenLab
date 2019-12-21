@@ -1,34 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {}
+    "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
+    "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "projectUniqueName": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
         "projectName": "OpenLab.DAL.EF",
-        "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
-        "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
+        "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "packagesPath": "C:\\Users\\DirectioMobile-2\\.nuget\\packages\\",
+        "outputPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DirectioMobile-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -39,57 +39,57 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.CodeAnalysis.FxCopAnalyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.9.6, )"
+              "version": "[2.9.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
             }
           },
           "imports": [
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,13 @@
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.Services.deps.json
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.Services.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.Services.pdb
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.pdb
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.csprojAssemblyReference.cache
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.AssemblyInfoInputs.cache
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.AssemblyInfo.cs
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.csproj.CopyComplete
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Services\obj\Debug\netcoreapp3.1\OpenLab.Services.pdb

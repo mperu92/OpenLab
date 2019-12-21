@@ -1,0 +1,10 @@
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.deps.json
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.runtimeconfig.json
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.runtimeconfig.dev.json
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\bin\Debug\netcoreapp3.1\OpenLab.DAL.EF.pdb
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.1\OpenLab.DAL.EF.csprojAssemblyReference.cache
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.1\OpenLab.DAL.EF.AssemblyInfoInputs.cache
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.1\OpenLab.DAL.EF.AssemblyInfo.cs
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.1\OpenLab.DAL.EF.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.DAL.EF\obj\Debug\netcoreapp3.1\OpenLab.DAL.EF.pdb

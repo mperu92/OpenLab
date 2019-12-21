@@ -1,0 +1,7 @@
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.deps.json
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfoInputs.cache
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfo.cs
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
