@@ -2910,10 +2910,7 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.Services.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
@@ -9474,23 +9471,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DirectioMobile-2\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+      "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
       "projectName": "OpenLab",
-      "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
-      "packagesPath": "C:\\Users\\DirectioMobile-2\\.nuget\\packages\\",
-      "outputPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\obj\\",
+      "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+      "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
+      "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DirectioMobile-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9503,8 +9496,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
-              "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
+            "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
+              "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
             }
           }
         }
