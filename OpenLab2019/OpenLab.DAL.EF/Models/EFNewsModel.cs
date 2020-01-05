@@ -13,8 +13,8 @@ namespace OpenLab.DAL.EF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Slug { get; set;
-        }
+
+        public string Slug { get; set; }
         public string Title { get; set; }
         public string Abstract { get; set; }
         public string BodyHtml { get; set; }
@@ -24,14 +24,17 @@ namespace OpenLab.DAL.EF.Models
 
         [DataType("datetime2")]
         public DateTime PublishDate { get; set; }
+
         [DataType("datetime2")]
         public DateTime? UpdateDate { get; set; } = null;
 
         public int FKCreateUser { get; set; }
+
         [ForeignKey("FKCreateUser")]
         public virtual IdentityUserModel CreateUser { get; set; }
 
         public int? FKUpdateUser { get; set; } = null;
+
         [ForeignKey("FKUpdateUser")]
         public virtual IdentityUserModel UpdateUser { get; set; }
 

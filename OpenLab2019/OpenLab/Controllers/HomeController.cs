@@ -9,7 +9,9 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OpenLab.Controllers.Base;
 using OpenLab.Infrastructure.Interfaces.PresentationModels;
+using OpenLab.Infrastructure.PresentationModels.Web;
 using OpenLab.Models;
+using OpenLab.Services.Filters;
 using OpenLab.Services.Services;
 
 namespace OpenLab.Controllers
@@ -19,10 +21,10 @@ namespace OpenLab.Controllers
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService)
          : base(logger, httpContextAccessor, identityService) { }
 
-        public async Task<IActionResult> Index()
+        [CustomActionFilter(HttpContextAccessor, Order = 0)]
+        public IActionResult Index()
         {
-            //IUserModel[] users = await IdentityService.GetUsers().ConfigureAwait(false);
-            //ViewBag.Users = users;
+            UserInfoModel webUser = ViewBag.WebUser;
 
             if (TempData["SuccessMessage"] != null)
             {
@@ -34,33 +36,15 @@ namespace OpenLab.Controllers
                 ViewBag.ErrorMessage = TempData["ErrorMessage"] as string;
                 TempData["ErrorMessage"] = null;
             }
-            //return View();
-            bool isLogged = false;
-            bool isAdminRole = false;
 
-            if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            if (webUser.IsLogged)
             {
-                isLogged = true;
-
-                if (HttpContextAccessor.HttpContext.User.IsInRole("Admin"))
-                    isAdminRole = true;
-
-                IUserModel user = await IdentityService.GetUserAsync(HttpContextAccessor.HttpContext.User).ConfigureAwait(false);
-
-                // not generating error
-                if (user == null || user.Id <= 0)
-                {
-                    user.Id = 00;
-                    user.UserName = "noname";
-                }
-                // string userJson = JsonConvert.SerializeObject(user);
-
-                ViewBag.User = JsonConvert.SerializeObject(user);
-                ViewBag.Username = HttpContextAccessor.HttpContext.User.Identity.Name;
+                ViewBag.User = JsonConvert.SerializeObject(webUser.User);
+                ViewBag.Username = webUser.User.UserName;
             }
 
-            ViewBag.IsLogged = isLogged;
-            ViewBag.IsAdminRole = isAdminRole;
+            ViewBag.IsLogged = webUser.IsLogged;
+            ViewBag.IsAdminRole = webUser.IsAdmin;
             return View();
         }
 

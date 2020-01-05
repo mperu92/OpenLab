@@ -7,10 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190926111445_identity.cs" />
     <Compile Remove="Migrations\20190926111445_identity.Designer.cs" />
+    <Compile Remove="Migrations\20190926111933_identity.cs" />
+    <Compile Remove="Migrations\20190926111933_identity.Designer.cs" />
     <Compile Remove="Migrations\20191006183746_news.cs" />
     <Compile Remove="Migrations\20191006183746_news.Designer.cs" />
     <Compile Remove="Migrations\20191006184020_news.cs" />
     <Compile Remove="Migrations\20191006184020_news.Designer.cs" />
+    <Compile Remove="Migrations\20191006184329_news.cs" />
+    <Compile Remove="Migrations\20191006184329_news.Designer.cs" />
+    <Compile Remove="Migrations\20191009173358_newsSlug.cs" />
+    <Compile Remove="Migrations\20191009173358_newsSlug.Designer.cs" />
+    <Compile Remove="Migrations\20191221130931_20191221.cs" />
+    <Compile Remove="Migrations\20191221130931_20191221.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

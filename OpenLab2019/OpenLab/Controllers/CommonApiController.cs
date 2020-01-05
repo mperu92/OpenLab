@@ -17,7 +17,7 @@ namespace OpenLab.Controllers
     {
         private readonly string _imgFolder;
 
-        public CommonApiController(ILogger<newsApiController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IBackofficeService backendService, IEmailService emailSender, IImageService imageService) : base(logger, httpContextAccessor, identityService, backendService, emailSender, imageService)
+        public CommonApiController(ILogger<NewsApiController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IBackofficeService backendService, IEmailService emailSender, IImageService imageService) : base(logger, httpContextAccessor, identityService, backendService, emailSender, imageService)
         {
             _imgFolder = "/images/";
         }

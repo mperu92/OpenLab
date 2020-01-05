@@ -74,6 +74,5 @@ namespace OpenLab.DAL.EF.Contexts
         }
 
         public DbSet<EFNewsModel> News { get; set; }
-
     }
 }
