@@ -21,7 +21,7 @@ namespace OpenLab.Controllers
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService)
          : base(logger, httpContextAccessor, identityService) { }
 
-        [CustomActionFilter(HttpContextAccessor, Order = 0)]
+        [CustomActionFilter(Order = 1)]
         public IActionResult Index()
         {
             UserInfoModel webUser = ViewBag.WebUser;
