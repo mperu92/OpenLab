@@ -7,7 +7,17 @@
   "repository": "https://github.com/mperu92/OpenLab",
   "scripts": {
     "start": "webpack-dev-server --progress -d --config webpack.dev.config.js --watch",
+    "test": "jest --watch",
     "build": "webpack -p --config webpack.prod.config.js --progress"
+  },
+  "jest": {
+    "setupFiles": [
+      "./wwwroot/js/tools/testSetup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/wwwroot/js/tools/fileMock.js",
+      "\\.(css|less|scss|sass)$": "<rootDir>/wwwroot/js/tools/styleMock.js"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

@@ -22,7 +22,7 @@ export function deleteNewsOptimistic(news) {
 export function loadNewsList(online) {
     return (dispatch) => {
         dispatch(beginApiCall());
-        axios.post('/api/newsApi/getNewsList', { online })
+        axios.post('/api/NewsApi/getNewsList', { online })
         .then(({ data }) => {
             if (data && data !== undefined && data !== null) {
                 dispatch(loadNewsListSuccess(data));
@@ -43,7 +43,7 @@ export function loadNewsList(online) {
 export function saveNews(news) {
     return (dispatch) => { // , getState
         dispatch(beginApiCall());
-        return axios.post('/api/newsApi/createUpdateNews', { news })
+        return axios.post('/api/NewsApi/createUpdateNews', { news })
         .then(({ data: { respNews } }) => {
             if (respNews && respNews !== undefined && respNews !== null) {
                 if (news.id) {
@@ -70,7 +70,7 @@ export function deleteNews(news) {
         // Doin' optimisic delete, so not dispatching begin/end api call
         // actions, or apiCallError action since we're not showing the loading status for this.
         dispatch(deleteNewsOptimistic(news));
-        return axios.post('/api/newsApi/deleteNews', { news })
+        return axios.post('/api/NewsApi/deleteNews', { news })
         .then(({ data: { deleted } }) => {
             if (!deleted || deleted === undefined || deleted === null) {
                 const error = Error.apply('error while deleting news.');

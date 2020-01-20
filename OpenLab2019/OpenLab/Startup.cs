@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OpenLab.DAL.EF;
 using OpenLab.Services;
+using OpenLab.Services.Filters;
 using OpenLab.Services.Services;
 
 namespace OpenLab
@@ -48,8 +49,7 @@ namespace OpenLab
             });
 
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddControllersWithViews().AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that receive JSON Objects Body will return error 406
-
+            services.AddControllersWithViews(options => options.Filters.Add(typeof(UserFilter))).AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that receive JSON Objects Body will return error 406
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {

@@ -35,10 +35,11 @@ export default function setServiceWorker() {
             // navigator.serviceWorker.getRegistration().then(function(reg) {
             //   reg.showNotification('Hello world!');
             // });
-            const options = {
-              body: 'A la Torres!',
-            };
-            registration.showNotification('Zi Vidì!', options);
+            // const options = {
+            //   body: 'A la Torres!',
+            // };
+            // registration.showNotification('Zi Vidì!', options);
+            __globalJsData.swReg = registration;
           }
         }).catch(() => {
           console.log('SW registration failed');

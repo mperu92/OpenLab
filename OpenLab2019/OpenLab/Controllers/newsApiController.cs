@@ -15,13 +15,13 @@ namespace OpenLab.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class newsApiController : BaseApiController
+    public class NewsApiController : BaseApiController
     {
-        public newsApiController(ILogger<newsApiController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IBackofficeService backendService, IEmailService emailSender) : base(logger, httpContextAccessor, identityService, backendService, emailSender) { }
+        public NewsApiController(ILogger<NewsApiController> logger, IHttpContextAccessor httpContextAccessor, IIdentityService identityService, IBackofficeService backendService, IEmailService emailSender) : base(logger, httpContextAccessor, identityService, backendService, emailSender) { }
 
         [HttpPost("getNewsList")]
         [Produces("application/json")]
-        public async Task<IActionResult> getNewsList([FromBody] dynamic data)
+        public async Task<IActionResult> GetNewsList([FromBody] dynamic data)
         {
             if (data == null)
                 return BadRequest($"Error loading news");
@@ -29,19 +29,23 @@ namespace OpenLab.Controllers
             bool online = data.online.ToObject<bool>() ?? false;
             INewsModel[] news = await BackendService.GetNewsAsync(online).ConfigureAwait(false);
 
-            if (news != null && news.Length > 0)
+            if (news?.Length > 0)
             {
                 dynamic[] newsList = ((IEnumerable<dynamic>)news).ToArray();
-                if (newsList != null && newsList.Length > 0)
+                if (newsList?.Length > 0)
                     return Ok(newsList);
             }
-            
+            else if (news?.Length == 0)
+            {
+                return Ok(Array.Empty<dynamic>());
+            }
+
             return BadRequest($"Error loading news");
         }
 
         [HttpPost("createUpdateNews")]
         [Produces("application/json")]
-        public async Task<IActionResult> createUpdateNews([FromBody] dynamic news)
+        public async Task<IActionResult> CreateUpdateNews([FromBody] dynamic news)
         {
             if (news == null || news.news == null)
                 return BadRequest($"Error editing news");
@@ -53,7 +57,7 @@ namespace OpenLab.Controllers
                 user = await IdentityService.GetUserAsync(IHttpContextAccessor.HttpContext.User).ConfigureAwait(false);
 
             dynamic _news = news.news;
-            Tuple<bool, dynamic> resp = await BackendService.CreateUpdateNews(_news, user);
+            Tuple<bool, dynamic> resp = await BackendService.CreateUpdateNews(_news, user).ConfigureAwait(false);
 
             if (resp.Item1 && resp.Item2 != null)
             {
@@ -68,13 +72,13 @@ namespace OpenLab.Controllers
 
         [HttpPost("deleteNews")]
         [Produces("application/json")]
-        public async Task<IActionResult> deleteNews([FromBody] dynamic news)
+        public async Task<IActionResult> DeleteNews([FromBody] dynamic news)
         {
             if (news == null || news.news == null)
                 return BadRequest($"Error deleting news");
 
             dynamic _news = news.news;
-            bool deleted = await BackendService.DeleteNews(_news);
+            bool deleted = await BackendService.DeleteNews(_news).ConfigureAwait(false);
             if (deleted)
                 return Ok(new { deleted });
             else

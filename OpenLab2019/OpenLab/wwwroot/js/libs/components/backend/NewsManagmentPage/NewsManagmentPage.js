@@ -165,7 +165,20 @@ export function NewsManagmentPage({
         setSaving(true);
         saveNews(news)
         .then(() => {
-            toast.success('News saved');
+            if (Notification.permission === 'granted') {
+                // navigator.serviceWorker.getRegistration().then(function(reg) {
+                //   reg.showNotification('Hello world!');
+                // });
+                // const options = {
+                //   body: 'A la Torres!',
+                // };
+                // registration.showNotification('Zi Vidì!', options);
+                if (__globalJsData.swReg) {
+                    const r = __globalJsData.swReg;
+                    r.showNotification('ok');
+                }
+              }
+            // toast.success('News saved');
             history.push('/Backoffice/Dashboard/News/list');
         })
         .catch((error) => {
