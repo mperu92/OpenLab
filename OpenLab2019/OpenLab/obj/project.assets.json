@@ -23,6 +23,86 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
+      "CronExpressionDescriptor/2.13.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/CronExpressionDescriptor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CronExpressionDescriptor.dll": {}
+        },
+        "resource": {
+          "lib/netstandard2.0/da/CronExpressionDescriptor.resources.dll": {
+            "locale": "da"
+          },
+          "lib/netstandard2.0/de/CronExpressionDescriptor.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard2.0/es-MX/CronExpressionDescriptor.resources.dll": {
+            "locale": "es-MX"
+          },
+          "lib/netstandard2.0/es/CronExpressionDescriptor.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/fa/CronExpressionDescriptor.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/netstandard2.0/fi/CronExpressionDescriptor.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/netstandard2.0/fr/CronExpressionDescriptor.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.0/it/CronExpressionDescriptor.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.0/ja/CronExpressionDescriptor.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.0/ko/CronExpressionDescriptor.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard2.0/nb/CronExpressionDescriptor.resources.dll": {
+            "locale": "nb"
+          },
+          "lib/netstandard2.0/nl/CronExpressionDescriptor.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/netstandard2.0/pl/CronExpressionDescriptor.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard2.0/pt/CronExpressionDescriptor.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/netstandard2.0/ro/CronExpressionDescriptor.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/netstandard2.0/ru/CronExpressionDescriptor.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.0/sl/CronExpressionDescriptor.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/netstandard2.0/sv/CronExpressionDescriptor.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/netstandard2.0/tr/CronExpressionDescriptor.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard2.0/uk/CronExpressionDescriptor.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/netstandard2.0/zh-Hans/CronExpressionDescriptor.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard2.0/zh-Hant/CronExpressionDescriptor.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.0": {
         "type": "package",
         "compile": {
@@ -2757,6 +2837,18 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Threading.Thread.dll": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2884,7 +2976,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.DAL.EF.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "OpenLab.Infrastructure/1.0.0": {
         "type": "project",
@@ -2910,7 +3005,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -2938,6 +3036,63 @@
         "lib/netstandard1.5/Castle.Core.dll",
         "lib/netstandard1.5/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "CronExpressionDescriptor/2.13.0": {
+      "sha512": "PfLvR6n65Vh9RriCbxdC3SZSaCUxHDuSTaxbUlNyJSNXJLzePk3yTgJcvfbfBSXUt2ACIHLUpsZFcSaYnzMQ+A==",
+      "type": "package",
+      "path": "cronexpressiondescriptor/2.13.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cronexpressiondescriptor.2.13.0.nupkg.sha512",
+        "cronexpressiondescriptor.nuspec",
+        "lib/netstandard1.1/CronExpressionDescriptor.dll",
+        "lib/netstandard1.1/da/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/de/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/es-MX/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/es/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/fa/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/fi/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/fr/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/it/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/ja/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/ko/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/nb/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/nl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/pl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/pt/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/ro/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/ru/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/sl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/sv/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/tr/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/uk/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/zh-Hans/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard1.1/zh-Hant/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/CronExpressionDescriptor.dll",
+        "lib/netstandard2.0/da/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/de/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/es-MX/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/es/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/fa/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/fi/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/fr/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/it/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/ja/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/ko/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/nb/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/nl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/pl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/pt/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/ro/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/ru/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/sl/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/sv/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/tr/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/uk/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/zh-Hans/CronExpressionDescriptor.resources.dll",
+        "lib/netstandard2.0/zh-Hant/CronExpressionDescriptor.resources.dll"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.0": {
@@ -9140,6 +9295,46 @@
         "version.txt"
       ]
     },
+    "System.Threading.Thread/4.3.0": {
+      "sha512": "OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
+      "type": "package",
+      "path": "system.threading.thread/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Threading.Thread.dll",
+        "lib/netcore50/_._",
+        "lib/netstandard1.3/System.Threading.Thread.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.xml",
+        "ref/netstandard1.3/de/System.Threading.Thread.xml",
+        "ref/netstandard1.3/es/System.Threading.Thread.xml",
+        "ref/netstandard1.3/fr/System.Threading.Thread.xml",
+        "ref/netstandard1.3/it/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ja/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ko/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ru/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.Thread.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.thread.4.3.0.nupkg.sha512",
+        "system.threading.thread.nuspec"
+      ]
+    },
     "System.Threading.Timer/4.3.0": {
       "sha512": "Z6YfyYTCg7lOZjJzBjONJTFKGN9/NIYKSxhU5GRd+DTwHSZyvWp1xuI5aR+dLg+ayyC5Xv57KiY4oJ0tMO89fQ==",
       "type": "package",
@@ -9460,6 +9655,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CronExpressionDescriptor >= 2.13.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.0",
       "Microsoft.CodeAnalysis.FxCopAnalyzers >= 2.9.8",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.0",
@@ -9511,6 +9707,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "CronExpressionDescriptor": {
+            "target": "Package",
+            "version": "[2.13.0, )"
+          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[3.1.0, )"

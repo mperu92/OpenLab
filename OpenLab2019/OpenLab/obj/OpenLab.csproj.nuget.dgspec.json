@@ -287,6 +287,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "CronExpressionDescriptor": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.0, )"
