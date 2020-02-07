@@ -6,3 +6,11 @@ C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\Open
 C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfo.cs
 C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
 C:\progs\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.deps.json
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.csprojAssemblyReference.cache
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfoInputs.cache
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfo.cs
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb

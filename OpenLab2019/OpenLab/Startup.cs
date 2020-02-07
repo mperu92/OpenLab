@@ -38,10 +38,7 @@ namespace OpenLab
             services.AddEmailService();
 
             // Response gzip compression
-            services.Configure<GzipCompressionProviderOptions>(options =>
-            {
-                options.Level = CompressionLevel.Optimal;
-            });
+            services.Configure<GzipCompressionProviderOptions>(options => options.Level = CompressionLevel.Optimal);
             services.AddResponseCompression(options =>
             {
                 options.EnableForHttps = true;
