@@ -1,9 +1,5 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c10cf7050e6b1fdaf5a101b3f180c99c",
-    "url": "02257c37889cb7845542.hot-update.json"
-  },
-  {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
     "url": "fontawesome-webfont.eot"
   },
@@ -28,15 +24,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/fontawesome-webfont.svg"
   },
   {
-    "revision": "610fb314587d759fd64b",
-    "url": "main.02257c37889cb7845542.hot-update.js"
-  },
-  {
-    "revision": "610fb314587d759fd64b",
+    "revision": "73a13e4a586a7498d426",
     "url": "main.bundle.js"
   },
   {
-    "revision": "c99883722f90b7b3fc8f",
+    "revision": "ed777d46bfc94c2e84cc",
     "url": "vendors~main.chunk.js"
   }
 ]);
