@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {}
+    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {}
   },
   "projects": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
+    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "projectUniqueName": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
         "projectName": "OpenLab.DAL.EF",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
+        "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,17 +114,20 @@
         }
       }
     },
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
+    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
         "projectName": "OpenLab.Infrastructure",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -171,17 +177,20 @@
         }
       }
     },
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
+    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
+        "projectUniqueName": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
         "projectName": "OpenLab.Services",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\obj\\",
+        "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
+        "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -194,11 +203,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
-                "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj"
+              "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
+                "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj"
               },
-              "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
-                "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj"
+              "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj"
               }
             }
           }
@@ -249,17 +258,20 @@
         }
       }
     },
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {
+    "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+        "projectUniqueName": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
         "projectName": "OpenLab",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\obj\\",
+        "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+        "packagesPath": "C:\\Users\\matte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -272,8 +284,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
-                "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
+              "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
+                "projectPath": "C:\\Users\\matte\\Source\\Repos\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
               }
             }
           }

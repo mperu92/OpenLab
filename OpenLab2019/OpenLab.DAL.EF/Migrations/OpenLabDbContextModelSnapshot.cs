@@ -105,6 +105,54 @@ namespace OpenLab.DAL.EF.Migrations
                     b.ToTable("OpenLab_UserTokens");
                 });
 
+            modelBuilder.Entity("OpenLab.DAL.EF.Models.EFAuthorModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompleteName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Online")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SiteUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OpenLab_Authors");
+                });
+
+            modelBuilder.Entity("OpenLab.DAL.EF.Models.EFNewsAuthorModel", b =>
+                {
+                    b.Property<int>("NewsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("NewsId", "AuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("OpenLab_NewsAuthors");
+                });
+
             modelBuilder.Entity("OpenLab.DAL.EF.Models.EFNewsModel", b =>
                 {
                     b.Property<int>("Id")
@@ -306,6 +354,21 @@ namespace OpenLab.DAL.EF.Migrations
                     b.HasOne("OpenLab.DAL.EF.Models.Identity.IdentityUserModel", null)
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OpenLab.DAL.EF.Models.EFNewsAuthorModel", b =>
+                {
+                    b.HasOne("OpenLab.DAL.EF.Models.EFAuthorModel", "Author")
+                        .WithMany("NewsAuthors")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OpenLab.DAL.EF.Models.EFNewsModel", "News")
+                        .WithMany("NewsAuthors")
+                        .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

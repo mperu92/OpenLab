@@ -70,9 +70,23 @@ namespace OpenLab.DAL.EF.Contexts
 
                 modelBuilder.Entity<IdentityUserToken<int>>(b => b.ToTable("OpenLab_UserTokens"));
                 #endregion
+
+                modelBuilder.Entity<EFNewsAuthorModel>()
+                    .HasKey(bc => new { bc.NewsId, bc.AuthorId });
+
+                modelBuilder.Entity<EFNewsAuthorModel>()
+                    .HasOne(bc => bc.News)
+                    .WithMany(b => b.NewsAuthors)
+                    .HasForeignKey(bc => bc.NewsId);
+
+                modelBuilder.Entity<EFNewsAuthorModel>()
+                    .HasOne(bc => bc.Author)
+                    .WithMany(c => c.NewsAuthors)
+                    .HasForeignKey(bc => bc.AuthorId);
             }
         }
 
         public DbSet<EFNewsModel> News { get; set; }
+        public DbSet<EFAuthorModel> Authors { get; set; }
     }
 }

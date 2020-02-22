@@ -32,7 +32,7 @@ namespace OpenLab.Services.Filters
             if (context == null || next == null || _identityService == null)
                 return;
 
-            UserInfoModel webUser = null;
+            UserInfoModel webUser;
 
             //To do : before the action executes  
 
@@ -67,6 +67,5 @@ namespace OpenLab.Services.Filters
 
             // To do : after the action executes 
         }
-
     }
 }
