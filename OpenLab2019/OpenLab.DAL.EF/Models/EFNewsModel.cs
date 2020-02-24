@@ -39,5 +39,7 @@ namespace OpenLab.DAL.EF.Models
         public virtual IdentityUserModel UpdateUser { get; set; }
 
         public bool Online { get; set; }
+
+        public virtual ICollection<EFNewsAuthorModel> NewsAuthors { get; set; }
     }
 }

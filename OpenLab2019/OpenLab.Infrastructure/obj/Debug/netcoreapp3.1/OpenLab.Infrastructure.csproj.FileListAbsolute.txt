@@ -14,3 +14,11 @@ F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.
 F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfo.cs
 F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
 F:\progs\tests\openlab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.deps.json
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\bin\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.csprojAssemblyReference.cache
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.AssemblyInfo.cs
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.dll
+C:\Users\matte\Source\Repos\OpenLab\OpenLab2019\OpenLab.Infrastructure\obj\Debug\netcoreapp3.1\OpenLab.Infrastructure.pdb

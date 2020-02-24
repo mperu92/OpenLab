@@ -35,7 +35,6 @@ namespace OpenLab
             // Extensions
             services.AddDataAccessServices(Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection").Value);
             services.AddAppConfiguration();
-            services.AddEmailService();
 
             // Response gzip compression
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = CompressionLevel.Optimal);
@@ -46,16 +45,23 @@ namespace OpenLab
             });
 
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddControllersWithViews(options => options.Filters.Add(typeof(UserFilter))).AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that receive JSON Objects Body will return error 406
+            services.
+                AddControllersWithViews(options =>
+                {
+                    options.Filters.Add(typeof(UserFilter));
+                })
+                .AddNewtonsoftJson(); // Without AddNewtonsoftJson actions that receive JSON Objects Body will return error 406
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(60); // You can set Time                                               
             });
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessor();
 
             services.AddIdentityService();
+            services.AddEmailService();
             services.AddTransient<IBackofficeService, BackofficeService>();
             services.AddTransient<IImageService, ImageService>();
         }
