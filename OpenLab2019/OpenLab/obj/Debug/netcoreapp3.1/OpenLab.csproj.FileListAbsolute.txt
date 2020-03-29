@@ -695,3 +695,4 @@ C:\Users\DirectioMobileOffice\Documents\OpenLab\OpenLab2019\OpenLab\obj\Debug\ne
 C:\Users\DirectioMobileOffice\Documents\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.1\OpenLab.csproj.CopyComplete
 C:\Users\DirectioMobileOffice\Documents\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.1\OpenLab.dll
 C:\Users\DirectioMobileOffice\Documents\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.1\OpenLab.pdb
+C:\Users\DirectioMobileOffice\Documents\OpenLab\OpenLab2019\OpenLab\obj\Debug\netcoreapp3.1\Razor\Views\Calc\Index.cshtml.g.cs
