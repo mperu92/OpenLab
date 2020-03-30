@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {}
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {}
   },
   "projects": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "projectUniqueName": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
         "projectName": "OpenLab.DAL.EF",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
+        "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj",
+        "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -112,17 +111,17 @@
         }
       }
     },
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
         "projectName": "OpenLab.Infrastructure",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -130,8 +129,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -173,17 +171,17 @@
         }
       }
     },
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
+        "projectUniqueName": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
         "projectName": "OpenLab.Services",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\obj\\",
+        "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj",
+        "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -191,17 +189,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
-                "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj"
+              "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj": {
+                "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.DAL.EF\\OpenLab.DAL.EF.csproj"
               },
-              "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
-                "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj"
+              "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj"
               }
             }
           }

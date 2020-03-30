@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {}
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {}
   },
   "projects": {
-    "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
+    "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
         "projectName": "OpenLab.Infrastructure",
-        "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-        "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\OpenLab.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DirectioMobileOffice\\Documents\\OpenLab\\OpenLab2019\\OpenLab.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
