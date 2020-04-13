@@ -1,4 +1,4 @@
-importScripts("precache-manifest.69b68262b99a0de6fa8a44e433653600.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.bc76eb412b0aaa3fba12c48003e3ce37.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /* eslint-disable */
 workbox.core.skipWaiting();
