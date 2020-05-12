@@ -9729,19 +9729,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\": {}
+    "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+      "projectUniqueName": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
       "projectName": "OpenLab",
-      "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
-      "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-      "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\obj\\",
+      "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj",
+      "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+      "outputPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9749,14 +9749,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
-              "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
+            "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj": {
+              "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab.Services\\OpenLab.Services.csproj"
             }
           }
         }

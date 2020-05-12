@@ -3435,7 +3435,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.DAL.EF.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "OpenLab.Infrastructure/1.0.0": {
         "type": "project",
@@ -3461,7 +3464,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -10519,19 +10525,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\": {}
+    "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\progs\\tests\\openlab\\OpenLab2019\\XUnitTestProject\\XUnitTestProject.csproj",
+      "projectUniqueName": "C:\\progs\\OpenLab\\OpenLab2019\\XUnitTestProject\\XUnitTestProject.csproj",
       "projectName": "XUnitTestProject",
-      "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\XUnitTestProject\\XUnitTestProject.csproj",
-      "packagesPath": "C:\\Users\\m.peru.SOLUTIONFACTORY\\.nuget\\packages\\",
-      "outputPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\XUnitTestProject\\obj\\",
+      "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\XUnitTestProject\\XUnitTestProject.csproj",
+      "packagesPath": "C:\\Users\\DirectioMobileOffice\\.nuget\\packages\\",
+      "outputPath": "C:\\progs\\OpenLab\\OpenLab2019\\XUnitTestProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\m.peru.SOLUTIONFACTORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DirectioMobileOffice\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10539,14 +10545,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {
-              "projectPath": "F:\\progs\\tests\\openlab\\OpenLab2019\\OpenLab\\OpenLab.csproj"
+            "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj": {
+              "projectPath": "C:\\progs\\OpenLab\\OpenLab2019\\OpenLab\\OpenLab.csproj"
             }
           }
         }
@@ -10588,6 +10593,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
