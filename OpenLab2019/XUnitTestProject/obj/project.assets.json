@@ -3435,7 +3435,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.DAL.EF.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "OpenLab.Infrastructure/1.0.0": {
         "type": "project",
@@ -3461,7 +3464,10 @@
         },
         "runtime": {
           "bin/placeholder/OpenLab.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -10588,6 +10594,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
