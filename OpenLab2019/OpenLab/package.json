@@ -133,7 +133,7 @@
     "reqwest": "^2.0.5",
     "reselect": "^4.0.0",
     "rfs": "^9.0.0",
-    "sanitize-html": "^1.20.1"
+    "sanitize-html": "^2.3.2"
   },
   "engines": {
     "node": ">=8"
